@@ -107,8 +107,9 @@ def main():
         fs = FeatureStore(cache_dir="cache/features")
         finder = HeroFinder(fs)
         
-        print(f"\n{'='*60}")
+        print(f"{'='*60}")
         print(f"  Phase 21-B: 히어로 스캔")
+        print(f"  Probe: {probe.name} (Tax: {probe.params.tax:.4f}, Fee: {probe.params.fee:.5f})")
         print(f"{'='*60}")
         print(f"유니버스: {len(universe)}개")
         if args.limit:
