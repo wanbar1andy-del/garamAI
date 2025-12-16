@@ -1,0 +1,38 @@
+# garam_core/config/strategy_menu.yaml
+menu_title: "GARAM Profit-First Launcher"
+categories:
+  - name: "Research & Validation"
+    items:
+      - label: "Run Profit-First Replay (Single Symbol)"
+        command: "python scripts/research_profit_first.py {symbol}"
+        needs_symbol: true
+      - label: "Run Full Profit Engine V1 Replay"
+        command: "python scripts/replay_profit_engine_v1.py {symbol}"
+        needs_symbol: true
+      - label: "Generate Edge Bucket Report"
+        command: "python scripts/report_edge_buckets.py {symbol} minute Asia/Seoul"
+        needs_symbol: true
+      - label: "Discovery: Find Best Profiles (Batch)"
+        command: "python scripts/batch_profile_eval.py"
+        needs_symbol: false
+
+  - name: "Live Execution (DRY-RUN)"
+    items:
+      - label: "Run Live Multi-Symbol (Profit-First V1)"
+        command: "python scripts/run_live_multi_symbol.py --profile PROFIT_FIRST_V1_AGGRESSIVE --symbols {symbols} --dry"
+        needs_symbols: true
+      - label: "Run Live Single Symbol (Safe Mode)"
+        command: "python scripts/run_live_safe.py {symbol} --dry"
+        needs_symbol: true
+
+  - name: "Live Execution (REAL MONEY)"
+    danger: true
+    items:
+      - label: ">>> ACTIVATE REAL LIVE TRADING (Multi-Symbol) <<<"
+        command: "python scripts/run_live_multi_symbol.py --profile PROFIT_FIRST_V1_AGGRESSIVE --symbols {symbols} --live"
+        needs_symbols: true
+        confirmation: "WARNING: This will execute REAL trades. Are you sure?"
+
+defaults:
+  symbol: "005930"
+  symbols: "005930,000660,035420,005380"

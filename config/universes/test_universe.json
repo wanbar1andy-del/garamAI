@@ -1,0 +1,10 @@
+{
+  "name": "test_universe",
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "GOOGL"
+  ],
+  "count": 3,
+  "metadata": {}
+}

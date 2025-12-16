@@ -1,0 +1,111 @@
+regime_master_task:
+  name: "GARAM Regime R1~R5 Verification & Optimization"
+  root_dir: "c:/garam/garam"
+  data_dir: "g:/내 드라이브/garamdata"
+  results_root: "results/champion_regime_v2"
+  inputs:
+    trades_file: "results/champion_v2/trades.csv"
+    equity_file: "results/champion_v2/equity_curve.csv"
+  scripts:
+    tag_regime: "scripts/analysis/tag_trades_with_regimes.py"
+    regime_summary: "scripts/analysis/compute_regime_summary.py"
+    regime_report: "scripts/analysis/build_regime_report_markdown.py"
+    micro_regime: "scripts/analysis/micro_regime_analysis.py"
+    backtest_champion: "scripts/backtest/run_champion_rule_backtest.py"
+  profiles:
+    champion_v2: "config/profile_champion_v2.yaml"
+    champion_v3_r12_top2: "config/profile_champion_v3_r12_top2.yaml"
+    champion_v3_r35_topgroup: "config/profile_champion_v3_r35_topgroup.yaml"
+  regimes_target:
+    ["R1_STRONG_UP", "R2_GRIND_UP", "R3_CHOP", "R4_DOWN", "R5_STRONG_DOWN"]
+
+R1_STRONG_UP:
+  goal: "Verify if Champion v3 (Top2 Pyramiding) outperforms v2 in Strong Up Trend"
+  steps:
+    - id: R1_01_tag_regime
+      description: "Tag trades with regime"
+      run: "python {scripts.tag_regime} {inputs.trades_file} {results_root}/trades_by_regime.csv"
+    - id: R1_02_filter_trades
+      description: "Filter R1 trades"
+      action: "Filter trades_by_regime.csv where regime == R1_STRONG_UP -> {results_root}/trades_R1.csv"
+    - id: R1_03_backtest_v2
+      description: "Backtest v2 on R1"
+      run: "python {scripts.backtest_champion} --profile {profiles.champion_v2} --regime-filter R1_STRONG_UP --output-dir {results_root}/R1_v2"
+    - id: R1_04_backtest_v3
+      description: "Backtest v3 on R1"
+      run: "python {scripts.backtest_champion} --profile {profiles.champion_v3_r12_top2} --regime-filter R1_STRONG_UP --output-dir {results_root}/R1_v3"
+    - id: R1_05_eval
+      description: "Evaluate and Select"
+      rule:
+        accept_if:
+          - "CAGR_v3 >= CAGR_v2"
+          - "PF_v3 >= 0.95 * PF_v2"
+          - "MDD_v3 >= -0.60"
+
+R2_GRIND_UP:
+  goal: "Verify if Champion v3 (Top2) outperforms v2 in Grind Up Trend"
+  steps:
+    - id: R2_01_filter_trades
+      description: "Filter R2 trades"
+      action: "Filter trades_by_regime.csv where regime == R2_GRIND_UP -> {results_root}/trades_R2.csv"
+    - id: R2_02_backtest_v2
+      description: "Backtest v2 on R2"
+      run: "python {scripts.backtest_champion} --profile {profiles.champion_v2} --regime-filter R2_GRIND_UP --output-dir {results_root}/R2_v2"
+    - id: R2_03_backtest_v3
+      description: "Backtest v3 on R2"
+      run: "python {scripts.backtest_champion} --profile {profiles.champion_v3_r12_top2} --regime-filter R2_GRIND_UP --output-dir {results_root}/R2_v3"
+    - id: R2_04_eval
+      description: "Evaluate and Select"
+      rule:
+        accept_if:
+          - "CAGR_v3 >= CAGR_v2"
+          - "PF_v3 >= PF_v2"
+          - "MDD_v3 >= -0.60"
+
+R3_CHOP:
+  goal: "Find profitable micro-regimes in Chop, block others"
+  steps:
+    - id: R3_01_filter_trades
+      description: "Filter R3 trades"
+      action: "Filter trades_by_regime.csv where regime == R3_CHOP -> {results_root}/trades_R3.csv"
+    - id: R3_02_build_market_daily
+      description: "Build daily market data for micro analysis"
+      action: "Resample minute data to daily -> data/market/market_daily_R3.csv"
+    - id: R3_03_micro_analysis
+      description: "Run Micro Regime Analysis"
+      run: "python {scripts.micro_regime} --trades-file {results_root}/trades_R3.csv --market-file data/market/market_daily_R3.csv --output-trades {results_root}/trades_R3_micro.csv --output-summary {results_root}/summary_R3_micro.csv"
+    - id: R3_04_select_candidates
+      description: "Select Candidates (Trades >= 30, PF >= 1.3)"
+      rule:
+        select: "num_trades >= 30 AND profit_factor >= 1.3"
+        output: "{results_root}/R3_micro_candidates.yaml"
+    - id: R3_05_build_playbook
+      description: "Build R3 Playbook"
+      action: "Create config/playbook_R3_micro.yaml based on candidates"
+
+R4_DOWN:
+  goal: "Avoid Down trends, check for micro-opportunities"
+  steps:
+    - id: R4_01_filter_trades
+      description: "Filter R4 trades"
+      action: "Filter trades_by_regime.csv where regime == R4_DOWN -> {results_root}/trades_R4.csv"
+    - id: R4_02_micro_analysis
+      description: "Run Micro Regime Analysis"
+      run: "python {scripts.micro_regime} --trades-file {results_root}/trades_R4.csv --market-file data/market/market_daily_R3.csv --output-trades {results_root}/trades_R4_micro.csv --output-summary {results_root}/summary_R4_micro.csv"
+    - id: R4_03_select_candidates
+      description: "Select Candidates"
+      rule:
+        select: "num_trades >= 30 AND profit_factor >= 1.3"
+        output: "{results_root}/R4_micro_candidates.yaml"
+    - id: R4_04_policy
+      description: "Define Policy"
+      rule:
+        if_empty: "profiles.champion_active.R4 = CASH_ONLY"
+        else: "profiles.champion_active.R4 = profiles.champion_v3_r35_topgroup"
+
+R5_STRONG_DOWN:
+  goal: "Strict Ban on Strong Down Trends"
+  steps:
+    - id: R5_01_policy_lock
+      description: "Lock R5 Policy"
+      rule: "profiles.champion_active.R5 = CASH_ONLY"

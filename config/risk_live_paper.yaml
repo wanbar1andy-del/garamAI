@@ -1,0 +1,6 @@
+# Risk Configuration for LIVE_PAPER
+initial_equity: 100_000_000 # 100 Million KRW Virtual Account
+per_trade_R: 0.25 # 0.25% Risk per trade
+max_positions: 5 # Max 5 concurrent positions
+max_daily_loss_R: 5 # Stop trading if daily loss hits -5R (-1.25%)
+max_symbol_weight: 0.3 # Max 30% allocation per symbol

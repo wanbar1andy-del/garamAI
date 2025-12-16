@@ -1,0 +1,74 @@
+policy:
+  name: "Miracle_MultiHorizon_V1"
+
+  # 1. Horizon Definitions
+  horizons:
+    short:
+      id: "fs_momentum_5m"
+      type: "Momentum"
+      params: { window: 5, normalize: true, scale_factor: 100.0 }
+    mid:
+      id: "fm_trend_60m"
+      type: "Trend"
+      params: { window: 60, normalize: true, scale_factor: 50.0 }
+
+  # 2. Coordination Logic (State Machine)
+  coordination_rules:
+    # --- Rules for FLAT State ---
+    - state: "FLAT"
+      rules:
+        # Priority 100: Strong Trend Entry
+        - name: "StrongTrendEntry"
+          priority: 100
+          condition: "fs > 0.5 and fm >= 0.2"
+          action: "ENTER_LONG"
+          params: { size_mod: 1.0, risk_profile: "standard" }
+
+        # Priority 50: Scalp Entry (Counter-trend)
+        - name: "ScalpEntry"
+          priority: 50
+          condition: "fs > 0.8 and fm < -0.2"
+          action: "ENTER_LONG"
+          params: { size_mod: 0.3, risk_profile: "scalp" }
+
+    # --- Rules for LONG State ---
+    - state: "LONG"
+      rules:
+        # Priority 100: Trend Reversal (Exit)
+        - name: "TrendReversal"
+          priority: 100
+          condition: "fs <= -0.2 and fm < -0.1"
+          action: "EXIT_ALL"
+          params: { reason: "TrendReversal" }
+
+        # Priority 80: Pullback (Reduce)
+        - name: "PullbackReduce"
+          priority: 80
+          condition: "fs < -0.2 and fm > 0.2"
+          action: "REDUCE"
+          params: { reduce_pct: 0.5, reason: "Pullback" }
+
+        # Priority 10: Hold (Default implicit)
+        - name: "Hold"
+          priority: 10
+          condition: "True"
+          action: "HOLD"
+          params: {}
+
+  # Legacy Templates (Required by Policy class structure, but overridden by CoordinationEngine where applicable)
+  entry_template: "ImmediateBreakoutEntry"
+  params:
+    strategy_type: "TrendFollowing"
+    window_fast: 5
+    window_slow: 20
+    sl_pct: 0.05
+    tp_pct: 0.10
+    risk_per_trade: 0.01
+    max_daily_loss: 0.03
+    kelly_fraction: 0.25
+
+  exit_templates:
+    - "SignalReversalExit"
+    - "FixedTargetExit"
+
+  risk_template: "DGERisk"

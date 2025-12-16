@@ -1,0 +1,68 @@
+policy:
+  name: "MultiHorizon_Swing_Best"
+
+  # Horizon Models (Best Params from WFO)
+  horizons:
+    short:
+      name: "fs_momentum"
+      type: "MomentumHorizon"
+      params:
+        window: 3
+        normalize: true
+        scale_factor: 100.0
+    mid:
+      name: "fm_trend"
+      type: "TrendHorizon"
+      params:
+        window: 100
+        normalize: true
+        scale_factor: 50.0
+
+  # Coordination Rules (Best Params from WFO)
+  coordination_rules:
+    # State: FLAT
+    - state: "FLAT"
+      rules:
+        - name: "StrongTrendEntry"
+          condition: "fs > 0.8 and fm >= -0.2"
+          priority: 10
+          action: "ENTER_LONG"
+          params:
+            size_mod: 1.0
+            risk_profile: "aggressive"
+
+        - name: "ScalpEntry"
+          condition: "fs > 0.5 and fm < -0.2"
+          priority: 5
+          action: "SCALP_LONG"
+          params:
+            size_mod: 1.0
+            risk_profile: "conservative"
+
+    # State: LONG
+    - state: "LONG"
+      rules:
+        - name: "TrendReversal"
+          condition: "fs <= -0.1 and fm < -0.4"
+          priority: 10
+          action: "EXIT_ALL"
+          params:
+            reason: "Trend Reversal"
+
+        - name: "PullbackHold"
+          condition: "fs < 0 and fm >= 0"
+          priority: 5
+          action: "HOLD"
+          params:
+            size_mod: 1.0
+
+  # Execution Templates
+  entry_template: "ImmediateBreakoutEntry"
+  exit_templates: ["SignalReversalExit", "FixedTargetExit"]
+  risk_template: "DGERisk"
+
+  params:
+    risk_per_trade: 0.01
+    max_daily_loss: 0.02
+    profit_target: 0.05
+    stop_loss: 0.02

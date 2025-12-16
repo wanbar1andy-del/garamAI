@@ -1,0 +1,110 @@
+{
+  "date": "2025-11-27",
+  "generated_at": "2025-11-27T00:06:04.667344",
+  "summary": {
+    "total_equity": 117092366,
+    "cash": 4683694,
+    "daily_return": 0.025,
+    "cumulative_return": 0.17,
+    "max_drawdown": -0.05,
+    "sharpe_ratio": 1.85,
+    "win_rate": 0.62,
+    "total_trades": 12,
+    "winning_trades": 8,
+    "losing_trades": 4,
+    "avg_win": 0.02125,
+    "avg_loss": 0.0125,
+    "profit_factor": 17.0,
+    "exposure": 0.9600000054657705
+  },
+  "trades": [
+    {
+      "symbol": "005930",
+      "name": "삼성전자",
+      "action": "BUY",
+      "time": "09:15:00",
+      "price": 78000,
+      "quantity": 100,
+      "reason": "외국인 순매수 + 섹터 동조화",
+      "heatscore": 0.75
+    },
+    {
+      "symbol": "000660",
+      "name": "SK하이닉스",
+      "action": "BUY",
+      "time": "10:30:00",
+      "price": 132000,
+      "quantity": 50,
+      "reason": "AI 반도체 모멘텀 지속",
+      "heatscore": 0.68
+    },
+    {
+      "symbol": "035420",
+      "name": "NAVER",
+      "action": "SELL",
+      "time": "14:20:00",
+      "price": 198000,
+      "quantity": 80,
+      "reason": "목표가 도달",
+      "pnl": 4800000
+    }
+  ],
+  "positions": [
+    {
+      "symbol": "005930",
+      "name": "삼성전자",
+      "quantity": 450,
+      "avg_price": 76500,
+      "current_price": 78000,
+      "value": 35127710,
+      "pnl_pct": 0.025,
+      "allocation": 0.3
+    },
+    {
+      "symbol": "000660",
+      "name": "SK하이닉스",
+      "quantity": 220,
+      "avg_price": 129000,
+      "current_price": 132000,
+      "value": 29273091,
+      "pnl_pct": 0.012,
+      "allocation": 0.25
+    },
+    {
+      "symbol": "035420",
+      "name": "NAVER",
+      "quantity": 120,
+      "avg_price": 200000,
+      "current_price": 198000,
+      "value": 23418473,
+      "pnl_pct": -0.005,
+      "allocation": 0.2
+    },
+    {
+      "symbol": "005380",
+      "name": "현대차",
+      "quantity": 100,
+      "avg_price": 248000,
+      "current_price": 250000,
+      "value": 24589396,
+      "pnl_pct": 0.008,
+      "allocation": 0.21
+    }
+  ],
+  "alerts": [
+    {
+      "level": "INFO",
+      "time": "09:00:00",
+      "message": "시스템 정상 시작. 모든 안전 검사 통과"
+    },
+    {
+      "level": "INFO",
+      "time": "15:30:00",
+      "message": "장마감. 총 3건의 거래 실행"
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "generator": "GARAM EOD Report Generator"
+  }
+}

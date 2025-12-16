@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GARAM Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css?v=9">
+  <link rel="stylesheet" href="turbo_control.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+<!DOCTYPE html>
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h2>GARAM v5</h2>
+    <span class="badge-champion">Champion v2.1</span>
+  </div>
+  <ul class="nav-menu sidebar-nav">
+    <li class="sidebar-item active" data-view-target="market">
+      <span class="icon">📊</span> 시장 상황
+    </li>
+    <li class="sidebar-item" data-view-target="strategy">
+      <span class="icon">⚡</span> 전략 및 신호
+    </li>
+    <li class="sidebar-item" data-view-target="simulation">
+      <span class="icon">🧪</span> 시뮬레이션
+    </li>
+    <li class="sidebar-item" data-view-target="portfolio">
+      <span class="icon">💼</span> 포트폴리오
+    </li>
+    <li class="sidebar-item" data-view-target="research">
+      <span class="icon">🔬</span> 연구 및 검증
+    </li>
+    <li class="sidebar-item" data-view-target="system">
+      <span class="icon">⚙️</span> 시스템
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="status-badge">
+      <div class="status-dot offline" id="kiwoom-status-dot"></div>
+      <span id="kiwoom-status-text">연결 대기중...</span>
+    </div>
+    <!-- Toggle Button for Connection -->
+    <button id="kiwoom-toggle-btn" class="toggle-btn"
+      style="margin-top:5px; width:100%; font-size:12px; padding:5px; background:#334155; color:white; border:none; border-radius:4px; cursor:pointer;"
+      onclick="toggleKiwoomConnection()">
+      중지 (Stop)
+    </button>
+  </div>
+</nav>
+<main class="content">
+  <div class="hud-grid">
+    <!-- Zone A: Market Intelligence -->
+    <div class="hud-zone hud-zone-market">
+      <div class="hud-label">MARKET REGIME</div>
+      <div class="hud-regime" id="op-regime">-</div>
+      <div class="hud-market-sub">KOSPI Trend: <span id="hud-kospi-trend">-</span></div>
+    </div>
+
+    <!-- Zone B: Financial Command -->
+    <div class="hud-zone hud-zone-finance">
+      <div class="hud-label" style="width:100%; text-align:left;">TOTAL EQUITY</div>
+      <div class="hud-equity-group">
+        <div class="hud-hero-number" id="hud-equity">-</div>
+        <div class="hud-pnl-row">
+          <span class="hud-pnl-val" id="op-pnl">-</span>
+          <span class="hud-pnl-val" id="op-pnl-delta" style="font-size:13px; opacity:0.8;">-</span>
+        </div>
+      </div>
+      <div class="hud-progress-container">
+        <div class="hud-progress-info">
+          <span>CASH</span>
+          <span id="hud-invest-ratio-text">0% Invested</span>
+        </div>
+        <div class="hud-progress-bar">
+          <div class="hud-progress-fill" id="hud-invest-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone C: AI & Ops -->
+    <div class="hud-zone hud-zone-ops">
+      <div class="hud-label">OPERATOR INTENT</div>
+      <div class="hud-intent-text" id="op-intent">
+        System initialization...
+      </div>
+      <div class="hud-stat-row">
+        <span>Positions: <strong id="op-positions">-</strong></span>
+        <span>Orders: <strong id="hud-orders-count">-</strong></span>
+        <span>Status: <strong style="color:#4ade80">ACTIVE</strong></span>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="view-section" data-view="market">
+    <div class="view-header">
+      <h1>시장 상황</h1>
+    </div>
+    <div class="view-grid">
+      <div class="card" id="market-regime-card">
+        <h2>국면 상태 - Champion v2.1</h2>
+        <div class="regime-info">
+          <div class="regime-label">시장 국면</div>
+          <div class="regime-value" id="regime-main">로딩 중...</div>
+          <div class="regime-label">세부 국면</div>
+          <div class="regime-value" id="regime-micro">-</div>
+        </div>
+        <p class="last-update" id="regime-update-time">-</p>
+      </div>
+
+      <!-- Market Overview Card -->
+      <div class="card market-overview">
+        <div class="card-header">
+          <h3>시장 지수 (Market Indices)</h3>
+          <span class="live-indicator">LIVE</span>
+        </div>
+        <div class="indices-container">
+          <div class="index-item" id="kospi-index">
+            <div class="index-header">
+              <span class="index-name">KOSPI</span>
+              <span class="index-price">로딩 중...</span>
+            </div>
+            <div class="index-change">
+              <span class="change-value">--</span>
+              <span class="change-pct">--</span>
+            </div>
+            <div class="mini-chart" id="kospi-chart"></div>
+          </div>
+          <div class="index-item" id="kosdaq-index">
+            <div class="index-header">
+              <span class="index-name">KOSDAQ</span>
+              <span class="index-price">로딩 중...</span>
+            </div>
+            <div class="index-change">
+              <span class="change-value">--</span>
+              <span class="change-pct">--</span>
+            </div>
+            <div class="mini-chart" id="kosdaq-chart"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="market-top10-card">
+        <h2>실시간 시세 (TOP 10)</h2>
+        <p class="placeholder">로딩 중...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="view-section hidden" data-view="strategy">
+    <div class="view-header">
+      <h1>전략 및 신호</h1>
+    </div>
+    <div class="view-grid split-layout">
+      <!-- Left Column -->
+      <div class="left-col">
+        <div class="card" id="strategy-status-card">
+          <h2>실시간 전략 상태</h2>
+          <p><strong>프로필:</strong> <span id="strat-profile">-</span></p>
+          <p><strong>활성 전략:</strong> <span id="strat-active-count">-</span></p>
+          <ul id="strat-allocations-list"></ul>
+        </div>
+        <div class="card" id="strategy-daily-plan-card">
+          <h2>일간 계획</h2>
+          <p class="placeholder">전략 요약 로딩 중...</p>
+          <pre id="strategy-daily-plan-text"></pre>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-col">
+        <div class="card fill-height" id="strategy-orders-card">
+          <h2>금일 주문 요약</h2>
+          <p class="placeholder" id="orders-summary-placeholder">데이터 로딩 중...</p>
+          <table class="data-table" id="orders-table">
+            <thead>
+              <tr>
+                <th>시간</th>
+                <th>종목</th>
+                <th>매매</th>
+                <th>수량</th>
+                <th>가격</th>
+                <th>사유</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- JS에서 채움 -->
+            </tbody>
+          </table>
+        </div>
+        <div class="card" id="strategy-signals-card">
+          <h2>실시간 신호</h2>
+          <p class="placeholder">실시간 시그널 로딩 중...</p>
+          <div id="strategy-signals-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulation View -->
+  <section class="view-section hidden" data-view="simulation">
+    <div class="view-header">
+      <h1>시뮬레이션</h1>
+    </div>
+    <div class="view-grid">
+      <div class="card" id="simulation-summary-card">
+        <h2>일간 시뮬레이션 요약</h2>
+        <ul class="metric-list">
+          <li>승률: <span id="sim-win-rate">-</span></li>
+          <li>손익: <span id="sim-pnl">-</span></li>
+          <li>매매 횟수: <span id="sim-trade-count">-</span></li>
+        </ul>
+        <p id="sim-message" class="placeholder">데이터 로딩 중...</p>
+      </div>
+      <div class="card full-width" id="simulation-chart-card">
+        <h2>시뮬레이션 자산 곡선</h2>
+        <div class="chart-container tall">
+          <canvas id="simEquityChart"></canvas>
+        </div>
+      </div>
+      <!-- NEW: Dual Engine Comparison Chart -->
+      <div class="card full-width" id="simulation-comparison-card">
+        <h2>엔진 성과 비교 (vs KOSPI)</h2>
+        <div class="chart-container large">
+          <canvas id="simComparisonChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio View -->
+  <section class="view-section hidden" data-view="portfolio">
+    <div class="view-header">
+      <h1>포트폴리오</h1>
+    </div>
+    <div class="view-grid">
+      <!-- Account Snapshot -->
+      <div class="card" id="portfolio-snapshot">
+        <h2>계좌 현황</h2>
+        <div class="snapshot-grid">
+          <div class="snap-item">
+            <span class="label">총 자산</span>
+            <span class="value highlight" id="snap-equity">-</span>
+          </div>
+          <div class="snap-item">
+            <span class="label">예수금</span>
+            <span class="value" id="snap-cash">-</span>
+          </div>
+          <div class="snap-item">
+            <span class="label">일간 수익률</span>
+            <span class="value" id="snap-return">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Chart -->
+      <div class="card" id="portfolio-chart-card">
+        <h2>자산 추이 (Equity Curve)</h2>
+        <div class="chart-container">
+          <canvas id="equityChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Positions Table -->
+      <div class="card full-width" id="portfolio-positions">
+        <h2>보유 종목 현황</h2>
+        <table class="data-table" id="positions-table">
+          <thead>
+            <tr>
+              <th>종목</th>
+              <th>진입</th>
+              <th>현재가</th>
+              <th>평가금액</th>
+              <th>손익</th>
+              <th>차트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research View -->
+  <section class="view-section hidden" data-view="research">
+    <div class="view-header">
+      <h1>연구 및 검증 (Research)</h1>
+    </div>
+    <div class="view-grid">
+      <div class="card">
+        <h2>리서치 노트</h2>
+        <p class="placeholder">향후 백테스트/연구 결과 요약이 들어올 영역입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- System View -->
+  <section class="view-section hidden" data-view="system">
+    <div class="view-header">
+      <h1>시스템 상태</h1>
+    </div>
+    <div class="view-grid">
+      <div class="card" id="system-health-card">
+        <h2>헬스 체크 상태</h2>
+        <p class="placeholder">Health 데이터 로딩 중...</p>
+        <pre id="system-health-json"></pre>
+      </div>
+
+      <!-- Keyboard Shortcuts Help -->
+      <div class="card" id="shortcut-help-card">
+        <h2>단축키 안내 (Keyboard Shortcuts)</h2>
+        <table class="data-table" id="shortcut-table">
+          <thead>
+            <tr>
+              <th>명령</th>
+              <th>설명</th>
+              <th>단축키</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JS에서 COMMANDS 기반으로 자동 채움 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- System View -->
+  <section class="view-section hidden" data-view="system">
+    <div class="view-header">
+      <h1>시스템 설정</h1>
+    </div>
+    <div class="view-grid">
+      <!-- Turbo Control Card -->
+      <div class="card full-width" id="turbo-control-card">
+        <h2>🚀 터보 컨트롤 (Leverage Control)</h2>
+        <div class="turbo-container">
+          <!-- Mode Toggle -->
+          <div class="turbo-mode-toggle">
+            <label class="toggle-label">
+              <input type="checkbox" id="turbo-mode-toggle" checked>
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">자동 모드 (Auto)</span>
+            </label>
+          </div>
+
+          <!-- Manual Slider (hidden in auto mode) -->
+          <div class="turbo-manual-control" id="turbo-manual-section" style="display: none;">
+            <label for="turbo-slider">레버리지 비율: <span id="turbo-value-display">100%</span></label>
+            <input type="range" id="turbo-slider" min="0" max="140" value="100" step="10" class="turbo-slider">
+            <div class="turbo-marks">
+              <span>0%</span>
+              <span>50%</span>
+              <span>100%</span>
+              <span>140%</span>
+            </div>
+          </div>
+
+          <!-- Auto Mode Description -->
+          <div class="turbo-auto-info" id="turbo-auto-section">
+            <p><strong>자동 모드 활성화됨</strong></p>
+            <ul>
+              <li>🟢 <strong>Normal (100%)</strong>: 기본 상태</li>
+              <li>🟠 <strong>Turbo (140%)</strong>: 강세장 감지 시 자동 증폭</li>
+              <li>🔴 <strong>Brake (50%)</strong>: 위험 감지 시 자동 감소</li>
+            </ul>
+          </div>
+
+          <!-- Current Status -->
+          <div class="turbo-status">
+            <div class="status-item">
+              <span>현재 모드:</span>
+              <strong id="turbo-current-mode">자동</strong>
+            </div>
+            <div class="status-item">
+              <span>현재 레버리지:</span>
+              <strong id="turbo-current-value" style="color: #4ade80;">100%</strong>
+            </div>
+          </div>
+
+          <!-- Apply Button -->
+          <button id="turbo-apply-btn" class="btn-primary">설정 적용</button>
+        </div>
+      </div>
+
+      <!-- System Status Card -->
+      <div class="card">
+        <h2>시스템 상태</h2>
+        <ul class="metric-list">
+          <li>서버 상태: <span style="color: #4ade80;">정상</span></li>
+          <li>데이터 연결: <span id="data-connection-status">확인 중...</span></li>
+          <li>마지막 업데이트: <span id="last-update-time">-</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- Command Palette Backdrop -->
+<div id="command-backdrop" class="command-backdrop hidden"></div>
+
+<!-- Command Palette -->
+<div id="command-palette" class="command-palette hidden">
+  <div class="command-header">
+    <span class="command-title">명령어 팔레트</span>
+    <span class="command-hint">Ctrl/⌘ + K · ↑↓ 이동 · Enter 실행 · Esc 닫기</span>
+  </div>
+  <input id="command-input" type="text" class="command-input" placeholder="명령 검색 (예: 시장 상황, 포트폴리오, 오늘 수익)..."
+    autocomplete="off" />
+  <div id="command-list" class="command-list">
+    <!-- JS에서 명령 아이템 주입 -->
+  </div>
+  <div class="command-footer">
+    <span>?</span> 키로 단축키 목록 보기
+  </div>
+</div>
+<!-- Detail Modal -->
+<div id="detail-modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modal-title">상세 정보</h2>
+      <button class="close-modal" id="close-modal-btn">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+</div>
+
+<script src="dashboard.js?v=9"></script>
+<script src="turbo_control.js"></script>
+</body>
+
+</html>

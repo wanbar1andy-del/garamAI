@@ -1,0 +1,37 @@
+# Pure v2 Playbook
+# Forces M_RANGE_V2 for all regimes
+
+regimes:
+  R1_STRONG_UP_BREAKOUT:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R2_STRONG_UP_GRIND:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R3_SIDEWAYS_RANGE_LOWVOL:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R4_SIDEWAYS_RANGE_HIGHVOL:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R5_WEAK_DOWN_DRIFT:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R6_STRONG_DOWN_CRASH:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R7_EVENT_RISK_OFF:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+
+modules:
+  M_RANGE_V2_LV:
+    base:
+      mode: "Defense"
+      time_stop_min: 30
+      target_R: 1.5
+      stop_R: 1.0
+      risk_pct_base: 0.010
+      max_positions: 10
+      scale_in_steps: 2
+      scale_out_steps: 2

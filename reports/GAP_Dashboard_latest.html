@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAP Dashboard</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 24px; }
+h1,h2,h3 { margin-top: 20px; }
+pre { background:#f6f6f6; padding:12px; overflow:auto; }
+code { font-family: Consolas, monospace; }
+</style>
+</head>
+<body>
+<h1>GAP (Garam Audit &amp; Pause) - Health Report</h1>
+<br>
+<ul>
+<li>**Status:** PROJECT FROZEN (P0 STOP)</li>
+<li>**Generated At:** 2025-12-13 04:47:58 UTC</li>
+<li>**Project Root:** `G:\내 드라이브\garam\garam`</li>
+<li>**Overall Health:** **FAIL**</li>
+</ul>
+<br>
+<h2>Summary</h2>
+<ul>
+<li>PASS: 0</li>
+<li>WARN: 0</li>
+<li>FAIL: 1</li>
+</ul>
+<br>
+<h2>Checks</h2>
+<pre>| Check | Status | Detail |</pre>
+<pre>|---|---:|---|</pre>
+<pre>| Gate0: environment(paths.yaml) | **FAIL** | Gate0: paths.yaml not found: G:\내 드라이브\garam\garam\config\paths.yaml |</pre>
+<br>
+<h2>Details (FAIL/WARN)</h2>
+<h2>Action Recommendations (Gate-Driven)</h2>
+<ul>
+<li>**P0:** paths.yaml Gate 실패. 절대경로 제거 및 data_root/logs_root 실존 경로로 재정의.</li>
+</ul>
+<br>
+<h2>Context</h2>
+</body>
+</html>

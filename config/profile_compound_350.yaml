@@ -1,0 +1,30 @@
+# Compound Growth Profile (350 Symbols)
+# - Universe: Top 350
+# - Leverage: 0.95 (95% Invested, No Leverage)
+# - Reinvestment: Compounding (Full Equity used for sizing)
+
+universe:
+  file: "GARAM_Data/real_universe_350.csv"
+
+scores:
+  score_id: "hero_v2" # Using Hero Finder V2 Logic
+
+selection:
+  gate_score: 0.3
+  max_positions: 5
+  min_candidates: 3
+
+allocation:
+  scheme: "score_power"
+  target_gross_exposure: 0.95 # 95% Invested
+  champion_budget: 1.0
+  score_gamma: 1.0 # Linear weighting for stability
+
+capital:
+  initial_equity: 100000000
+
+regime_overrides:
+  # Conservative sizing in downturns
+  R5_DOWN_BOX: { target_gross_exposure: 0.5 }
+  R6_DOWN: { target_gross_exposure: 0.0 }
+  R7_CRASH: { target_gross_exposure: 0.0 }

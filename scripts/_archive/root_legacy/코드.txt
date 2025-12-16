@@ -1,0 +1,44 @@
+TELEGRAM_BOT_TOKEN =8284381258:AAENGcOgH6B6otI36C9L-AX1MrS_X-pPXRs
+YOUR_CHAT_ID = 8362308273 
+
+
+OpenAI API Key: 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
+
+
+
+
+AIzaSyCaWgc2X07ZNA9BxfMTt_NNfHYEMGPGeKc        제미나이
+
+
+
+
+N8N_BASIC_AUTH_USER=wanbar1andy
+N8N_BASIC_AUTH_PASSWORD=xiIcfQ0rjpgMuq6kLyWXOUnEHD7b5BGz
+
+
+Wanbar1@andy
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YzU5NjM2YS01MTFmLTQ0Y2EtOGFmYi02NWRlYTczZTJmMDIiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzYyMTc1NzUyLCJleHAiOjE3NjQ3MzgwMDB9.qXihleabkIQ3XYEV0_Vf91D6zn2gB9yh2RvtZ6a0-5o
+
+API 키 세부정보
+API 키
+AIzaSyA5hG5SO2ygRnhKyPgROev977AVO5u2UjU
+이름
+garam-gemini
+프로젝트 이름
+projects/795169592877
+프로젝트 번호
+795169592877
+
+
+slack 구글 아이디
+https://hooks.slack.com/services/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
+
+웹연결
+https://app.slack.com/client/T09JKJGHG1G/platform?entry_point=default_oauth&utm_source=Naver&utm_medium=paid_search&utm_campaign=kr_branding_20240205&campaign=7013y000002KgHsAAK&lpt=1&geocode=ko-kr
+
+
+
+github        https://github.com/login/oauth/authorize?response_type=code&client_id=0120e057bd645470c1ed&state=f714871b21904208b66e201ea38a499c&code_challenge_method=S256&code_challenge=wytJlg32V_jT8X7ku4AGmqU0yoTZ0AOrb5ALKefunHE&redirect_uri=http%3a%2f%2f127.0.0.1%3a56926%2f&scope=repo+gist+workflow
+
+https://github.com/wanbar1andy-del/garamAI.git

@@ -1,0 +1,97 @@
+# Champion Rule v2.1 Optimized (Restored)
+# - Universe: Top 400 (GARAM_Data/real_universe_400.csv)
+# - Allocation:
+#   - Engine 2 (Champion): 95% of Equity (Target Gross Exposure 0.95)
+#   - Engine 1 (DGE): 5% Reserved (Implied Cash Buffer here)
+# - Style:
+#   - R1/R2: Concentrated (Top 2)
+#   - R3-R5: Diversified (Top 5)
+
+universe:
+  file: "GARAM_Data/real_universe_400.csv"
+
+scores:
+  file: "GARAM_Data/real_scores_2024.csv"
+  score_id: "momentum_6m"
+
+selection:
+  gate_score: 0.0
+  max_positions: 5
+  min_candidates: 5
+  challenger_pool_size: 2
+
+allocation:
+  scheme: "score_power"
+  target_gross_exposure: 0.95 # 95% for Champion Engine, 5% for DGE
+  champion_budget: 0.90
+  score_floor: 0.0
+  score_gamma: 1.5
+  tilt_threshold: 0.00
+  tilt_fraction: 0.00
+
+exploration:
+  enabled: true
+  exploration_fraction: 0.05
+  switch_threshold: 0.10
+
+execution:
+  rebalance_frequency: "daily"
+  max_turnover_per_day: 1.0
+  min_trade_size_pct: 0.02
+  morning_stop_loss: false
+  afternoon_stop_loss: false
+  blacklist_days: 0
+
+capital:
+  initial_equity: 100000000
+
+# Regime Overrides (Champion v2.1 Logic)
+regime_overrides:
+  R1_STRONG_UP:
+    # "Winner Takes All": Concentrated in Top 2
+    max_positions: 2
+    min_candidates: 3
+    champion_budget: 1.00 # 100% of the 95% allocation
+    exploration_fraction: 0.00
+
+  R2_UP:
+    # Trend Following: Concentrated
+    max_positions: 2
+    min_candidates: 3
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R3_UP_BOX:
+    # Uncertainty: Diversify to 5
+    max_positions: 5
+    min_candidates: 6
+    champion_budget: 0.90
+    exploration_fraction: 0.10
+
+  R4_BOX:
+    # Defense: Diversify to 5
+    max_positions: 5
+    min_candidates: 6
+    champion_budget: 0.90
+    exploration_fraction: 0.10
+
+  R5_DOWN_BOX:
+    # Down Trend: Diversify/Cash
+    max_positions: 5
+    min_candidates: 6
+    champion_budget: 0.90
+    exploration_fraction: 0.10
+
+  R6_DOWN:
+    # Min Exposure
+    max_positions: 1
+    min_candidates: 1
+    champion_budget: 0.50
+    exploration_fraction: 0.00
+
+  R7_CRASH:
+    # Full Defense
+    max_positions: 0
+    min_candidates: 0
+    champion_budget: 0.00
+    exploration_fraction: 0.00

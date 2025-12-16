@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "run_id": "2025-12-15T10-22-31Z__RUN123",
+    "timestamp_utc": "2025-12-15T10:22:31Z",
+    "mode": "replay",
+    "env": {
+      "os": "Windows 11",
+      "python": "3.11.7",
+      "hostname": "GAR-PC",
+      "user": "garam"
+    },
+    "git": {
+      "commit": "abc1234",
+      "branch": "main",
+      "dirty": false
+    },
+    "data": {
+      "universe": "KOSPI50",
+      "timeframe": "minute",
+      "from": "2023-01-01",
+      "to": "2025-12-14"
+    }
+  },
+  "summary": {
+    "status": "WARN",
+    "headline": "데이터 결측 일부 발견. 거래 엔진은 정상, 리스크 가드는 통과.",
+    "key_points": [
+      "DATA_INTEGRITY: 결측 0.03% (경고 기준 0.01% 초과)",
+      "RISK_LIMITS: 일손실/연속손실 가드 PASS",
+      "EXECUTION: 주문 라우팅 지연 p95 220ms (주의)"
+    ],
+    "kpis": {
+      "trades": 142,
+      "win_rate": 0.57,
+      "pnl": 3812500,
+      "mdd": -0.083,
+      "slippage_bps_est": 9.2
+    }
+  },
+  "checks": [
+    {
+      "id": "DATA_INTEGRITY",
+      "name": "Data Integrity",
+      "status": "WARN",
+      "severity": "MED",
+      "metrics": {
+        "missing_ratio": 0.0003,
+        "duplicates": 12,
+        "timezone_ok": true
+      },
+      "notes": [
+        "minute.csv 일부 구간 결측",
+        "중복 레코드 12건 제거 권장"
+      ],
+      "evidence_paths": [
+        "reports/2025-12-15T10-22-31Z__RUN123/evidence/data_integrity.csv"
+      ],
+      "log_paths": [
+        "reports/2025-12-15T10-22-31Z__RUN123/logs/validate.log"
+      ],
+      "tags": [
+        "data",
+        "csv",
+        "timezone"
+      ]
+    },
+    {
+      "id": "RISK_LIMITS",
+      "name": "Risk Limits",
+      "status": "PASS",
+      "severity": "HIGH",
+      "metrics": {
+        "max_daily_loss_pct": 0.03,
+        "consecutive_losses_max": 4,
+        "kill_switch": "armed"
+      },
+      "notes": [
+        "리스크 한도 설정 일치",
+        "킬스위치 활성화 상태"
+      ],
+      "evidence_paths": [],
+      "log_paths": [
+        "reports/2025-12-15T10-22-31Z__RUN123/logs/risk.log"
+      ],
+      "tags": [
+        "risk",
+        "guard"
+      ]
+    },
+    {
+      "id": "EXECUTION",
+      "name": "Execution Health",
+      "status": "WARN",
+      "severity": "MED",
+      "metrics": {
+        "router_latency_ms_p50": 120,
+        "router_latency_ms_p95": 220,
+        "rejects": 0
+      },
+      "notes": [
+        "p95 지연 상승. 네트워크/브로커 상태 확인 권장"
+      ],
+      "evidence_paths": [
+        "reports/2025-12-15T10-22-31Z__RUN123/plots/latency.png"
+      ],
+      "log_paths": [
+        "reports/2025-12-15T10-22-31Z__RUN123/logs/execution.log"
+      ],
+      "tags": [
+        "execution",
+        "latency"
+      ]
+    }
+  ],
+  "artifacts": {
+    "paths": {
+      "report_md": "reports/2025-12-15T10-22-31Z__RUN123/report.md",
+      "report_html": null
+    },
+    "plots": [
+      {
+        "title": "Latency",
+        "path": "reports/2025-12-15T10-22-31Z__RUN123/plots/latency.png",
+        "kind": "latency"
+      }
+    ]
+  }
+}

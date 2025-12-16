@@ -1,0 +1,153 @@
+policy:
+  name: "DGE_ORB_Aggressive_v0.1"
+
+  # ========== HORIZON MODELS (Intraday Short + Daily Mid) ==========
+  horizons:
+    short:
+      name: "fs_orb_15m"
+      type: "ORBMomentum"
+      params:
+        # ORB-specific
+        orb_minutes: 30 # First 30 minutes (09:00-09:30 KST)
+        orb_buffer: 0.2 # Break ORB_high + 20% of ORB range
+        # Normalization
+        normalize: true
+        scale_factor: 2.0 # Gentler than daily (intraday volatility)
+
+    mid:
+      name: "fm_daily_trend"
+      type: "EMASlope"
+      params:
+        window: 20 # 20-day EMA slope
+        normalize: true
+        scale_factor: 3.0
+
+  # ========== COORDINATION RULES (State Machine) ==========
+  coordination_rules:
+    # --- FLAT STATE ---
+    - state: "FLAT"
+      rules:
+        - name: "Aggressive_Long_Entry"
+          condition: "fs >= 0.3 and fm >= -0.1"
+          priority: 10
+          action: "ENTER_LONG"
+          params:
+            size_mod: 1.0
+            risk_profile: "aggressive"
+
+        - name: "Aggressive_Short_Entry"
+          condition: "fs <= -0.3 and fm <= 0.0"
+          priority: 9
+          action: "ENTER_SHORT"
+          params:
+            size_mod: 0.8 # Slightly smaller shorts (conservative on shorts)
+            risk_profile: "aggressive"
+
+    # --- LONG STATE ---
+    - state: "LONG"
+      rules:
+        - name: "Trend_Reversal_Exit"
+          condition: "fm < -0.1"
+          priority: 10
+          action: "EXIT_ALL"
+          params:
+            reason: "Trend Reversal (Daily)"
+
+        - name: "Partial_Profit_Take"
+          condition: "fs < 0 and fm >= 0.2"
+          priority: 5
+          action: "REDUCE"
+          params:
+            reduce_pct: 0.5 # Take 50% off
+            reason: "Short-term Pullback"
+
+        - name: "Hold_Position"
+          condition: "fs > -0.2 and fm >= 0.0"
+          priority: 1
+          action: "HOLD"
+          params:
+            size_mod: 1.0
+
+    # --- SHORT STATE ---
+    - state: "SHORT"
+      rules:
+        - name: "Trend_Reversal_Exit_Short"
+          condition: "fm > 0.1"
+          priority: 10
+          action: "EXIT_ALL"
+          params:
+            reason: "Trend Reversal (Daily Uptrend)"
+
+        - name: "Partial_Cover_Short"
+          condition: "fs > 0 and fm <= -0.2"
+          priority: 5
+          action: "REDUCE"
+          params:
+            reduce_pct: 0.5 # Cover 50%
+            reason: "Short-term Bounce"
+
+        - name: "Hold_Short"
+          condition: "fs < 0.2 and fm <= 0.0"
+          priority: 1
+          action: "HOLD"
+          params:
+            size_mod: 1.0
+
+  # ========== EXECUTION TEMPLATES ==========
+  entry_template: "ORBVolatilityBreakout"
+  exit_templates:
+    - "FixedTargetWithTrail"
+    - "TimeStopExit"
+  risk_template: "DGERisk"
+
+  # Filter Templates (optional for v0.1)
+  filter_templates: [] # Start without filters, add later if needed
+
+  # ========== STRATEGY PARAMETERS ==========
+  params:
+    # --- Entry Parameters ---
+    fs_thresh_long: 0.3 # Can relax to 0.2 if WAIT too high
+    fs_thresh_short: -0.3
+    min_atr_multiplier: 0.5 # Minimum SL distance = 0.5 * ATR15m
+
+    # --- Exit Parameters ---
+    rr_init: 2.5 # Initial R:R = 1:2.5
+    trail_start_R: 1.5 # Start trailing at +1.5R
+    trail_floor_R: 0.5 # Trail floor at +0.5R (breakeven+)
+    time_stop_bars:
+      16 # Exit if no +0.5R profit in 16 bars (~4 hours)
+      # NOTE: WFO tuning candidate (may reduce to 8-12 for faster capital rotation)
+
+    # --- Risk Parameters (AGGRESSIVE - Research Account Only) ---
+    preset: "aggressive" # Use RiskConfig.create_aggressive()
+
+    # Explicitly override Kelly for v0.1
+    use_kelly: false # DISABLED: Use fixed fractional only
+    risk_per_trade: 0.015 # Fixed 1.5% per trade
+    max_daily_loss: 0.05 # 5% max daily loss
+    max_gross_exposure: 0.5 # 50% max capital deployed
+    max_open_positions: 2 # Max 2 simultaneous positions
+
+    # Kelly parameters (for reference only, not used when use_kelly=false)
+    kelly_fraction: 0.25 # If enabled later: quarter-Kelly
+    win_rate: 0.45 # Estimated (update from WFO)
+    payoff_ratio: 2.5 # Estimated R:R
+
+    # --- Filter Parameters (for future use) ---
+    # vkospi_max_percentile: 0.90    # Avoid top 10% volatility days
+    # min_volume_multiplier: 1.5     # Require 1.5x average volume
+
+    # --- Session Parameters (KRX-specific) ---
+    market_open_time: "09:00" # KST
+    market_close_time: "15:30" # KST
+    orb_end_time: "09:30" # First 30 minutes
+
+    # --- Regime Parameters (optional) ---
+    # allowed_regimes: ["GREEN", "YELLOW"]  # Skip for v0.1, refine later
+
+    # --- WFO-specific (for run_wfo.py) ---
+    wfo_mode: "DGE"
+    wfo_interval: "intraday"
+    wfo_train_days: 180 # Start with 6 months (can adjust to 270 later)
+    wfo_test_days: 60 # 2 months out-of-sample
+    wfo_min_trades_per_year: 50

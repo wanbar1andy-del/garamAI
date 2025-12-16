@@ -1,0 +1,17 @@
+>>> Starting Turbo V3 Verification (B-6 Locked)...
+Target: 005930
+Fill: NEXT_OPEN
+Cost: Slippage=0.00025, Tax=0.0023
+Turbo: TargetVol=0.001, MaxMult=2.5
+----------------------------------------
+Total Return: -67.08%
+Max Drawdown: -67.52%
+Trade Count: 738
+----------------------------------------
+Traceback (most recent call last):
+  File "C:\garam\garam\scripts\verify_turbo_v3.py", line 268, in <module>
+    main()
+    ~~~~^^
+  File "C:\garam\garam\scripts\verify_turbo_v3.py", line 97, in main
+    from garam_core.analysis.edge_matrix import EdgeAnalyzer, EdgeMatrixSpec
+ImportError: cannot import name 'EdgeMatrixSpec' from 'garam_core.analysis.edge_matrix' (G:\내 드라이브\garam\garam\garam_core\analysis\edge_matrix.py)

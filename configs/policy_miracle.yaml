@@ -1,0 +1,12 @@
+entry_template: ImmediateBreakout
+exit_templates:
+  - SignalReversal
+filter_templates: []
+risk_template: DGERisk
+params:
+  strategy_type: TrendFollowing
+  window_fast: 5
+  window_slow: 20
+  risk_per_trade: 0.01
+  max_daily_loss: 0.03
+  kelly_fraction: 0.0

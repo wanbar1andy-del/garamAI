@@ -1,0 +1,33 @@
+{
+    "cash": 18900055.0,
+    "positions": {
+        "042660": {
+            "qty": 219,
+            "entry_price": 107442.00913242009,
+            "entry_date": "2025-12-03"
+        },
+        "267250": {
+            "qty": 127,
+            "entry_price": 188696.8503937008,
+            "entry_date": "2025-12-03"
+        },
+        "012450": {
+            "qty": 26,
+            "entry_price": 824000.0,
+            "entry_date": "2025-12-03"
+        },
+        "082270": {
+            "qty": 715,
+            "entry_price": 30000.0,
+            "entry_date": "2025-12-03"
+        },
+        "248070": {
+            "qty": 1210,
+            "entry_price": 16430.0,
+            "entry_date": "2025-12-03"
+        }
+    },
+    "blacklist": {},
+    "equity": 129071055.0,
+    "last_update": null
+}

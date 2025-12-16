@@ -1,0 +1,121 @@
+version: "3.1"
+description: "DGE Hybrid v3.1 (Type B: Risk Scaling) - Optimized from PnL Analysis"
+
+# Default fallback if regime not found
+default_regime: "R3_SIDEWAYS_RANGE_LOWVOL"
+
+regimes:
+  # R1: Strong Up Breakout
+  # Analysis: Pure_v2 (+0.7M, 0.02R) vs Pure_v3 (-1.0M, -0.29R)
+  # V3 failed here (small sample: 12). V2 worked okay.
+  # Decision: Use V2 but scale down (0.8x) as it's not a huge winner.
+  R1_STRONG_UP_BREAKOUT:
+    module: "M_RANGE_V2"
+    intensity: 0.8
+    params:
+      risk_pct: 0.012 # 1.5% * 0.8
+      target_r: 2.0
+      stop_r: -1.0
+      time_stop_bars: 120
+
+  # R2: Strong Up Grind
+  # Analysis: Pure_v2 (-5.4M) vs Pure_v3 (-1.2M). Both lost.
+  # Decision: TOXIC ZONE. Scale down heavily (0.2x). Use V3 as it lost less per trade.
+  R2_STRONG_UP_GRIND:
+    module: "M_ATTACK_V3"
+    intensity: 0.2
+    params:
+      risk_pct: 0.003 # 1.5% * 0.2
+      target_r: 3.0
+      stop_r: -0.7
+      time_stop_bars: 60
+
+  # R3: Sideways Range Low Vol
+  # Analysis: Pure_v2 (+3.1M, 0.37R) vs Pure_v3 (+2.8M, 1.06R).
+  # Both good. V3 has higher R but fewer trades. V2 has more volume.
+  # Decision: Use V2 for consistency (1.0x).
+  R3_SIDEWAYS_RANGE_LOWVOL:
+    module: "M_RANGE_V2"
+    intensity: 1.0
+    params:
+      risk_pct: 0.015
+      target_r: 2.0
+      stop_r: -1.0
+      time_stop_bars: 180
+
+  # R4: Sideways Range High Vol
+  # Analysis: No direct data in summary (merged into UNKNOWN or missing?).
+  # Assumption: High Vol Range -> V2 usually suffers. V3 might catch breakouts.
+  # Decision: Use V3 (0.5x) to probe for breakout.
+  R4_SIDEWAYS_RANGE_HIGHVOL:
+    module: "M_ATTACK_V3"
+    intensity: 0.5
+    params:
+      risk_pct: 0.0075
+      target_r: 3.0
+      stop_r: -0.7
+      time_stop_bars: 90
+
+  # R5: Weak Down Drift
+  # Analysis: Pure_v3 (+6.4M, 0.16R) > Pure_v2 (+4.4M, 0.02R).
+  # V3 is superior.
+  # Decision: Use V3 (1.2x).
+  R5_WEAK_DOWN_DRIFT:
+    module: "M_ATTACK_V3"
+    intensity: 1.2
+    params:
+      risk_pct: 0.018
+      target_r: 3.0
+      stop_r: -0.7
+      time_stop_bars: 120
+
+  # R6: Strong Down Crash
+  # Analysis: Pure_v3 (+5.0M, 0.31R) >> Pure_v2 (-6.0M).
+  # V2 gets crushed. V3 prints money.
+  # Decision: Use V3 (1.5x) - Aggressive Attack.
+  R6_STRONG_DOWN_CRASH:
+    module: "M_ATTACK_V3"
+    intensity: 1.5
+    params:
+      risk_pct: 0.0225
+      target_r: 4.0
+      stop_r: -0.5
+      time_stop_bars: 60
+
+  # R7: Panic (Not in data, assume similar to R6)
+  R7_PANIC_BOTTOM:
+    module: "M_ATTACK_V3"
+    intensity: 1.5
+    params:
+      risk_pct: 0.0225
+      target_r: 5.0
+      stop_r: -0.5
+      time_stop_bars: 60
+
+  # UNKNOWN (Fallback for missing data)
+  # Analysis: Pure_v3 (+114M) >> Pure_v2 (-17M).
+  # This contains the bulk of the "Trend" data that wasn't tagged properly?
+  # Decision: Use V3 (1.0x).
+  UNKNOWN:
+    module: "M_ATTACK_V3"
+    intensity: 1.0
+    params:
+      risk_pct: 0.015
+      target_r: 3.0
+      stop_r: -0.7
+      time_stop_bars: 120
+
+modules:
+  M_RANGE_V2:
+    base:
+      risk_pct_base: 0.015
+      target_r: 2.0
+      stop_r: -1.0
+      time_stop_bars: 180
+
+  M_ATTACK_V3:
+    base:
+      risk_pct_base: 0.015
+      target_r: 3.0
+      stop_r: -0.7
+      time_stop_bars: 120

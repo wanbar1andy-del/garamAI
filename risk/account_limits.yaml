@@ -1,0 +1,5 @@
+mode: ACTIVE
+limits:
+  max_single_position_pct: 300.0 # Allow single stock leverage for Turbo
+  max_gross_exposure_pct: 300.0
+  daily_loss_limit_pct: -15.0

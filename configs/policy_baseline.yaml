@@ -1,0 +1,11 @@
+entry_template: ImmediateBreakout
+exit_templates:
+  - SignalReversal
+filter_templates: []
+risk_template: StandardRisk
+params:
+  strategy_type: TrendFollowing
+  window_fast: 20
+  window_slow: 60
+  risk_per_trade: 0.01
+  max_daily_loss: 0.03

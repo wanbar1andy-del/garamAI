@@ -1,0 +1,39 @@
+version: '3.0'
+description: DGE Hybrid v3.0 (Trend-First) - Generated from PnL Analysis
+regimes:
+  R1_STRONG_UP_BREAKOUT:
+    module: M_RANGE_V2
+    intensity: 0.5
+    params: &id001
+      mode: Range
+      target_R: 2.0
+      stop_R: 1.0
+      time_stop_min: 30
+  R2_STRONG_UP_GRIND:
+    module: M_ATTACK_V3
+    intensity: 0.8
+    params: &id002
+      mode: Attack
+      target_R: 3.0
+      stop_R: 1.0
+      time_stop_min: 60
+  R3_SIDEWAYS_RANGE_LOWVOL:
+    module: M_RANGE_V2
+    intensity: 0.5
+    params: *id001
+  R4_SIDEWAYS_RANGE_HIGHVOL:
+    module: M_RANGE_V2
+    intensity: 0.5
+    params: *id001
+  R5_WEAK_DOWN_DRIFT:
+    module: M_ATTACK_V3
+    intensity: 0.8
+    params: *id002
+  R6_STRONG_DOWN_CRASH:
+    module: M_ATTACK_V3
+    intensity: 0.8
+    params: *id002
+  R7_STRONG_DOWN_REVERSAL:
+    module: M_ATTACK_V3
+    intensity: 0.8
+    params: *id002

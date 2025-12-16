@@ -1,0 +1,5 @@
+mode: ACTIVE
+limits:
+  max_single_position_pct: 100.0 # Allow full concentration if needed (usually 30-50, but Turbo might boost single stock)
+  max_gross_exposure_pct: 300.0 # Allow up to 3x leverage (User wants 2.4x)
+  daily_loss_limit_pct: -5.0

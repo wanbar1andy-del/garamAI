@@ -1,0 +1,22 @@
+# Safe Profile (Capital Preservation)
+# Objective: Low Drawdown, Steady Income
+# Philosophy: Defensive Gate, Tight Stops
+
+layer1:
+  score_engine: "Trend + Volatility"
+
+layer2:
+  allocation: "Diversified"
+  t_gate: 0.30 (Raised for Safety)
+  max_positions: 5
+
+layer3:
+  execution: "DGEFinalStrategy"
+  smart_swing:
+    hold_condition: "Score >= 0.8 (Very Strict)"
+    stop_loss_pct: 0.02 (2%) # Tight Stop allowed here
+
+backtest:
+  success_criteria:
+    cagr_min: 0.10
+    mdd_limit: -0.10

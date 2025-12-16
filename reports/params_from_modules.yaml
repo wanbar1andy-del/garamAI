@@ -1,0 +1,20 @@
+params_sets:
+  test_profile_v1:
+    signal:
+      cooldown_bars: 240
+      momentum_n: 120
+      min_momentum: 0.02
+    turbo:
+      target_vol: 0.02
+      fast_exit_drawdown: 0.03
+    execution:
+      fill: "NEXT_OPEN"
+      cost:
+        commission_rate: 0.00015
+        slippage_rate: 0.00025
+        sell_tax_rate: 0.00230
+    risk:
+      fear_gate:
+        enabled: true
+        block_entry_above: 0.85
+        multiplier_cap: 1.3

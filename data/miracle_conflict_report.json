@@ -1,0 +1,12 @@
+{
+    "total_signals": 622,
+    "executed_count": 143,
+    "executed_ratio": 0.22990353697749197,
+    "block_counts": {
+        "Filter": 479
+    },
+    "filter_reasons": {
+        "RegimeFilter": 479
+    },
+    "risk_reasons": {}
+}

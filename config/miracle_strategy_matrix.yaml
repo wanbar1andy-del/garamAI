@@ -1,0 +1,58 @@
+GREEN:
+  entry_template: ImmediateBreakout
+  exit_templates:
+  - SignalReversal
+  filter_templates: &id001 []
+  metrics:
+    total_return: 0.706277809632498
+    trades: 40
+    win_rate: 0.425
+  params:
+    max_consecutive_losses: 5
+    max_daily_loss: 0.03
+    name: Normal
+    risk_per_trade: 0.01
+    strategy_type: TrendFollowing
+    window_fast: 10
+    window_slow: 20
+  risk_template: Normal
+RED:
+  entry_template: ImmediateBreakout
+  exit_templates:
+  - FixedTarget
+  filter_templates: *id001
+  metrics:
+    total_return: 1.5068700580836036
+    trades: 11
+    win_rate: 0.45454545454545453
+  params:
+    max_consecutive_losses: 3
+    max_daily_loss: 0.015
+    name: Conservative
+    risk_per_trade: 0.005
+    sl_pct: 0.05
+    std_dev: 2.0
+    strategy_type: MeanReversion
+    tp_pct: 0.2
+    window: 10
+  risk_template: Conservative
+YELLOW:
+  entry_template: ImmediateBreakout
+  exit_templates:
+  - FixedTarget
+  filter_templates: *id001
+  metrics:
+    total_return: 1.016515876715758
+    trades: 109
+    win_rate: 0.5596330275229358
+  params:
+    max_consecutive_losses: 5
+    max_daily_loss: 0.03
+    name: Normal
+    risk_per_trade: 0.01
+    sl_pct: 0.05
+    std_dev: 1.5
+    strategy_type: MeanReversion
+    tp_pct: 0.05
+    window: 20
+  risk_template: Normal

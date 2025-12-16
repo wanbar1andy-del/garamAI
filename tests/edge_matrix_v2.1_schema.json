@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EdgeMatrix v2.1 Report Schema",
+    "type": "object",
+    "required": [
+        "meta",
+        "summary",
+        "edge_analysis",
+        "checks",
+        "artifacts"
+    ],
+    "properties": {
+        "meta": {
+            "type": "object",
+            "required": [
+                "run_id",
+                "timestamp_utc",
+                "data",
+                "units",
+                "regime_spec"
+            ]
+        },
+        "summary": {
+            "type": "object",
+            "required": [
+                "status",
+                "kpis"
+            ]
+        },
+        "edge_analysis": {
+            "type": "object",
+            "required": [
+                "overall",
+                "by_regime",
+                "collapse_tags",
+                "thresholds"
+            ]
+        },
+        "edge_analysis.overall": {
+            "type": "object",
+            "required": [
+                "trades",
+                "expectancy_net",
+                "cost_per_trade_avg"
+            ]
+        },
+        "edge_analysis.by_regime": {
+            "type": "object"
+        },
+        "edge_analysis.collapse_tags": {
+            "type": "array"
+        },
+        "edge_analysis.thresholds": {
+            "type": "object"
+        }
+    }
+}

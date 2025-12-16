@@ -1,0 +1,31 @@
+# Champion Rule v3.0 Aggressive Profile
+# Goal: >30% Annual Return via Concentration and Reduced Exploration Cost
+
+universe:
+  file: "GARAM_Data/real_universe.csv"
+
+scores:
+  file: "GARAM_Data/real_scores_2024.csv"
+  score_id: "momentum_6m" # 6M-1M Momentum
+
+selection:
+  gate_score: 0.15
+  max_positions: 1 # Concentrated (Top 1)
+  challenger_pool_size: 10
+
+allocation:
+  scheme: "equal" # 100% to Top 1
+  target_gross_exposure: 1.0 # 100% Invested
+
+exploration:
+  enabled: false # Disable exploration to maximize concentration
+  exploration_fraction: 0.15
+  switch_threshold: 0.10
+
+execution:
+  rebalance_frequency: "daily"
+  max_turnover_per_day: 10.0 # Effectively unlimited for testing
+  min_trade_size_pct: 0.02 # Ignore trades < 2% of equity
+
+capital:
+  initial_equity: 100000000

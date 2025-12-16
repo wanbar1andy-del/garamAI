@@ -1,0 +1,91 @@
+# Champion Rule v3.0 Regime-Aware (Multi-Alpha Safe Profile)
+# - MultiAlphaAggregator를 사용하는 버전
+# - 목표: 구조적 실수(0% 노출, 과도 집중)를 막고,
+#         연 -폭락을 피하는 "안전한 연구용" 기준선 확보
+
+universe:
+  file: "GARAM_Data/real_universe_200.csv"
+
+scores:
+  file: "GARAM_Data/real_scores_2024.csv"
+  score_id: "momentum_6m" # A1 기본 점수 (Multi-Alpha는 코드에서 Aggregator로 합성)
+
+selection:
+  gate_score: 0.0 # gate_score는 "필터"일 뿐, fallback이 있으므로 절대값을 낮게
+  max_positions: 1 # [USER REQUEST] All-in Mode (Concentration)
+  min_candidates: 5 # 최소 이 정도 종목은 항상 후보로 잡는다
+  challenger_pool_size: 10
+
+allocation:
+  scheme: "tiered"
+  target_gross_exposure: 1.0
+  champion_budget: 1.00 # 100% to Champion
+  tilt_threshold: 0.10 # 스코어 차이가 0.10 이상이면 1등 쪽으로 비중 기울임
+  tilt_fraction: 0.00 # No tilt needed for single position
+
+exploration:
+  enabled: true
+  exploration_fraction: 0.20 # 기본: 20%를 챌린저 탐색에 사용
+  switch_threshold: 0.10 # 챌린저 스코어가 최악 챔피언보다 0.10 이상 높으면 스왑
+
+execution:
+  rebalance_frequency: "daily"
+  max_turnover_per_day: 1.0 # 하루에 전체 자산의 100%까지 회전 허용 (연구 단계)
+  min_trade_size_pct: 0.02 # 전체 자산의 2% 미만이면 거래 안 함 (미니 거래 방지)
+  morning_stop_loss: false # [S6] 전일 손실 & 당일 시가 하락 시 시가 청산 (OFF)
+  afternoon_stop_loss: false # [S8] 보유 손실 & 당일 하락 시 종가 청산 (OFF)
+  blacklist_days: 0 # [S8] 손절 종목 재진입 금지 기간 (0일)
+
+capital:
+  initial_equity: 100000000
+
+# Regime Overrides (Flattened Keys - apply_regime_parameters에서 selection/allocation/exploration으로 분리 반영)
+regime_overrides:
+  R1_STRONG_UP:
+    max_positions: 1
+    min_candidates: 3
+    gate_score: 0.02
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R2_UP:
+    max_positions: 1
+    min_candidates: 3
+    gate_score: 0.01
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R3_UP_BOX:
+    max_positions: 1
+    min_candidates: 3
+    gate_score: 0.00
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R4_BOX:
+    max_positions: 1
+    min_candidates: 3
+    gate_score: 0.00
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R5_DOWN_BOX:
+    max_positions: 1
+    min_candidates: 2
+    gate_score: 0.00
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R6_DOWN:
+    max_positions: 1
+    min_candidates: 2
+    gate_score: 0.00
+    champion_budget: 1.00
+    exploration_fraction: 0.00
+
+  R7_CRASH:
+    max_positions: 0
+    min_candidates: 0
+    gate_score: 0.00
+    champion_budget: 0.00
+    exploration_fraction: 0.00

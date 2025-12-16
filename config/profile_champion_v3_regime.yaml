@@ -1,0 +1,78 @@
+# Champion Rule v3.0 - Regime-Aware Tiered Allocation
+
+universe:
+  file: "GARAM_Data/real_universe.csv"
+
+scores:
+  file: "GARAM_Data/real_scores_2024.csv"
+  score_id: "momentum_6m"
+
+selection:
+  gate_score: 0.15 # default
+  max_positions: 2 # default: Champion + Co-Champion
+  challenger_pool_size: 10 # Top N candidates for exploration
+
+allocation:
+  scheme: "tiered" # Champion -> Co-Champion -> Challengers
+  target_gross_exposure: 1.0
+  champion_budget: 0.80 # default: 80% of NAV to Champion engine
+
+  # Champion vs Co-Champion tilt
+  tilt_threshold: 0.10 # score gap to start tilting
+  tilt_fraction: 0.25 # shift 25% of weaker champion's slot
+
+exploration:
+  enabled: true
+  exploration_fraction: 0.20 # default: 20% of weakest champion
+  switch_threshold: 0.10 # relative performance gap to promote/demote
+
+execution:
+  rebalance_frequency: "daily"
+  max_turnover_per_day: 1.0
+  min_trade_size_pct: 0.02
+
+capital:
+  initial_equity: 100000000
+
+regime_overrides:
+  R1_STRONG_UP:
+    champion_budget: 0.95
+    max_positions: 2
+    exploration_fraction: 0.05
+    gate_score: 0.25
+
+  R2_UP:
+    champion_budget: 0.90
+    max_positions: 2
+    exploration_fraction: 0.10
+    gate_score: 0.20
+
+  R3_UP_BOX:
+    champion_budget: 0.80
+    max_positions: 2
+    exploration_fraction: 0.25
+    gate_score: 0.15
+
+  R4_BOX:
+    champion_budget: 0.60
+    max_positions: 2
+    exploration_fraction: 0.20
+    gate_score: 0.10
+
+  R5_DOWN_BOX:
+    champion_budget: 0.50
+    max_positions: 2
+    exploration_fraction: 0.20
+    gate_score: 0.15
+
+  R6_DOWN:
+    champion_budget: 0.30
+    max_positions: 1
+    exploration_fraction: 0.10
+    gate_score: 0.20
+
+  R7_CRASH:
+    champion_budget: 0.10
+    max_positions: 0
+    exploration_fraction: 0.00
+    gate_score: 0.30

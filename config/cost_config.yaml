@@ -1,0 +1,32 @@
+# Cost Model Configuration
+# Transaction costs for different markets and trading styles
+
+kr_intraday:
+  commission_rate: 0.00015 # 0.015% commission
+  slippage_bps: 5 # 5 basis points slippage
+  min_commission: 0 # No minimum commission
+  market_impact_factor: 0.1 # Market impact coefficient
+
+kr_swing:
+  commission_rate: 0.00015 # 0.015% commission
+  slippage_bps: 10 # 10 basis points slippage
+  min_commission: 0
+  market_impact_factor: 0.05
+
+us_intraday:
+  commission_rate: 0.0 # Zero commission (modern brokers)
+  slippage_bps: 3 # 3 basis points slippage
+  min_commission: 0
+  market_impact_factor: 0.08
+
+us_swing:
+  commission_rate: 0.0 # Zero commission
+  slippage_bps: 10 # 10 basis points slippage
+  min_commission: 0
+  market_impact_factor: 0.03
+
+# Slippage model parameters
+slippage_model:
+  volatility_multiplier: 1.5 # Increase slippage in high volatility
+  volume_threshold: 0.01 # % of daily volume threshold
+  large_order_penalty: 2.0 # Multiplier for large orders

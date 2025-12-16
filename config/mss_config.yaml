@@ -1,0 +1,61 @@
+# Market Sensing System (MSS) Configuration
+# 시장 감지 시스템 설정
+# 역할: 시장 상황에 따라 메인 엔진의 출력을 조절 (Turbo vs ABS)
+
+system:
+  enabled: true
+  update_frequency: "daily" # daily or real-time
+  authority_weight: 2.0 # MSS의 영향력 가중치 (Alpha Engine 대비 2배, 즉 200% 권한)
+
+# 운영 모드 임계값 (Score 범위: -1.0 ~ +1.0)
+# Score > turbo_threshold: Turbo Mode (비중 확대, 공격적 진입)
+# Score < abs_threshold: ABS Mode (비중 축소, 신규 진입 차단)
+thresholds:
+  turbo_threshold: 0.5 # 점수가 0.5 이상이면 Turbo 가동
+  abs_threshold: -0.3 # 점수가 -0.3 이하이면 ABS(브레이크) 가동
+  emergency_threshold: -0.7 # -0.7 이하이면 긴급 정지 (All Cash or Hedge)
+
+# 지표 구성 및 가중치 (총합 100%)
+indicators:
+  # 1. 거시경제 (Macro) - 30%
+  macro:
+    weight: 0.3
+    components:
+      exchange_rate_trend: 0.5 # 환율 추세 (안정/하락 시 긍정)
+      interest_rate_spread: 0.5 # 장단기 금리차
+
+  # 2. 시장 내부 (Internals) - 40%
+  market:
+    weight: 0.4
+    components:
+      kospi_trend: 0.4 # 코스피 20일선 추세
+      market_breadth: 0.3 # 상승 종목 비율 (ADR 등)
+      volatility_vix: 0.3 # 변동성 지수 (낮을수록 긍정)
+
+  # 3. 주도 섹터 (Sector) - 30%
+  sector:
+    weight: 0.3
+    components:
+      semiconductor_cycle: 0.6 # 반도체 사이클 (핵심)
+      foreign_flow: 0.4 # 외국인 수급
+
+# 모드별 행동 수칙 (Action Rules)
+actions:
+  TURBO:
+    position_size_multiplier: 1.5 # 포지션 크기 1.5배 확대
+    max_positions_override: 5 # 최대 종목 수 5개로 확장
+    trailing_stop_loosen: 1.2 # 트레일링 스탑 여유 20% 더 줌
+
+  NORMAL:
+    position_size_multiplier: 1.0
+    max_positions_override: null # 기본값 사용
+    trailing_stop_loosen: 1.0
+
+  ABS:
+    position_size_multiplier: 0.5 # 포지션 크기 절반 축소
+    block_new_entry: true # 신규 진입 금지 (기존 관리만)
+    trailing_stop_tighten: 0.8 # 트레일링 스탑 20% 더 타이트하게
+
+  EMERGENCY:
+    position_size_multiplier: 0.0 # 진입 불가
+    force_liquidate_all: true # 전량 현금화

@@ -1,0 +1,4 @@
+strategy,total_return,annualized_return,max_drawdown,sharpe,trade_count
+MeanReversion,0.0,0.0,0.0,0,0
+Breakout,0.0,0.0,0.0,0,0
+FearContra,0.0,0.0,0.0,0,0

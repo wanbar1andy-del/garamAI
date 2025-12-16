@@ -1,0 +1,41 @@
+# garam_core/config/alpha_catalog.yaml
+alphas:
+  - id: "A1_trend_mom_6m"
+    enabled: false
+    description: "Long-term momentum (Research: Low efficiency in current regime)"
+
+  - id: "A2_vol_breakout"
+    enabled: false
+    description: "Standard breakout (Research: Low edge)"
+
+  - id: "A5_edge_score"
+    enabled: true
+    description: "Composite Edge Score (Mom+Acc+Vol+Shock)"
+    weight: 1.0
+    regime_weights:
+      BULL: 1.2
+      NEUTRAL: 1.0
+      BEAR: 0.5
+      CRASH: 0.0
+
+  - id: "A6_volume_pressure"
+    enabled: true
+    description: "Volume buying pressure accumulation"
+    weight: 0.8
+    regime_weights:
+      BULL: 1.0
+      NEUTRAL: 0.8
+      BEAR: 0.2
+
+  - id: "A7_intraday_reversal"
+    enabled: true
+    type: "extreme_reversal"
+    description: "Intraday sharp reversal on extreme heat"
+    filters:
+      - condition: "normalized_heat_rank >= 0.70" # Top 30% Heat
+      - condition: "volume_pressure > 0.5"
+    weight: 1.5
+    regime_weights:
+      BULL: 0.8
+      NEUTRAL: 1.5 # Stronger in sideways
+      BEAR: 2.0 # Strongest in bear bounces

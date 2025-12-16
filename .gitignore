@@ -1,0 +1,9 @@
+GARAM_Data/
+garamdata/
+cache/
+results/
+logs/
+backup/
+.vscode/
+__pycache__/
+*.pyc

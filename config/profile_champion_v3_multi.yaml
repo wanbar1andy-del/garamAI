@@ -1,0 +1,95 @@
+# config/profile_champion_v3_multi.yaml
+
+profile_id: champion_v3_multi
+name: "Champion v3 Multi (Multi-Champion + Exploration)"
+
+mode: portfolio # Portfolio-level strategy
+engine: champion_router_v3 # Engine version
+
+universe:
+  universe_id: top50_liquid_kr # Top 50 Liquid Universe
+  source: file # Based on universe_file
+  universe_file: "real_universe.csv" # Relative to DATA_DIR
+  min_price: 1000
+  min_avg_volume_20d: 100000
+
+scores:
+  score_id: momentum_6m # 6-Month Momentum
+  source: file
+  scores_file: "real_scores_2024.csv" # Relative to DATA_DIR
+  refresh: daily
+  direction: long_only
+
+rebalance:
+  frequency: daily
+  time: "09:05"
+  intraday_rebalance: false
+
+capital:
+  initial_equity: 100000000
+  target_gross_exposure: 1.0 # Always aim for 100% exposure
+  max_gross_exposure: 1.0 # No leverage
+  max_position_exposure: 0.5 # Max 50% per position (Safety)
+
+selection:
+  mode: multi_champion
+
+  gate_score: 0.20 # Minimum Score Gate
+  ranking_metric: momentum_6m
+  max_positions: 3 # Max Champions (e.g. 3)
+  min_positions: 0 # Allow 100% Cash if no candidates
+  challenger_pool_size: 10 # Top 10 Challengers to monitor
+
+  # Champion/Challenger Buffer
+  champion_score_buffer: 0.02 # Challenger must beat Champion by this much
+
+allocation:
+  scheme: equal # equal | score_proportional
+  target_gross_exposure: 1.0
+  min_weight: 0.05
+  max_weight: 0.5
+  cash_buffer: 0.00
+
+exploration:
+  enabled: true
+
+  # Exploration Settings
+  exploration_fraction: 0.25 # Use 25% of position for exploration
+  max_parallel_challengers: 2 # Max 2 challengers at a time
+
+  # Switch Criteria
+  switch_threshold: 0.05 # Score advantage required to switch
+
+  # Evaluation Period (Bars)
+  min_eval_bars: 240 # ~1 Day
+  max_eval_bars: 1200 # ~5 Days
+
+  # Cooldown
+  cooldown_after_switch_bars: 120
+
+exit_rules:
+  position:
+    hard_stop_loss_pct: 0.20
+    trailing_stop_atr_mult: 3.0
+    min_holding_bars: 60
+    take_profit_pct: null
+
+  portfolio:
+    max_drawdown_pct: 0.40
+    max_daily_loss_pct: 0.10
+    rebalance_on_regime_change: true
+
+turnover:
+  max_turnover_per_day: 0.50
+  min_trade_size_pct: 0.01
+
+fees:
+  commission_bps: 15
+  slippage_bps: 20
+  tax_bps: 0
+
+ai_assist:
+  enabled: true
+  engine: gpt_css
+  role: meta_optimizer
+  cadence_days: 7

@@ -1,0 +1,41 @@
+>>> Starting Turbo V3 Verification (B-6 Locked)...
+Target: 005930
+Fill: NEXT_OPEN
+Cost: Slippage=0.00025, Tax=0.0023
+Turbo: TargetVol=0.001, MaxMult=2.5
+[DEBUG-REPLAY] Index Type after Fix: <class 'pandas.core.indexes.datetimes.DatetimeIndex'>
+[DEBUG-REPLAY] Index Head: DatetimeIndex(['2024-12-02 09:00:00+09:00', '2024-12-02 09:01:00+09:00',
+               '2024-12-02 09:02:00+09:00', '2024-12-02 09:03:00+09:00',
+               '2024-12-02 09:04:00+09:00'],
+              dtype='datetime64[ns, Asia/Seoul]', name='date', freq=None)
+----------------------------------------
+Total Return: -67.08%
+Max Drawdown: -67.52%
+Trade Count: 738
+----------------------------------------
+[DEBUG] Loading minute data from: c:\garam\garam\GARAM_Data\history\minute\005930.csv
+[DEBUG] Loaded minute_df: 95815 rows
+[DEBUG] Reconstructed Trades Entry Time Head:
+0   2024-12-02 13:06:00+09:00
+1   2024-12-02 14:57:00+09:00
+2   2024-12-03 09:25:00+09:00
+3   2024-12-03 10:23:00+09:00
+4   2024-12-03 10:36:00+09:00
+Name: entry_time, dtype: datetime64[ns, UTC+09:00]
+[DEBUG] Minute DF Index Head:
+DatetimeIndex(['2025-12-12 15:30:00', '2025-12-12 15:19:00',
+               '2025-12-12 15:18:00', '2025-12-12 15:17:00',
+               '2025-12-12 15:16:00'],
+              dtype='datetime64[ns]', name='date', freq=None)
+[DEBUG] Minute DF TZ: None
+[DEBUG] Minute Index Head: DatetimeIndex(['2025-12-12 15:30:00', '2025-12-12 15:19:00',
+               '2025-12-12 15:18:00'],
+              dtype='datetime64[ns]', name='date', freq=None)
+[DEBUG] Minute Index Tz: None
+[DEBUG] Trade Entry Head: 0   2024-12-02 13:06:00+09:00
+1   2024-12-02 14:57:00+09:00
+2   2024-12-03 09:25:00+09:00
+Name: entry_time, dtype: datetime64[ns, UTC+09:00]
+[PASS] Return Consistency Check OK
+[SSOT] Report generated at: c:\garam\garam\garam_core\reports\verify_turbo_v3_005930_20251214_214549
+[SSOT] Latest linked: c:\garam\garam\garam_core\reports\latest.json

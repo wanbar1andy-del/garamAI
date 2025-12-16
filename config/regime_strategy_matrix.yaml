@@ -1,0 +1,18 @@
+GREEN:
+  params:
+    window_fast: 10
+    window_slow: 20
+  sharpe: 0.71
+  strategy: TrendFollowing
+RED:
+  params:
+    std_dev: 1.5
+    window: 40
+  sharpe: 0.73
+  strategy: MeanReversion
+YELLOW:
+  params:
+    window_fast: 15
+    window_slow: 20
+  sharpe: 0.81
+  strategy: TrendFollowing

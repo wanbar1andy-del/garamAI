@@ -1,0 +1,13 @@
+# garam_core/config/risk_policies.yaml
+global_risk:
+  max_daily_loss_percent: 0.05 # Stop trading if daily loss > 5%
+  max_leverage: 3.0 # Hard cap on leverage
+  max_drawdown_hard_stop: 0.15 # System halt if account DD > 15%
+
+symbol_risk:
+  max_position_size_percent: 0.30 # Max 30% capital in one symbol
+  min_liquidity_daily: 10000000000 # Min 10B KRW daily volume
+
+execution_guard:
+  max_order_notional: 50000000 # Max order size 50M KRW
+  fat_finger_limit: 0.10 # Reject orders > 10% separate from market price

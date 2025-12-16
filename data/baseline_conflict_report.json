@@ -1,0 +1,15 @@
+{
+    "total_signals": 187,
+    "executed_count": 40,
+    "executed_ratio": 0.21390374331550802,
+    "block_counts": {
+        "Filter": 140,
+        "Risk": 7
+    },
+    "filter_reasons": {
+        "RegimeFilter": 140
+    },
+    "risk_reasons": {
+        "RiskLimitHit": 7
+    }
+}

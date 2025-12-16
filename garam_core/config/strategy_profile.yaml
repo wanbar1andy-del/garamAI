@@ -1,0 +1,77 @@
+# garam_core/config/strategy_profile.yaml
+profiles:
+  - name: "PROFIT_FIRST_V1_AGGRESSIVE"
+    description: "Profit-First logic with aggressive edge targeting. No cooldown, high turbo."
+    signal_type: "PROFIT_FIRST"
+    signal_params:
+      momentum_n: 60
+      base_threshold: 0.01
+      threshold_min: 0.003
+      threshold_max: 0.03
+      cooldown_bars: 0
+    turbo_type: "EDGE_TURBO"
+    turbo_params:
+      base_mult: 1.0
+      max_mult: 3.0
+      target_vol: 0.015
+    exit_type: "EDGE_EXIT"
+    exit_params:
+      edge_exit_th: 0.25
+      confirm_bars: 3
+    pm_params:
+      tp1: 0.006
+      tp2: 0.012
+      trail_from_peak: 0.006
+    fear_opp_params:
+      fear_spike: 0.8
+      drop_min:
+        -0.02 # YAML had 0.02 (positive), code expects negative?
+        # drop_min in code is "-0.008", comparison is "drop <= drop_min".
+        # If set to 0.02, drop (negative) <= 0.02 is always true?
+        # Code: `drop = (px_now/px_ref) - 1.0`. Usually negative.
+        # If user sets 0.02, it acts as loose filter?
+        # Let's set to -0.02 to be safe and logical.
+      rebound_confirm: 0.005
+      bonus_mult: 0.5
+    fear_gate:
+      block_entry_above: 0.95
+      multiplier_cap: 0.5
+
+  - name: "STANDARD_CHAMPION_V3"
+    description: "Standard Champion V3 logic. Conservative."
+    signal_type: "STANDARD"
+    signal_params:
+      buy_threshold: 0.015
+      sell_threshold: -0.01
+      cooldown_bars: 10
+    turbo_type: "STANDARD"
+    turbo_params:
+      length: 20
+      multiplier: 2.0
+    exit_type: "NONE"
+    pm_params: null
+    fear_gate:
+      block_entry_above: 0.90
+      multiplier_cap: 1.0
+
+  - name: "FEAR_OPPORTUNITY_ONLY"
+    description: "Only trades on extreme fear opportunities."
+    signal_type: "PROFIT_FIRST"
+    signal_params:
+      momentum_n: 60
+      base_threshold: 0.05 # Very high, effectively blocks normal signals
+      threshold_min: 0.05
+      threshold_max: 0.10
+      cooldown_bars: 0
+    turbo_type: "EDGE_TURBO"
+    turbo_params:
+      base_multiplier: 1.0
+      max_multiplier: 3.0
+    fear_opp_params:
+      fear_spike: 0.75
+      drop_min: -0.015
+      rebound_confirm: 0.005
+      bonus_mult: 1.0
+    fear_gate:
+      block_entry_above: 1.0 # Allow all, controlled by signal
+      multiplier_cap: 1.0

@@ -1,0 +1,116 @@
+# DGE Hybrid Playbook v1.0
+# Defines Regimes, Modules, and Intensity Rules
+
+regimes:
+  # --- Up Trend (Attack) ---
+  R1_STRONG_UP_BREAKOUT:
+    description: "High Trend, High Volatility"
+    module: M_ATTACK_V3_SUHV
+    intensity_step: 1.0  # Fast Ramp
+    
+  R2_STRONG_UP_GRIND:
+    description: "High Trend, Low/Med Volatility"
+    module: M_ATTACK_V3_SUGRIND
+    intensity_step: 0.7  # Moderate
+    
+  # --- Sideways (Defense) ---
+  R3_SIDEWAYS_RANGE_LOWVOL:
+    description: "Flat Trend, Low Volatility"
+    module: M_RANGE_V2_LV
+    intensity_step: 0.6  # Conservative
+    
+  R4_SIDEWAYS_RANGE_HIGHVOL:
+    description: "Flat Trend, High Volatility (Choppy)"
+    module: M_DEFENSE_LITE
+    intensity_step: 0.2  # Minimal
+    
+  # --- Down Trend (Balanced/Attack) ---
+  R5_WEAK_DOWN_DRIFT:
+    description: "Weak Down Trend"
+    module: M_DOWN_BALANCED
+    intensity_step: 0.5
+    
+  R6_STRONG_DOWN_CRASH:
+    description: "Strong Down Trend (Crash)"
+    module: M_DOWN_ATTACK
+    intensity_step: 0.8  # Aggressive Short
+    
+  # --- Event / Risk-Off ---
+  R7_EVENT_RISK_OFF:
+    description: "Event Day or Unknown Risk"
+    module: M_OFF
+    intensity_step: 0.0
+
+modules:
+  # --- v3 Attack Modules ---
+  M_ATTACK_V3_SUHV:
+    base:
+      mode: "Attack"
+      time_stop_min: 120
+      target_R: 3.0
+      stop_R: 1.2
+      risk_pct_base: 0.015  # 1.5%
+      max_positions: 5
+      scale_in_steps: 3
+      scale_out_steps: 2
+      
+  M_ATTACK_V3_SUGRIND:
+    base:
+      mode: "Attack"
+      time_stop_min: 180
+      target_R: 2.5
+      stop_R: 1.0
+      risk_pct_base: 0.010  # 1.0%
+      max_positions: 5
+      scale_in_steps: 3
+      scale_out_steps: 3
+
+  # --- v2 Range Modules ---
+  M_RANGE_V2_LV:
+    base:
+      mode: "Defense"
+      time_stop_min: 30
+      target_R: 1.5
+      stop_R: 1.0
+      risk_pct_base: 0.010  # 1.0%
+      max_positions: 10
+      scale_in_steps: 2
+      scale_out_steps: 2
+
+  # --- Down Modules ---
+  M_DOWN_BALANCED:
+    base:
+      mode: "Balanced"
+      time_stop_min: 60
+      target_R: 2.0
+      stop_R: 1.0
+      risk_pct_base: 0.010
+      max_positions: 5
+      
+  M_DOWN_ATTACK:
+    base:
+      mode: "Attack"
+      time_stop_min: 30
+      target_R: 3.0
+      stop_R: 1.2
+      risk_pct_base: 0.010
+      max_positions: 3
+
+  # --- Defense / Off ---
+  M_DEFENSE_LITE:
+    base:
+      mode: "Defense"
+      time_stop_min: 15
+      target_R: 1.0
+      stop_R: 0.7
+      risk_pct_base: 0.003  # 0.3%
+      max_positions: 3
+      
+  M_OFF:
+    base:
+      mode: "Off"
+      time_stop_min: 10
+      target_R: 0.5
+      stop_R: 0.5
+      risk_pct_base: 0.0
+      max_positions: 0

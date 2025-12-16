@@ -1,0 +1,78 @@
+# Hybrid v2 Full Attack Playbook
+# R1/R2/R5/R6 -> Attack (v3)
+# R3 -> Defense (v2)
+# R4/R7 -> Off
+# Intensity Fixed at 1.0
+
+regimes:
+  R1_STRONG_UP_BREAKOUT:
+    module: M_ATTACK_V3_SUHV
+    intensity_step: 1.0
+  R2_STRONG_UP_GRIND:
+    module: M_ATTACK_V3_SUGRIND
+    intensity_step: 1.0
+  R3_SIDEWAYS_RANGE_LOWVOL:
+    module: M_RANGE_V2_LV
+    intensity_step: 1.0
+  R4_SIDEWAYS_RANGE_HIGHVOL:
+    module: M_OFF
+    intensity_step: 0.0
+  R5_WEAK_DOWN_DRIFT:
+    module: M_ATTACK_V3_SUGRIND # Use Attack logic for Down Trend too? User said "v3 Attack" for R5/R6.
+    # But v3 is Long Only?
+    # M_ATTACK_V3_SUGRIND logic in DGEHybridStrategyV1 checks for LONG/SHORT based on FM/ORB.
+    # If v3 supports Short, we use it.
+    # Let's check DGEHybridStrategyV1 logic for M_ATTACK_V3.
+    # It checks `if "ATTACK" in config.module_id`.
+    # And `if state.fm <= -0.5 ... entry_signal = "SHORT"`.
+    # So yes, it supports Short.
+    intensity_step: 1.0
+  R6_STRONG_DOWN_CRASH:
+    module: M_ATTACK_V3_SUHV
+    intensity_step: 1.0
+  R7_EVENT_RISK_OFF:
+    module: M_OFF
+    intensity_step: 0.0
+
+modules:
+  M_ATTACK_V3_SUHV:
+    base:
+      mode: "Attack"
+      time_stop_min: 120
+      target_R: 3.0
+      stop_R: 1.2
+      risk_pct_base: 0.015
+      max_positions: 5
+      scale_in_steps: 3
+      scale_out_steps: 2
+
+  M_ATTACK_V3_SUGRIND:
+    base:
+      mode: "Attack"
+      time_stop_min: 180
+      target_R: 2.5
+      stop_R: 1.0
+      risk_pct_base: 0.010
+      max_positions: 5
+      scale_in_steps: 3
+      scale_out_steps: 3
+
+  M_RANGE_V2_LV:
+    base:
+      mode: "Defense"
+      time_stop_min: 30
+      target_R: 1.5
+      stop_R: 1.0
+      risk_pct_base: 0.010
+      max_positions: 10
+      scale_in_steps: 2
+      scale_out_steps: 2
+
+  M_OFF:
+    base:
+      mode: "Off"
+      time_stop_min: 10
+      target_R: 0.5
+      stop_R: 0.5
+      risk_pct_base: 0.0
+      max_positions: 0

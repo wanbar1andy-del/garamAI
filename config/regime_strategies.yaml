@@ -1,0 +1,53 @@
+# Regime to Strategy Mapping
+# Defines which strategy to use in each market regime.
+
+default_strategy: "TrendFollow_MA"
+
+regimes:
+  BULL_LOW_VOL:
+    strategy_id: "TrendFollow_MA"
+    params:
+      fast: 20
+      slow: 60
+    risk_multiplier: 1.2
+    description: "Steady uptrend, leverage trend following."
+
+  BULL_HIGH_VOL:
+    strategy_id: "TrendFollow_MA"
+    params:
+      fast: 10
+      slow: 30
+    risk_multiplier: 0.8
+    description: "Volatile uptrend, faster reaction needed."
+
+  BEAR_LOW_VOL:
+    strategy_id: "MeanReversion_RSI"
+    params:
+      period: 14
+      overbought: 70
+      oversold: 30
+    risk_multiplier: 0.5
+    description: "Steady downtrend, trade reversals cautiously."
+
+  BEAR_HIGH_VOL:
+    strategy_id: "MeanReversion_RSI"
+    params:
+      period: 7
+      overbought: 80
+      oversold: 20
+    risk_multiplier: 0.3
+    description: "Crash/Panic, extreme reversals only."
+
+  CRISIS:
+    strategy_id: "Cash"
+    params: {}
+    risk_multiplier: 0.0
+    description: "Extreme stress, stay in cash."
+
+  UNCERTAIN:
+    strategy_id: "TrendFollow_MA"
+    params:
+      fast: 20
+      slow: 60
+    risk_multiplier: 0.5
+    description: "Uncertain regime, use default with low risk."

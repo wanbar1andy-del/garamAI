@@ -1,0 +1,12 @@
+{
+    "total_baseline_trades": 60,
+    "total_miracle_trades": 196,
+    "matched_count": 158,
+    "missed_count": 38,
+    "missed_ratio": 0.19387755102040816,
+    "avg_entry_gap_days": -137.373417721519,
+    "avg_pnl_gap": -0.02757276958296014,
+    "total_pnl_baseline": 1.131556352706783,
+    "total_pnl_miracle": 2.678087458320132,
+    "missed_pnl_sum": 0.3988758012222356
+}

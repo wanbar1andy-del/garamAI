@@ -1,0 +1,63 @@
+# config/profile_champion_v2_1_optimized.yaml
+
+profile_name: "champion_v2_1_optimized"
+description: "Champion v2 core + R3/R4 micro-regime guardrails + R5 cash-only"
+
+core:
+  base_profile: "champion_v2" # Inherit from v2
+  gate: 0.20 # Higher Gate for Quality
+  max_positions: 1 # Concentrated Bet (Champion of Champions)
+  compounding: true # Full Compounding
+
+regime_policy:
+  R1_STRONG_UP:
+    mode: "ACTIVE"
+    profile: "champion_v2"
+    note: "1-Year Backtest: v2 vs v3(Top2) identical. Maintain v2."
+
+  R2_GRIND_UP:
+    mode: "ACTIVE"
+    profile: "champion_v2"
+    note: "Grind Up: v2 profitable. No change."
+
+  R3_CHOP:
+    mode: "ACTIVE_WITH_GUARDRAIL"
+    profile: "champion_v2"
+    guardrail:
+      micro_ban:
+        - "MR_PANIC_DOWN" # Ban Panic Drops in Chop
+      comment: "Block panic patterns in sideways market."
+
+  R4_DOWN:
+    mode: "ACTIVE_WITH_GUARDRAIL"
+    profile: "champion_v2"
+    guardrail:
+      micro_ban:
+        - "MR_UNKNOWN" # Ban Unknown/Data Gaps
+      comment: "Allow counter-trend winners, but block unknown risks."
+
+  R5_STRONG_DOWN:
+    mode: "CASH_ONLY"
+    profile: "none"
+    guardrail:
+      trading_enabled: false
+      comment: "System Trading Disabled in Strong Down Trend."
+
+micro_regime:
+  definitions:
+    MR_UP_DRIFT:
+      description: "5d Up + Low/Mid Vol"
+    MR_UP_SPIKE:
+      description: "5d Up + High Vol"
+    MR_GRIND_DOWN:
+      description: "5d Down + Low/Mid Vol"
+    MR_PANIC_DOWN:
+      description: "5d Down + High Vol"
+    MR_FLAT_BOX:
+      description: "5d Flat + Low Vol"
+    MR_FLAT_NOISY:
+      description: "5d Flat + High Vol"
+    MR_MISC:
+      description: "Misc Patterns"
+    MR_UNKNOWN:
+      description: "Insufficient Data"

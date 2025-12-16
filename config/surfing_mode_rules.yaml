@@ -1,0 +1,58 @@
+uncertainty_thresholds:
+  low: 0.3
+  high: 0.7
+
+drawdown_thresholds:
+  warning: 0.10 # 10% DD
+  critical: 0.20 # 20% DD
+
+recent_expectancy_thresholds:
+  weak: 0.0 # R <= 0: 약함
+  strong: 0.2 # R >= 0.2: 강함
+
+mode_rules:
+  # SHIELD mode if high uncertainty or deep DD or DEATH regime
+  shield:
+    conditions:
+      - regime == "DEATH"
+      - uncertainty >= high
+      - recent_drawdown_pct >= critical
+
+  # ATTACK mode if EAT regime, low uncertainty, strong expectancy
+  attack:
+    conditions:
+      - regime == "EAT"
+      - uncertainty <= low
+      - recent_expectancy_R >= strong
+
+  # otherwise CRUISE
+  cruise:
+    default: true
+
+mode_parameters:
+  SHIELD:
+    risk_multiplier: 0.3
+    exit_aggressiveness: 0.8
+    allocation_kr: 0.2
+    allocation_us: 0.4
+    allocation_cash: 0.4
+
+  CRUISE:
+    risk_multiplier: 1.0
+    exit_aggressiveness: 0.5
+    allocation_kr: 0.4
+    allocation_us: 0.4
+    allocation_cash: 0.2
+
+  ATTACK:
+    risk_multiplier: 1.5
+    exit_aggressiveness: 0.3
+    allocation_kr: 0.6
+    allocation_us: 0.3
+    allocation_cash: 0.1
+
+surf_state_rules:
+  single_model:
+    max_uncertainty: 0.4
+  multi_model:
+    min_uncertainty: 0.4

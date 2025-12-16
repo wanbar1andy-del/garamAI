@@ -1,0 +1,47 @@
+# Standard Profile (Base Case)
+# - Universe: Top 300
+# - Leverage: 1.0x (No Turbo)
+# - Strategy: Conservative
+
+universe:
+  file: "GARAM_Data/real_universe_300.csv"
+
+scores:
+  file: "GARAM_Data/real_scores_2024.csv"
+  score_id: "momentum_6m"
+
+selection:
+  gate_score: 0.0
+  max_positions: 5
+  min_candidates: 5
+  challenger_pool_size: 2
+
+allocation:
+  scheme: "score_power"
+  target_gross_exposure: 1.0 # 100% Invested
+  champion_budget: 0.90
+  score_floor: 0.0
+  score_gamma: 1.0 # Linear weighting
+
+exploration:
+  enabled: true
+  exploration_fraction: 0.05
+  switch_threshold: 0.10
+
+execution:
+  rebalance_frequency: "daily"
+  max_turnover_per_day: 1.0
+  min_trade_size_pct: 0.02
+  
+capital:
+  initial_equity: 100000000
+
+regime_overrides:
+  # Standard Logic: Always 1.0x, just vary concentration
+  R1_STRONG_UP: { max_positions: 3 }
+  R2_UP: { max_positions: 3 }
+  R3_UP_BOX: { max_positions: 5 }
+  R4_BOX: { max_positions: 5 }
+  R5_DOWN_BOX: { max_positions: 5 }
+  R6_DOWN: { max_positions: 5, target_gross_exposure: 0.5 } # Defensive
+  R7_CRASH: { target_gross_exposure: 0.0 }

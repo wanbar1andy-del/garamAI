@@ -1,0 +1,6 @@
+# garam_core/config/feature_policy.yaml
+fear:
+  required: false # true면 fear 없으면 FAIL(거래 중단)
+  fallback_score: 0.5 # required=false일 때 결측시 중립값
+  freshness_max_hours: 24 # 최신 업데이트 허용 시간
+  max_missing_ratio: 0.20 # 조인 커버리지 최소 80%

@@ -1,0 +1,21 @@
+# garam_core/config/paths.yaml
+# Project Directory Structure
+data_root: "../GARAM_Data"
+logs_root: "../GARAM_Data/logs"
+reports_root: "reports"
+config_root: "garam_core/config"
+engine_root: "garam_core/engine"
+live_root: "garam_core/live"
+replay_root: "garam_core/replay"
+
+# Specific File Paths (Relative to Project Root)
+strategy_profile: "garam_core/config/strategy_profile.yaml"
+strategy_menu: "garam_core/config/strategy_menu.yaml"
+alpha_catalog: "garam_core/config/alpha_catalog.yaml"
+risk_policies: "garam_core/config/risk_policies.yaml"
+
+# Live Trading Data (GARAM_Data mapped)
+live_data_root: "GARAM_Data"
+live_logs: "GARAM_Data/logs"
+live_evidence: "GARAM_Data/evidence"
+live_flags: "GARAM_Data/flags"

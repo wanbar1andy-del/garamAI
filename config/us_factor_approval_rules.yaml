@@ -1,0 +1,16 @@
+defaults:
+  min_sharpe: 0.7
+  max_drawdown: 0.30   # 30%
+  min_cagr: 0.08       # 8% per year
+  min_win_rate: 0.45
+  min_sample_years: 10
+
+strategies:
+  US_MOM_12_1:
+    min_sharpe: 0.8
+    max_drawdown: 0.35
+  US_VAL:
+    min_sharpe: 0.7
+  US_MULTI_MVQL:
+    min_sharpe: 0.9
+    max_drawdown: 0.25

@@ -1,0 +1,145 @@
+{
+  "scan_time": "2025-12-08 18:00:30.295583",
+  "project_root": "C:/garam/garam",
+  "data_locations": {},
+  "universe_files": {
+    "real_universe.csv": {
+      "path": "GARAM_Data\\real_universe.csv",
+      "symbols_count": 51,
+      "columns": [
+        "symbol"
+      ],
+      "size_bytes": 416
+    },
+    "real_universe_200.csv": {
+      "path": "GARAM_Data\\real_universe_200.csv",
+      "symbols_count": 200,
+      "columns": [
+        "Code",
+        "ISU_CD",
+        "Name",
+        "Market",
+        "Dept",
+        "Close",
+        "ChangeCode",
+        "Changes",
+        "ChagesRatio",
+        "Open",
+        "High",
+        "Low",
+        "Volume",
+        "Amount",
+        "Marcap",
+        "Stocks",
+        "MarketId"
+      ],
+      "size_bytes": 26043
+    },
+    "real_universe_400.csv": {
+      "path": "GARAM_Data\\real_universe_400.csv",
+      "symbols_count": 400,
+      "columns": [
+        "Code",
+        "ISU_CD",
+        "Name",
+        "Market",
+        "Dept",
+        "Close",
+        "ChangeCode",
+        "Changes",
+        "ChagesRatio",
+        "Open",
+        "High",
+        "Low",
+        "Volume",
+        "Amount",
+        "Marcap",
+        "Stocks",
+        "MarketId"
+      ],
+      "size_bytes": 52635
+    }
+  },
+  "score_files": {
+    "real_scores_2024.csv": {
+      "path": "GARAM_Data\\real_scores_2024.csv",
+      "date_range": "2024-12-02 to 2025-12-01",
+      "days": 364,
+      "unique_symbols": 46,
+      "total_rows": 10844,
+      "size_bytes": 317959
+    }
+  },
+  "price_data": {
+    "daily_dir": "g:\\내 드라이브\\garamdata\\history\\daily",
+    "files_count": 429,
+    "sample_file": "005930_daily.csv",
+    "columns": [
+      "date",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "change"
+    ],
+    "sample_date_range": "2024-01-02 to 2025-12-08",
+    "sample_days": 471
+  },
+  "kiwoom": {
+    "scripts": [
+      "collect_kr_intraday_kiwoom.py",
+      "kiwoom_login_ui.py",
+      "fetch_history_kiwoom.py",
+      "fetch_intraday_kiwoom.py",
+      "test_kiwoom_connection.py",
+      "kiwoom_maintenance.py"
+    ],
+    "ready_flag_exists": true,
+    "flag_content": "Connected at 2025-12-08 13:42:10.597040"
+  },
+  "dashboard": {
+    "api_files": [
+      "server_fixed.py"
+    ],
+    "ui_exists": true,
+    "index_html": true,
+    "js_files": [
+      "dashboard.js",
+      "turbo_control.js"
+    ],
+    "css_files": [
+      "dashboard.css",
+      "turbo_control.css",
+      "account_summary.css"
+    ]
+  },
+  "portfolio": {
+    "cash": 104274185.0,
+    "equity": 198180785.0,
+    "positions_count": 2,
+    "last_update": null
+  },
+  "config_files": [
+    "us_factor_approval_rules.yaml",
+    "surfing_mode_rules.yaml",
+    "cost_config.yaml",
+    "kr_shadow_universe.yaml",
+    "regime_strategies.yaml",
+    "env.yaml",
+    "risk_live_paper.yaml",
+    "regime_strategy_matrix.yaml",
+    "miracle_strategy_matrix.yaml",
+    "playbook_v1.yaml",
+    "playbook_pure_v2.yaml",
+    "playbook_pure_v3.yaml",
+    "playbook_v2_attack.yaml",
+    "playbook_hybrid_v3.yaml",
+    "playbook_hybrid_v3_optimized.yaml",
+    "profile_champion_v2.yaml",
+    "profile_safe.yaml",
+    "profile_champion_v2_1_optimized.yaml",
+    "profile_champion.yaml",
+    "profile_champion_v3_multi.yaml"
+  ]
+}

@@ -1,0 +1,12 @@
+>>> Starting Turbo V3 Verification (B-6 Locked)...
+Target: 005930
+Fill: NEXT_OPEN
+Cost: Slippage=0.00025, Tax=0.0023
+Turbo: TargetVol=0.001, MaxMult=2.5
+----------------------------------------
+Total Return: -67.08%
+Max Drawdown: -67.52%
+Trade Count: 738
+----------------------------------------
+[DEBUG] Loading minute data from: c:\garam\garam\GARAM_Data\history\minute\005930.csv
+[DEBUG] Loaded minute_df: 95815 rows

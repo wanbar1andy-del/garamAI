@@ -1,0 +1,210 @@
+# Alpha Catalog
+# Defines the "Constitution" of Alphas in GARAM.
+# Each alpha is a "State of Winning Probability", not a stock.
+
+alphas:
+  - id: A1_trend_mom_6m
+    name: "6M Cross-sectional Momentum"
+    type: "cross_sectional_mom"
+    description: "Classic relative strength based on 6-month returns. Primary engine for Trend Regimes."
+    module: "a1_trend_mom" # Explicit module override if needed, or rely on ID convention
+    data:
+      horizon_days: 120
+      rebalance_freq: "daily"
+      features: ["price_history_6m", "volume"]
+    regime_weights:
+      R1_STRONG_UP: 1.0
+      R2_UP: 0.8
+      R3_UP_BOX: 0.2
+      R4_BOX: 0.0
+      R5_DOWN_BOX: 0.0
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 60
+      min_excess_return: 0.0
+      min_ir: 0.2
+      max_mdd_rel_benchmark: 1.5
+    state: ACTIVE
+    note: "Primary Trend Alpha. Re-enabled for Multi-Alpha Engine."
+
+  - id: A2_intraday_trend
+    name: "Intraday Trend Alpha"
+    type: "intraday_trend"
+    description: >
+      전일 및 직전 3일의 장중 추세 일관성(오전/오후 동일 방향)과
+      종가 위치, 거래량을 결합한 단기 추세 알파.
+      R1/R2에서 Champion 후보를 선별하는 핵심 신호.
+    data:
+      horizon_days: 3
+      rebalance_freq: "daily"
+      features:
+        - intraday_morning_ret
+        - intraday_afternoon_ret
+        - intraday_trend_q
+        - intraday_range_pos
+        - intraday_vol_rel
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.0
+      R4_BOX: 0.0
+      R5_DOWN_BOX: 0.0
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 120
+      min_excess_return: 0.0
+      min_ir: 0.1
+      min_ic: 0.03
+    state: TOXIC
+    note: >
+      FAILED Verification. -25% Return in 2025 Simulation.
+      Intraday Trend appears to be a mean-reversion signal (toxic for trend following).
+      Disabled.
+
+  - id: A7_intraday_reversal
+    name: "Intraday Reversal (Anti-A2)"
+    type: "mean_reversion"
+    description: >
+      A2(Intraday Trend)의 역발상 버전.
+      "장중 강한 매수세로 급등한 종목은 다음날 시가 이후 되돌림(조정)이 발생한다"는 가설.
+      A2 Score의 부호를 반대로 뒤집어 사용.
+      **Phase 4 Update**: 상위 10% 과열 종목만 타격 (Extreme Filter).
+    data:
+      horizon_days: 3
+      rebalance_freq: "daily"
+      features:
+        - intraday_morning_ret
+        - intraday_afternoon_ret
+        - intraday_trend_q
+        - intraday_range_pos
+        - intraday_vol_rel
+    params:
+      filter_extreme: true
+      percentile_threshold: 0.90
+      min_vol_rel: 1.0
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.5
+      R4_BOX: 0.3
+      R5_DOWN_BOX: 0.0
+      R6_DOWN: 0.0
+      R7_CRASH: 0.5
+    kill_rules:
+      lookback_days: 60
+      min_excess_return: 0.0
+    state: EXPERIMENT
+    note: "Derived from A2 failure analysis. Targets R3/R4/R7 regimes. Optimized with Extreme Filters."
+
+  - id: A3_box_meanrev
+    name: "Box Regime Mean Reversion"
+    type: "mean_reversion"
+    description: "Reversion to mean in Box/Chop regimes using Z-score and Bollinger Bands."
+    data:
+      horizon_days: 20
+      rebalance_freq: "daily"
+      features: ["z_score_5d", "bollinger_band"]
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.3
+      R4_BOX: 0.3
+      R5_DOWN_BOX: 0.3
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 120
+      min_excess_return: 0.0
+      min_ir: 0.1
+    state: ACTIVE
+
+  - id: A4_liquidity_shock
+    name: "Liquidity Shock Alpha"
+    type: "event_driven"
+    description: "Short-term alpha based on volume spikes and price resilience."
+    data:
+      horizon_days: 5
+      rebalance_freq: "intraday"
+      features: ["volume_spike", "intraday_vwap"]
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.2
+      R4_BOX: 0.3
+      R5_DOWN_BOX: 0.0
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 60
+      min_excess_return: 0.0
+    state: EXPERIMENT
+
+  - id: A5_vol_breakout
+    name: "Short-term Volatility Breakout"
+    type: "volatility_breakout"
+    description: "Captures efficiency of movement. High return relative to recent daily range."
+    data:
+      horizon_days: 5
+      rebalance_freq: "daily"
+      features: ["price_history_5d", "daily_range"]
+    regime_weights:
+      R1_STRONG_UP: 1.0
+      R2_UP: 1.0
+      R3_UP_BOX: 0.0
+      R4_BOX: 0.0
+      R5_DOWN_BOX: 0.0
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 60
+      min_excess_return: 0.0
+    state: ACTIVE
+
+  - id: A6_volume_shock
+    name: "Volume Shock Reversal"
+    type: "mean_reversion"
+    description: "Contrarian signal based on price-volume divergence. Buys panic selling."
+    data:
+      horizon_days: 5
+      rebalance_freq: "daily"
+      features: ["price_history_5d", "volume_history_20d"]
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.7
+      R4_BOX: 0.7
+      R5_DOWN_BOX: 0.7
+      R6_DOWN: 0.5
+      R7_CRASH: 1.0
+    kill_rules:
+      lookback_days: 60
+      min_excess_return: 0.0
+    state: ACTIVE
+
+  - id: A8_narrow_bb_mr
+    name: "Narrow BB Mean Reversion"
+    type: "mean_reversion"
+    description: "Mean reversion using narrow Bollinger Bands (20, 1.0) to capture faster retail-style reversals."
+    module: "a8_bb_channel_mr"
+    data:
+      horizon_days: 5
+      rebalance_freq: "daily"
+      features: ["close", "bb_mid", "bb_upper", "bb_lower", "bb_width"]
+    params:
+      bb_period: 20
+      bb_k: 1.0
+    regime_weights:
+      R1_STRONG_UP: 0.0
+      R2_UP: 0.0
+      R3_UP_BOX: 0.5
+      R4_BOX: 0.7
+      R5_DOWN_BOX: 0.3
+      R6_DOWN: 0.0
+      R7_CRASH: 0.0
+    kill_rules:
+      lookback_days: 120
+      min_excess_return: 0.0
+      min_ir: 0.1
+    state: ACTIVE

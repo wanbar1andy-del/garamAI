@@ -1,0 +1,27 @@
+{
+    "date": "2025-11-25",
+    "regime": {
+        "regime": "GREEN",
+        "ma_fast": 403251.65,
+        "ma_slow": 367092.23333333334,
+        "last_close": 385778.0
+    },
+    "signals": {
+        "fs": -0.998708683921725,
+        "fm": 0.11296262149666676
+    },
+    "wfo_params": {
+        "fs_entry_thresh": 0.8,
+        "fm_entry_thresh": -0.2,
+        "fs_exit_thresh": -0.1,
+        "short_window": 3,
+        "mid_window": 100,
+        "size_mod_scalp": 1.0
+    },
+    "decision": {
+        "state": "FLAT",
+        "action": "WAIT",
+        "action_params": {},
+        "target_size_risk_pct": 0.0
+    }
+}

@@ -1,0 +1,15 @@
+# Dual Engine Configuration (Engine 1 vs Engine 2)
+# Engine 1: Legacy (Technical/Alpha) - "Ground Force"
+# Engine 2: Advanced (MSS) - "Navigator"
+
+mode: "DYNAMIC" # Options: FIXED, DYNAMIC
+
+weights:
+  engine1: 1.0 # Base Weight (Primary Allocation)
+  engine2: 0.0 # Engine 2 acts as Modifier
+
+controller:
+  # Authority of MSS directives
+  turbo_multiplier: 2.4 # Turbo Mode: 100% Equity + 140% Loan = 2.4x Exposure
+  abs_multiplier: 0.5 # ABS Mode: Reduce to 50%
+  emergency_action: "LIQUIDATE"

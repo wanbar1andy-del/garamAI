@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "run_id": "verify_turbo_v3_005930_20251214_201038",
+    "timestamp_utc": "2025-12-14T20:10:38Z",
+    "mode": "verification",
+    "env": {
+      "python": "3.13.7"
+    },
+    "data": {
+      "universe": "005930",
+      "timeframe": "minute"
+    },
+    "units": {
+      "returns": "decimal",
+      "costs": "decimal",
+      "currency": "KRW"
+    },
+    "regime_spec": {
+      "source": "minute",
+      "method": "micro_regime_v1",
+      "params": {
+        "trend": "ema_slope_120",
+        "vol": "atr_pct_14",
+        "chop": "er_120"
+      }
+    }
+  },
+  "summary": {
+    "status": "PASS",
+    "headline": "Turbo V3 Verified Result (005930)",
+    "kpis": {
+      "trades": 738,
+      "total_return": -0.6708357360011036,
+      "max_drawdown": -0.6751891095687708,
+      "final_equity": 32916426.399889644,
+      "fill_method": "NEXT_OPEN",
+      "slippage_rate": 0.00025,
+      "tax_rate": 0.0023
+    },
+    "key_points": [
+      "Total Return: -67.08%",
+      "Max Drawdown: -67.52%",
+      "Trades: 738",
+      "Final Equity: 32,916,426 KRW"
+    ]
+  },
+  "edge_analysis": {},
+  "checks": [
+    {
+      "id": "B-6-LOCK",
+      "name": "Cost Model Locked",
+      "status": "PASS",
+      "severity": "high",
+      "metrics": {
+        "slippage": "2.5bp",
+        "tax": "0.23%"
+      },
+      "notes": [
+        "Confirmed B-6 cost model application."
+      ]
+    }
+  ],
+  "artifacts": {}
+}

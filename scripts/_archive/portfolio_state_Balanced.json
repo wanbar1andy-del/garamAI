@@ -1,0 +1,14 @@
+{
+    "cash": 87856257.0,
+    "positions": {
+        "458870": {
+            "qty": 152,
+            "entry_price": 123313.15789473684,
+            "entry_date": "2025-12-05"
+        }
+    },
+    "blacklist": {},
+    "equity": 106430657.0,
+    "last_update": null,
+    "prev_equity": 106430657.0
+}

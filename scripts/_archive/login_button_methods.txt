@@ -1,0 +1,88 @@
+"""
+키움 로그인 버튼 상태 관리 메서드
+kiwoom_login_ui.py의 login_kiwoom 메서드 앞에 추가해야 함
+"""
+
+def update_login_button_style(self):
+    """로그인 상태에 따라 버튼 스타일 업데이트"""
+    if self.is_logged_in:
+        # 로그인됨: 빨간색 + "연결됨 (로그아웃)"
+        self.login_btn.setText('🔴 연결됨 (로그아웃)')
+        self.login_btn.setStyleSheet('''
+            QPushButton {
+                background-color: #F44336;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 20px;
+            }
+            QPushButton:hover {
+                background-color: #D32F2F;
+            }
+        ''')
+    else:
+        # 로그인 전: 녹색 + "키움 로그인"
+        self.login_btn.setText('🟢 키움 로그인')
+        self.login_btn.setStyleSheet('''
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                font-size: 16px;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 20px;
+            }
+            QPushButton:hover {
+                background-color: #45a049;
+            }
+        ''')
+
+def toggle_login(self):
+    """로그인/로그아웃 토글"""
+    if self.is_logged_in:
+        # 로그아웃
+        reply = QMessageBox.question(
+            self,
+            '로그아웃 확인',
+            '정말 로그아웃하시겠습니까?\\n\\n실시간 데이터 수집이 중단됩니다.',
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+        
+        if reply == QMessageBox.Yes:
+            self.logout_kiwoom()
+    else:
+        # 로그인
+        self.login_kiwoom()
+
+def logout_kiwoom(self):
+    """키움 로그아웃"""
+    try:
+        # Delete flag
+        self._delete_connection_flag()
+        
+        # Update state
+        self.is_logged_in = False
+        self.update_login_button_style()
+        
+        # Disable collection button
+        self.collect_btn.setEnabled(False)
+        
+        # Update status
+        self.status_label.setText('✓ 로그아웃 완료')
+        self.status_label.setStyleSheet('font-size: 14px; color: gray; margin: 10px;')
+        self.progress_label.setText('')
+        
+        logger.info("Logged out successfully")
+        
+        # Info message
+        QMessageBox.information(
+            self,
+            '로그아웃',
+            '로그아웃되었습니다.\\n\\n프로그램을 종료하거나 다시 로그인하세요.'
+        )
+        
+    except Exception as e:
+        logger.error(f"Logout error: {e}")

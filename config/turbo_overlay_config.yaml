@@ -1,0 +1,37 @@
+# Turbo Overlay V2.2 Configuration
+# V2.2: Very Fast Exit/Re-entry (-1.5% Daily Exit)
+
+# 전체 활성화 스위치
+enabled: true # V2.2 실전 적용
+
+# 레버리지 설정 (집중도 기반)
+turbo_multiplier: 2.5 # 최대 multiplier (집중도 100% 시)
+per_symbol_cap: 3.0 # 종목당 최대 300%
+total_cap: 3.0 # 총 노출 최대 300%
+
+# V2.2 Exit 조건 (매우 빠른 탈출!) ⚡
+daily_decline_exit: 0.015 # 일간 -1.5% 하락 시 즉시 Exit (V2: -3%)
+consecutive_decline_exit: 0.025 # 3일 연속 합 -2.5% 시 Exit (V2: -4%)
+trailing_stop_pct: 0.05 # 일반 구간: 5% trailing
+tight_trailing_pct: 0.03 # 2.5x 구간: 3% tight trailing
+portfolio_dd_stop: 0.18 # 포트폴리오 DD -18%
+
+# V2.2 Re-entry 조건 (신중한 재진입 - V2와 동일)
+reentry_cooldown_days: 3 # 3일 쿨다운
+reentry_recovery_ratio: 0.5 # DD 50% 회복 필요
+reentry_momentum_threshold: 0.03 # 최근 2-3일 수익률 합 +3%
+reentry_daily_threshold: 0.02 # 또는 당일 +2%
+min_concentration_reentry: 0.8 # 재진입 최소 집중도 80%
+
+# 진입 조건
+allowed_regimes:
+  - R1_STRONG_UP
+  - R2_UP
+
+min_cash_ratio: 0.10 # 최소 현금 비중 10%
+
+# V2.2 핵심 개선:
+# 1. Exit: 일간 -1.5% 시 즉시 탈출 (V2 대비 2배 빠름)
+# 2. MDD 동일 유지 (-13.5%)
+# 3. Sharpe 28.73 (최고 효율)
+# 4. 수익률 388.5% (V2 대비 +13.3%)

@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "run_id": "verify_turbo_v3_033780_20251215_011419",
+    "timestamp_utc": "2025-12-15T01:14:19Z",
+    "mode": "verification",
+    "env": {
+      "python": "3.13.7"
+    },
+    "data": {
+      "universe": "033780",
+      "timeframe": "minute"
+    },
+    "units": {
+      "returns": "decimal",
+      "costs": "decimal",
+      "currency": "KRW"
+    },
+    "regime_spec": {
+      "source": "minute",
+      "method": "micro_regime_v1",
+      "params": {
+        "trend": "ema_slope(20,120)",
+        "vol": "atr_pct(120)",
+        "chop": "er(120)",
+        "panic": "zscore(120)>3.0"
+      }
+    }
+  },
+  "summary": {
+    "status": "PASS",
+    "headline": "Turbo V3 Verified Result (033780)",
+    "kpis": {
+      "trades": 2840,
+      "total_return": -0.9912635358140677,
+      "max_drawdown": -0.9912672868948172,
+      "final_equity": 873646.4185932359,
+      "fill_method": "NEXT_OPEN",
+      "slippage_rate": 0.00025,
+      "tax_rate": 0.0023
+    },
+    "key_points": [
+      "Total Return: -99.13%",
+      "Max Drawdown: -99.13%",
+      "Trades: 2840",
+      "Final Equity: 873,646 KRW"
+    ]
+  },
+  "edge_analysis": {
+    "thresholds": {
+      "crash_mdd": -0.4,
+      "overtrade_trades_per_day": 20,
+      "min_trades_per_regime": 30,
+      "regime_spread_exp_net": 0.0015,
+      "signal_noise_win_rate": 0.35,
+      "signal_noise_payout_mult": 1.5
+    },
+    "overall": {
+      "trades": 1420,
+      "win_rate": 0.2936619718309859,
+      "avg_win": 0.003478405851560639,
+      "avg_loss": 0.0018468823146617571,
+      "cost_per_trade_avg": 0.0028000000000000004,
+      "expectancy_gross": -0.00028304769120067333,
+      "expectancy_net": -0.0030830476912006737,
+      "gross_pnl_total": -0.4019277215049557,
+      "net_pnl_total": -4.377927721504955,
+      "cost_total": 3.9760000000000004,
+      "sqn_score": -28.671796813015423,
+      "mdd": -0.9912672868948172,
+      "trades_per_day": 5.657370517928287,
+      "trading_days": 251,
+      "trade_sum_net_return": -4.377927721504955,
+      "equity_total_return": -0.9912635358140677
+    },
+    "by_regime": {
+      "TREND_UP": {
+        "bars": 51,
+        "trades": 1,
+        "expectancy_net": -0.0254027397260274,
+        "win_rate": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.022602739726027398,
+        "cost_per_trade_avg": 0.0028,
+        "expectancy_gross": -0.022602739726027398,
+        "gross_pnl_total": -0.022602739726027398,
+        "net_pnl_total": -0.0254027397260274,
+        "cost_total": 0.0028,
+        "sqn_score": 0.0,
+        "tags": []
+      },
+      "TREND_DOWN": {
+        "bars": 7,
+        "trades": 0,
+        "expectancy_net": 0.0,
+        "win_rate": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0,
+        "cost_per_trade_avg": 0.0,
+        "expectancy_gross": 0.0,
+        "gross_pnl_total": 0.0,
+        "net_pnl_total": 0.0,
+        "cost_total": 0.0,
+        "sqn_score": 0.0,
+        "tags": []
+      },
+      "CHOP_HIGHVOL": {
+        "bars": 242,
+        "trades": 1,
+        "expectancy_net": 0.0006578146611341631,
+        "win_rate": 1.0,
+        "avg_win": 0.003457814661134163,
+        "avg_loss": 0.0,
+        "cost_per_trade_avg": 0.0028,
+        "expectancy_gross": 0.003457814661134163,
+        "gross_pnl_total": 0.003457814661134163,
+        "net_pnl_total": 0.0006578146611341631,
+        "cost_total": 0.0028,
+        "sqn_score": 0.0,
+        "tags": []
+      },
+      "CHOP_LOWVOL": {
+        "bars": 94147,
+        "trades": 1384,
+        "expectancy_net": -0.0030654700127989163,
+        "win_rate": 0.29263005780346824,
+        "avg_win": 0.003340477526181574,
+        "avg_loss": 0.0017572052051248593,
+        "cost_per_trade_avg": 0.0028000000000000004,
+        "expectancy_gross": -0.0002654700127989161,
+        "gross_pnl_total": -0.36741049771369966,
+        "net_pnl_total": -4.2426104977137,
+        "cost_total": 3.8752000000000004,
+        "sqn_score": -29.89883638556081,
+        "tags": []
+      },
+      "PANIC": {
+        "bars": 1314,
+        "trades": 34,
+        "expectancy_net": -0.0032521264331283185,
+        "win_rate": 0.3235294117647059,
+        "avg_win": 0.008558547939646792,
+        "avg_loss": 0.004761579394020763,
+        "cost_per_trade_avg": 0.0028,
+        "expectancy_gross": -0.00045212643312831854,
+        "gross_pnl_total": -0.015372298726362834,
+        "net_pnl_total": -0.11057229872636283,
+        "cost_total": 0.09519999999999999,
+        "sqn_score": -2.141603098494117,
+        "tags": []
+      },
+      "UNCERTAIN": {
+        "bars": 0,
+        "trades": 0,
+        "expectancy_net": 0.0,
+        "win_rate": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0,
+        "cost_per_trade_avg": 0.0,
+        "expectancy_gross": 0.0,
+        "gross_pnl_total": 0.0,
+        "net_pnl_total": 0.0,
+        "cost_total": 0.0,
+        "sqn_score": 0.0,
+        "tags": []
+      }
+    },
+    "degradation": {
+      "rolling_expectancy_net_p50_first80": -0.0031496536400863646,
+      "rolling_expectancy_net_p50_last20": -0.002945834121634861,
+      "drop_ratio": 0.06471172444406134,
+      "flag_structural_break": false
+    },
+    "collapse_tags": [
+      "CRASH_COLLAPSE",
+      "NEGATIVE_EDGE"
+    ]
+  },
+  "checks": [
+    {
+      "id": "B-6-LOCK",
+      "name": "Cost Model Locked",
+      "status": "PASS",
+      "severity": "high",
+      "metrics": {
+        "slippage": "2.5bp",
+        "tax": "0.23%"
+      },
+      "notes": [
+        "Confirmed B-6 cost model application."
+      ]
+    }
+  ],
+  "artifacts": {}
+}
