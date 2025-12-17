@@ -25,6 +25,10 @@ from PyQt5.QAxContainer import QAxWidget
 project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+# --- [SSOT V2] Ingest Wrapper Imports ---
+from pipeline._01_ingest.paths import get_ingest_paths
+from pipeline._01_ingest.write_csv import write_minute_csv
+
 # 로깅 설정 (한글 로그 파일)
 logger = logging.getLogger(__name__)
 log_dir = project_root / "logs"
@@ -702,8 +706,10 @@ class KiwoomSystemWindow(QMainWindow):
                 valid_cols = [c for c in cols if c in combined.columns]
                 combined = combined[valid_cols]
                 
-                combined.to_csv(out_file, index=False, encoding='utf-8-sig')
-                self.log_msg(f"  -> 저장 완료 (총 {len(combined)}건)")
+                # --- [SSOT V2] Atomic Write via Wrapper ---
+                paths = get_ingest_paths()
+                final_path = write_minute_csv(symbol, combined, paths.minute_dir)
+                self.log_msg(f"  -> 저장 완료 (Standard): {final_path} (총 {len(combined)}건)")
                 self.success_count += 1
             else:
                 self.log_msg(f"  -> 수신된 데이터 없음")
