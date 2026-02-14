@@ -1,0 +1,30 @@
+# Elite AI Training Curriculum Configuration
+# Operation "Hero DNA Transfusion"
+
+training:
+  curriculum: "Elite"
+  target_nodes: 8192
+  
+  # 2. 경제적 지능 주입: 31bp의 제약과 3.0%의 목표
+  constraints:
+    transaction_cost_pct: 0.31    # 왕복 수수료 및 슬리피지 (bp)
+    min_profit_threshold: 3.0      # 순수익 문턱값 (%)
+    hero_expectancy_min: 0.05      # Hero 심볼 선정 기준 (Expectancy)
+
+  # 1. 지능 재설계: 과거 DNA 이식
+  dna_teacher:
+    source: "core/active_config/tactical_dna.json"
+    priority_patterns:
+      - "BREAKOUT_HEAD_HUNT"
+      - "MOMENTUM_EXPLOSION"
+      - "VOL_PUMP_DETECTION"
+    
+  # 3. 클라우드 화력 전개
+  hardware:
+    accelerator: "NVIDIA_TESLA_L4"
+    worker_count: 1
+    location: "us-central1"
+
+kpi_targets:
+  min_accuracy: 65.0               # Hero 종목군 방향 정확도 목표
+  bias_correction: "NEUTRAL"       # -15% 편향 제거 및 객관적 수치 복귀

@@ -13,7 +13,10 @@ RUN apt-get update && apt-get install -y \
 # 작업 디렉토리 설정
 WORKDIR /app
 
-# Python 의존성 복사 및 설치
+# 전술 DNA 및 코드 복사
+COPY scripts/ /app/scripts/
+COPY core/active_config/tactical_dna.json /app/core/active_config/tactical_dna.json
+COPY configs/ /app/configs/
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 RUN pip3 install --no-cache-dir \
