@@ -13,22 +13,25 @@ def run_vertex_training(project_id, location, bucket_name):
     # 1. 전용 훈련 이미지 (Artifact Registry에 푸시된 이미지)
     container_uri = f"gcr.io/{project_id}/garam-oss-trainer:latest"
 
-    # 2. 하드웨어 설정 (사령관의 야전 지휘소보다 강력한 L4 GPU)
-    machine_type = "g2-standard-4"
-    accelerator_type = "NVIDIA_L4"
+    # 2. 하드웨어 최전선 설정 (A100-80GB 또는 L4 고성능 GPU)
+    # 고성능 네트워크 및 SSD 처리량 확보를 위한 머신 타입 최적화
+    machine_type = "a2-highgpu-1g" # NVIDIA A100 40GB/80GB (최고 성능 모델)
+    accelerator_type = "NVIDIA_TESLA_A100"
     accelerator_count = 1
 
-    print(f"🔥 [Vertex AI] 8192-Node 지능 재배양 임무 생성 중...")
+    print(f"🔥 [Vertex AI] 8192-Node '궁극의 지능' 연산 군단 기동 중... (A100 40GB)")
     
     job = aiplatform.CustomContainerTrainingJob(
-        display_name="garam-oss-finetuning-8192",
+        display_name="garam-oss-hyper-elite-8192",
         container_uri=container_uri,
     )
 
     # 명령 4 집행: 삼성전자 급등기 데이터를 활용한 파인튜닝
     # 훈련 스크립트 인자 전달
+    # 3. 명령 집행: Elite AI Training Curriculum
+    # train_elite_curriculum.py를 실행하여 31bp 비용과 3.0% 수익 문턱값 이식
     job.run(
-        args=["--mode", "FINETUNE", "--target", "005930", "--epochs", "10"],
+        args=["python", "scripts/train_elite_curriculum.py"],
         replica_count=1,
         machine_type=machine_type,
         accelerator_type=accelerator_type,

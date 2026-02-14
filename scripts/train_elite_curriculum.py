@@ -39,14 +39,24 @@ def load_tactical_dna(dna_path):
     with open(dna_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-def train_elite():
+def train_elite(lr=1e-5, weight_decay=1e-6):
     config_path = Path("configs/elite_training_config.yaml")
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
         
-    print("🏛️ [Operation] Hero DNA Transfusion 개시")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"🏛️ [Operation] Hero DNA Transfusion 개시 (LR={lr}, Device={device})")
     print(f"🎯 [Target] Acc > {config['kpi_targets']['min_accuracy']}%")
     print(f"💰 [Constraint] Cost {config['training']['constraints']['transaction_cost_pct']}bp, Threshold {config['training']['constraints']['min_profit_threshold']}%")
+
+    # 1. 고속 데이터 로딩 및 믹스드 프리시전(AMP) 준비
+    scaler = torch.cuda.amp.GradScaler()
+    
+    # 2. 모델 최적화 (Torch Compile - PyTorch 2.0+)
+    # model = Garam8192Model(...) 
+    # if hasattr(torch, 'compile'):
+    #     model = torch.compile(model)
+    # model.to(device)
 
     # DNA 이식
     dna = load_tactical_dna(config['training']['dna_teacher']['source'])
@@ -64,4 +74,10 @@ def train_elite():
     print("✅ [Success] 훈련 종료 및 화력 지원 종료. 리소스 반납 완료.")
 
 if __name__ == "__main__":
-    train_elite()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lr", type=float, default=1e-5)
+    parser.add_argument("--weight_decay", type=float, default=1e-6)
+    args = parser.parse_args()
+    
+    train_elite(lr=args.lr, weight_decay=args.weight_decay)
