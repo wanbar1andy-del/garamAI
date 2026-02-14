@@ -1,0 +1,23 @@
+diff --git a/scripts/live/run_live_policy_v2_phase7.py b/scripts/live/run_live_policy_v2_phase7.py
+index 1234567..89abcde 100644
+--- a/scripts/live/run_live_policy_v2_phase7.py
++++ b/scripts/live/run_live_policy_v2_phase7.py
+@@ -1,5 +1,25 @@
+-# Placeholder diff for EOD mode patch
++# EOD Mode Patch:
++# - After 15:20, block new entries but allow position management (exits).
++# - Prevent zombie positions during EOD window.
++
++# Behavior:
++#   if self.eod_mode:
++#       - still manage_position() for existing positions
++#       - do NOT scan_entry_candidate() for new entries
++
++# Applied Fix (conceptual):
++#   def on_tick(...):
++#       update data
++#       if not self.is_active: return
++#       if sym in positions: manage_position()
++#       else:
++#           if self.eod_mode: return
++#           scan_entry_candidate()

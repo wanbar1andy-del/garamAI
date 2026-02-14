@@ -1,0 +1,40 @@
+{
+    "rule_search": {
+        "max_rules": 500,
+        "top_features": 15,
+        "threshold_grid_size": 50,
+        "rule_types": {
+            "single_condition": true,
+            "dual_condition_and": true,
+            "dual_condition_or": false,
+            "comment": "해석 가능한 룰만. 3조건 이상은 과적합 위험."
+        },
+        "constraints": {
+            "min_signals_per_day": 3,
+            "max_signals_per_day": 30,
+            "comment": "일 평균 신호 수. 너무 적으면 기회 부족, 많으면 노이즈."
+        },
+        "objective": "avg_fwd_ret",
+        "metrics": [
+            "precision",
+            "recall",
+            "avg_fwd_ret",
+            "sharpe",
+            "turnover",
+            "signal_stability"
+        ]
+    },
+    "walkforward": {
+        "train_months": 9,
+        "test_months": 3,
+        "rolling_step_months": 1,
+        "min_train_signals": 100,
+        "comment": "9개월 학습/3개월 검증, 월별 롤링. 룩어헤드 완전 차단."
+    },
+    "export": {
+        "top_rules": 3,
+        "min_avg_sharpe": 1.0,
+        "min_avg_precision": 0.15,
+        "comment": "운영 반영 룰은 상위 3개만, 최소 성능 기준 통과 필수."
+    }
+}

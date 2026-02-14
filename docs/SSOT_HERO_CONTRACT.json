@@ -1,0 +1,113 @@
+{
+  "contract_version": "1.0",
+  "last_updated": "2025-12-20",
+  "philosophy": "Winner Takes All (Daily Champion)",
+  "universe": {
+    "source": "SSOT_STORE_UNIVERSE",
+    "filter": "LIQUIDITY_TOP_100",
+    "blacklist": [
+      "ETF",
+      "ETN",
+      "SPAC"
+    ]
+  },
+  "champion_engine": {
+    "probe_name": "CHAMPION_V21_ORB",
+    "components": [
+      "ORB_15M",
+      "FS_FAST_MOMENTUM",
+      "FM_DAILY_TREND"
+    ],
+    "score_logic": "WEIGHTED_SUM",
+    "ranking": "DESCENDING",
+    "selection_count": 1,
+    "entry_gate": {
+      "metric": "CHAMPION_SCORE",
+      "threshold": 0.5,
+      "condition": "SCORE >= THRESHOLD"
+    }
+  },
+  "veto_rules": {
+    "entry_veto": [
+      {
+        "metric": "VOL_ACCEL",
+        "threshold": 1.5,
+        "condition": "GREATER_THAN",
+        "action": "SKIP_CANDIDATE"
+      },
+      {
+        "metric": "ATR_PCT",
+        "threshold": 10.0,
+        "condition": "GREATER_THAN",
+        "action": "SKIP_CANDIDATE"
+      }
+    ],
+    "regime_ban": {
+      "metric": "MARKET_REGIME",
+      "values": [
+        "CRASH",
+        "FEAR"
+      ],
+      "action": "BLOCK_ALL_ENTRIES"
+    }
+  },
+  "ChampionEngine": {
+    "SelectionLogic": "ORB_Breakout + fs_fast + fm_daily_trend",
+    "TriggerTime": "09:30",
+    "ScoreFormula": {
+      "ORB": "CurrentPrice > High(09:00~09:30)",
+      "fs_fast": "Intraday Volatility/Volume Ignition",
+      "fm_daily": "Daily Trend (MA 정배열 or Momentum > 0)"
+    },
+    "VetoFilter": {
+      "Vol_Accel": "ATR(5)/ATR(60) <= 1.5",
+      "ATR_Percent": "ATR(20)/Price <= 10%",
+      "Expectancy": "Reference Only (NOT Veto)"
+    }
+  },
+  "OperationalLogic": {
+    "Allocation": "2/5/0 Rule (Dynamic K: 0, 2, 5)",
+    "Parameters": {
+      "T_WEAK": 0.0015,
+      "T_STRONG": 0.0030,
+      "R_STRONG": 1.30,
+      "D_STRONG": 0.0010
+    },
+    "StopLoss": -0.05,
+    "Warning": [
+      -0.03,
+      -0.04
+    ],
+    "TimeCut": "16 Bars (approx 4 hours)",
+    "HeroDeath": "Vol_Accel >= 1.8 AND Technical Breakdown"
+  },
+  "operations": {
+    "allocation": {
+      "method": "WINNER_TAKES_ALL",
+      "target_weight": 1.0,
+      "fill_with_top": true
+    },
+    "smart_swing": {
+      "enabled": true,
+      "condition": "SCORE >= 0.5 AND PNL > 0"
+    },
+    "hero_death": {
+      "triggers": [
+        "VOL_ACCEL >= 1.8 AND (CLOSE < MA5 OR CLOSE < PREV_LOW)",
+        "DAILY_LOSS >= 5.0%"
+      ],
+      "action": "IMMEDIATE_EXIT_NEXT_OPEN",
+      "post_action": "ROTATE_TO_NEXT_HERO"
+    },
+    "rotation": {
+      "hysteresis": 1.2,
+      "description": "Replace current hero only if new candidate score > 1.2 * current score"
+    }
+  },
+  "crisis_management": {
+    "index_abs": {
+      "trigger": "INDEX_VOL_ACCEL > 1.4 AND INDEX_CLOSE < MA20",
+      "action": "REDUCE_EXPOSURE_50_PCT"
+    }
+  }
+}

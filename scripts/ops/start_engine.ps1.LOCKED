@@ -1,0 +1,32 @@
+$ErrorActionPreference = "Stop"
+
+# Configuration
+$SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ROOT_DIR = (Resolve-Path "$SCRIPT_DIR/../..").Path
+$TODAY = Get-Date -Format "yyyyMMdd"
+$LOG_BASE = Join-Path $ROOT_DIR "logs/phase30/paper_live"
+$LOG_DIR = Join-Path $LOG_BASE $TODAY
+
+Write-Host "=== GARAM Engine Launcher (v1.0) ===" -ForegroundColor Cyan
+Write-Host "Root Dir: $ROOT_DIR"
+Write-Host "Date    : $TODAY"
+Write-Host "Log Dir : $LOG_DIR"
+
+# 1. Prepare Log Directory
+if (-not (Test-Path $LOG_DIR)) {
+    New-Item -ItemType Directory -Path $LOG_DIR | Out-Null
+    Write-Host "[Init] Created Log Directory." -ForegroundColor Gray
+}
+
+# 2. Launch Engine
+# Config path assumes standard location
+$CONFIG_PATH = "config/live_paper.yaml"
+
+Write-Host "[Start] Launching Engine..." -ForegroundColor Green
+Set-Location $ROOT_DIR
+
+# Use standard python (should be Main Env, usually 64-bit)
+python -m pipeline.live.run_live_paper --config $CONFIG_PATH --mode live --log_dir $LOG_DIR
+
+Write-Host "Engine Stopped."
+Pause

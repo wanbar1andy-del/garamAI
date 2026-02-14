@@ -1,0 +1,45 @@
+c:\garam\garam\run_real_oss_100man.py:108: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  closes = closes.loc[:, valid_cols].ffill().fillna(method='bfill')
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:104: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:133: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  ret_5m = c_5m.pct_change().fillna(0)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:135: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  churn_1m = is_churning.reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:161: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  sq_1m = is_squeezed.reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:162: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  ve_1m = is_vol_exploded.reindex(closes.index, method='ffill').fillna(False)
+Traceback (most recent call last):
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\ops\array_ops.py", line 362, in na_logical_op
+    result = op(x, y)
+TypeError: unsupported operand type(s) for &: 'float' and 'bool'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\garam\garam\run_real_oss_100man.py", line 194, in <module>
+    run_real_test()
+  File "c:\garam\garam\run_real_oss_100man.py", line 116, in run_real_test
+    signals = alpha.calculate_signals(closes, volumes)
+  File "c:\garam\garam\pipeline\backtest\run_alpha_robust.py", line 176, in calculate_signals
+    core_signal = coiling_energy & ve_1m & (~churn_1m) & is_worth_it
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\ops\common.py", line 76, in new_method
+    return method(self, other)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\arraylike.py", line 70, in __and__
+    return self._logical_method(other, operator.and_)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py", line 7935, in _arith_method
+    new_data = self._dispatch_frame_op(other, op, axis=axis)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py", line 7978, in _dispatch_frame_op
+    bm = self._mgr.operate_blockwise(
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\internals\managers.py", line 1530, in operate_blockwise
+    return operate_blockwise(self, other, array_op)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\internals\ops.py", line 65, in operate_blockwise
+    res_values = array_op(lvals, rvals)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\ops\array_ops.py", line 454, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\ops\array_ops.py", line 369, in na_logical_op
+    result = libops.vec_binop(x.ravel(), y.ravel(), op)
+  File "pandas/_libs/ops.pyx", line 252, in pandas._libs.ops.vec_binop
+  File "pandas/_libs/ops.pyx", line 245, in pandas._libs.ops.vec_binop
+TypeError: unsupported operand type(s) for &: 'float' and 'bool'

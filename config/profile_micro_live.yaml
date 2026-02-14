@@ -1,0 +1,40 @@
+# Micro Live Profile (Phase 30-5)
+# Purpose: Real Money Verification with Minimal Capital
+# Date: 2026-01-02
+
+execution:
+  capital: 1000000 # 1 Million KRW (Conservative Start)
+  slippage_bps: 5 # 0.05%
+  fee_bps: 23 # 0.23% (Kiwoom Standard + Tax)
+
+live_source_path: "GARAM_Data/feed/feed_live.jsonl" # CORRECTED PATH
+watermark_sec: 3.0
+
+risk:
+  max_drawdown_daily: 0.02 # 2% Daily Stop
+  max_pos_size_pct: 0.98 # Single Slot (Winner Takes All for Micro)
+  stop_loss_pct: 0.012 # 1.2% Hard Stop (A2 Standard)
+  trailing_stop_pct: 0.010 # 1.0% Trailing (A2 Standard)
+  time_stop_minutes: 30 # 30m Time Stop (A2 Standard)
+  time_stop_threshold: 0.002 # Must be > 0.2% (A2 Standard)
+
+regime:
+  hero_threshold: 3.0 # Min 3 Heroes (Avg) to allow entry
+
+# --- Strategy Parameters (A2) ---
+factors:
+  lookback_window: 100
+  bb_window: 20
+  bb_std: 2.0
+  breakout_window: 20
+  vol_ma_window: 20
+
+weights:
+  compression: 0.45
+  breakout: 0.35
+  volume: 0.20
+
+gates:
+  score_comp_min: -0.2
+  breakout_min: 0.0015 # 0.15%
+  vol_ratio_min: 1.3

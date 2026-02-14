@@ -1,0 +1,1 @@
+echo "[AUTO-EVOLVE] High Volatility! Tightening ATR Stop to 2.0x."

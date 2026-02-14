@@ -50,10 +50,13 @@ class StoreManager:
         self._universe_cache = df
         return df
 
-    def get_data(self, symbol, start_date=None, end_date=None):
+    def get_data(self, symbol, start_date=None, end_date=None, *, as_datetime: bool = True):
         """
-        특정 종목의 1분봉 데이터 로드
+        특정 종목의 1분봉 데이터 로드 (Validated Gate)
         :param symbol: 종목코드 (예: '005930')
+        :param start_date: (Optional) 시작 날짜 (YYYY-MM-DD)
+        :param end_date: (Optional) 종료 날짜 (YYYY-MM-DD)
+        :param as_datetime: True면 'date' 컬럼을 datetime 객체로 변환 (Default: True)
         :param end_date: (Optional) 종료 날짜 (YYYY-MM-DD)
         :return: DataFrame (date, open, high, low, close, volume)
         """
@@ -61,15 +64,21 @@ class StoreManager:
             # [SSOT V2] Use Validated Reader
             df = load_validated_minute_csv(symbol, self.data_dir)
             
-            # Legacy Compatibility: Convert date string to datetime for filtering
-            df['date'] = pd.to_datetime(df['date'], format='%Y%m%d%H%M%S', errors='coerce')
-            
-            # 필터링
-            if start_date:
-                df = df[df['date'] >= pd.to_datetime(start_date)]
-            if end_date:
-                df = df[df['date'] <= pd.to_datetime(end_date)]
+            if as_datetime:
+                # Legacy Compatibility: Convert date string to datetime for filtering
+                df['date'] = pd.to_datetime(df['date'], format='%Y%m%d%H%M%S', errors='coerce')
                 
+                # 필터링 (datetime 기준)
+                if start_date:
+                    df = df[df['date'] >= pd.to_datetime(start_date)]
+                if end_date:
+                    df = df[df['date'] <= pd.to_datetime(end_date)]
+            else:
+                # String 기준 필터링 (Format assumed YYYYMMDDHHMMSS)
+                # start_date/end_date가 주어지면 문자열 변환 처리 필요하나, 
+                # 현재는 as_datetime=False 사용처가 주로 Raw 처리를 원하므로 필터링은 호출처에 위임하거나 단순화
+                pass
+            
             return df
             
         except FileNotFoundError:

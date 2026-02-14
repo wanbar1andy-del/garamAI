@@ -1,0 +1,9 @@
+{
+  "hero_definition": "Top-N Cross-sectional Forward Return",
+  "horizon_days": 5,
+  "top_n": 10,
+  "min_price": 1000,
+  "min_avg_volume": 100000,
+  "exclude_suspended": true,
+  "comment": "매일 유니버스에서 향후 5일 수익률 상위 10개를 히어로로 정의. 운영성 보장 (항상 히어로 존재)."
+}

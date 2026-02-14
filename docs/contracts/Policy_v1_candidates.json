@@ -1,0 +1,28 @@
+{
+    "meta": {
+        "source": "Week-1 Strict Signal Mining",
+        "date": "2025-12-20",
+        "basis": "Distribution Analysis of Hero Birth/Death samples (A.1 Analysis Script)"
+    },
+    "mining_summary": {
+        "birth_roc_5m_mean": -0.0015,
+        "birth_roc_5m_delta": -0.0017,
+        "death_vwap_div_delta": 0.0006
+    },
+    "candidates": [
+        {
+            "name": "Policy_v1_Pullback_Sniper",
+            "description": "Enter on Dip (Pullback), Exit on Overvaluation or Momentum Loss",
+            "entry_rules": {
+                "rank_top": 5,
+                "roc_5m_max": -0.0015,
+                "vol_accel_min": 0.8
+            },
+            "exit_rules": {
+                "vwap_div_min": 0.005,
+                "roc_5m_max": -0.002
+            },
+            "logic": "Birth samples showed negative ROC (Mean -0.15%). Death samples showed higher VWAP Div."
+        }
+    ]
+}

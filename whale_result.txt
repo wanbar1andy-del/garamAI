@@ -1,0 +1,6 @@
+
+🏆 CHAMPION TACTIC: Breakout (Hunt the Head)
+[TACTIC 1: Instant] Win Rate: 44.9% | Avg ROI: -0.03%
+[TACTIC 2: Pullback] Win Rate: 32.3% | Avg ROI: -0.66% | Fill Rate: 49.9%
+[TACTIC 3: Breakout] Win Rate: 59.6% | Avg ROI: 0.63% | Fill Rate: 68.4%
+Insight: Whale movements are often followed by...

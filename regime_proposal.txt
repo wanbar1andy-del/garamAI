@@ -1,0 +1,5 @@
+GARAM REGIME ANALYSIS REPORT
+============================
+BULL (상승장): Threshold 5.0
+BEAR (하락장): Threshold 5.0
+SIDEWAYS (횡보장): Threshold 5.0

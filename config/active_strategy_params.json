@@ -1,0 +1,16 @@
+{
+    "timestamp": "2026-02-06T16:14:48.074115",
+    "market_regime": "ADAPTIVE_SHORT_SQUEEZE",
+    "parameters": {
+        "fast_ma": 5,
+        "slow_ma": 20,
+        "vol_window": 60,
+        "max_mult": 1.0,
+        "target_vol": 0.0016
+    },
+    "performance_expectation": {
+        "return": -16.49101866365679,
+        "mdd": -17.07716312074049,
+        "score": -25.029600224027035
+    }
+}

@@ -1,0 +1,8 @@
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:143: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:143: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:143: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:143: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)

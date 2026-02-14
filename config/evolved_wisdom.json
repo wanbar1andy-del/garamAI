@@ -1,0 +1,46 @@
+{
+    "progress_idx": "FINAL",
+    "equity": 9546258.0,
+    "total_trades": 93,
+    "recent_trades": [
+        {
+            "ts": "2025-12-03 11:18:00",
+            "sym": "0126Z0",
+            "pnl": 0.026409626007080078,
+            "reason": "MOMENTUM_DECAY",
+            "strategy": "Unknown"
+        },
+        {
+            "ts": "2025-12-03 11:30:00",
+            "sym": "0126Z0",
+            "pnl": -0.000500023365020752,
+            "reason": "MOMENTUM_DECAY",
+            "strategy": "Unknown"
+        },
+        {
+            "ts": "2025-12-03 11:57:00",
+            "sym": "389470",
+            "pnl": 0.01691746711730957,
+            "reason": "MOMENTUM_DECAY",
+            "strategy": "Unknown"
+        },
+        {
+            "ts": "2025-12-03 12:05:00",
+            "sym": "389470",
+            "pnl": -0.01519852876663208,
+            "reason": "MOMENTUM_DECAY",
+            "strategy": "Unknown"
+        },
+        {
+            "ts": "2025-12-03 12:46:00",
+            "sym": "389470",
+            "pnl": 0.0059566497802734375,
+            "reason": "MOMENTUM_DECAY",
+            "strategy": "Unknown"
+        }
+    ],
+    "brain_state": {
+        "threshold": 5.454746246337891,
+        "stop": 0.02
+    }
+}

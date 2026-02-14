@@ -1,0 +1,7 @@
+{
+    "rsi_low": 30.0,
+    "vol_explosive": 3.0,
+    "vol_quiet": 1.0,
+    "vol_panic": 2.0,
+    "breakout_th": 0.005
+}

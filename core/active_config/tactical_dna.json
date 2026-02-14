@@ -1,0 +1,5336 @@
+{
+    "params": {
+        "whale_min_val": 100000000,
+        "shakeout_vol_drop": 0.5,
+        "liquidity_guard_ratio": 0.99,
+        "impact_power_min": 0.03,
+        "impact_power_max": 0.07,
+        "typhoon_acc_threshold": 5.0,
+        "pulse_support_buffer": 0.05,
+        "trailing_stop_pct": 0.07,
+        "solo_oss_threshold": 7.2,
+        "solo_trailing_stop": 0.03,
+        "solo_capital_limit": 300000000
+    },
+    "evolution_layer": {
+        "description": "GARAM Dynamic Evolution Protocol",
+        "base_threshold": 5.0,
+        "vol_sensitivity": 0.5,
+        "risk_sensitivity": 2.0,
+        "anonymity_target": 95,
+        "whale_tactic": "BREAKOUT_HEAD_HUNT"
+    },
+    "memory": [
+        {
+            "timestamp": "2026-02-06T17:18:08.257201",
+            "context": {
+                "event": "GARAM_2.1_CORE_INTEGRATION",
+                "components": [
+                    "PhysicsEngine",
+                    "TacticalGenome",
+                    "SharkRadar",
+                    "Typhoon"
+                ],
+                "philosophy": "Mature Wisdom & Physics-based Impact"
+            },
+            "action": "SYSTEM_UPGRADE_DEPLOYMENT",
+            "outcome": {
+                "result": "SUCCESS",
+                "note": "Physics Engine & DNA fully synchronized. Fitness Score Verified."
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:18:08.272144",
+            "context": {
+                "event": "PHYSICS_ENGINE_CALIBRATION",
+                "test_case": "Capital 100M / ADV 1B / Vol 4%"
+            },
+            "action": "IMPACT_SIMULATION",
+            "outcome": {
+                "result": "OPTIMAL",
+                "power_score": "2.5%",
+                "strategy": "SLICE_10_PARTS_STAGGERED"
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:51.658109",
+            "context": {
+                "pnl_pct": 20.288639752243487,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 20.288639752243487
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.670350",
+            "context": {
+                "pnl_pct": 46.91224895205457,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 46.91224895205457
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.691536",
+            "context": {
+                "pnl_pct": -2.5100062306184077,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.5100062306184077
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.836111",
+            "context": {
+                "pnl_pct": 0.09172874062461245,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.09172874062461245
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.858459",
+            "context": {
+                "pnl_pct": -2.7829402756933628,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.7829402756933628
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.889716",
+            "context": {
+                "pnl_pct": -0.41868222822894163,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.41868222822894163
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:52.909267",
+            "context": {
+                "pnl_pct": -2.3249343722657736,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3249343722657736
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:53.232708",
+            "context": {
+                "pnl_pct": 8.211670838287317,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 8.211670838287317
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:53.695252",
+            "context": {
+                "pnl_pct": 48.47150239427495,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 48.47150239427495
+            }
+        },
+        {
+            "timestamp": "2026-02-06T17:49:53.770579",
+            "context": {
+                "pnl_pct": 1.0624955006049663,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.0624955006049663
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:00:24.033626",
+            "context": {
+                "pnl_pct": 34.555143900012645,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 34.555143900012645
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:00:24.091525",
+            "context": {
+                "pnl_pct": -0.4186822282289461,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.4186822282289461
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:00:24.365978",
+            "context": {
+                "pnl_pct": 6.413761457796554,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.413761457796554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:00:24.864569",
+            "context": {
+                "pnl_pct": 34.06996040474765,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 34.06996040474765
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.308341",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.347185",
+            "context": {
+                "pnl_pct": 3.39366267486277,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.39366267486277
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.372335",
+            "context": {
+                "pnl_pct": -1.3397764164190449,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3397764164190449
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.409946",
+            "context": {
+                "pnl_pct": -1.349530269467327,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.349530269467327
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.434415",
+            "context": {
+                "pnl_pct": 1.248274247022846,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.248274247022846
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.464552",
+            "context": {
+                "pnl_pct": 7.446228395317929,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.446228395317929
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.486541",
+            "context": {
+                "pnl_pct": -1.4294265926142329,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4294265926142329
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.505354",
+            "context": {
+                "pnl_pct": -1.4420321503222377,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4420321503222377
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.526546",
+            "context": {
+                "pnl_pct": -2.020839910118288,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.020839910118288
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.657980",
+            "context": {
+                "pnl_pct": 10.017485521335535,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 10.017485521335535
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.677691",
+            "context": {
+                "pnl_pct": -1.362478156567366,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.362478156567366
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.700365",
+            "context": {
+                "pnl_pct": -1.3704035954791143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3704035954791143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.725773",
+            "context": {
+                "pnl_pct": 9.13554991617341,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.13554991617341
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.745236",
+            "context": {
+                "pnl_pct": -2.1969044690941324,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.1969044690941324
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.767756",
+            "context": {
+                "pnl_pct": -2.346268991294932,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.346268991294932
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.793071",
+            "context": {
+                "pnl_pct": -1.3158783950922546,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3158783950922546
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.817260",
+            "context": {
+                "pnl_pct": -0.31473513243380014,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243380014
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.846665",
+            "context": {
+                "pnl_pct": 1.8554810838412723,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8554810838412723
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.875846",
+            "context": {
+                "pnl_pct": -1.3782336907648454,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3782336907648454
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.905024",
+            "context": {
+                "pnl_pct": -0.45775559852784464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.45775559852784464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.925910",
+            "context": {
+                "pnl_pct": -3.2883012719492384,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.2883012719492384
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.970266",
+            "context": {
+                "pnl_pct": 22.37427522655707,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 22.37427522655707
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:48.991320",
+            "context": {
+                "pnl_pct": -1.3879018594769401,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3879018594769401
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.014261",
+            "context": {
+                "pnl_pct": 9.293483168054529,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.293483168054529
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.034643",
+            "context": {
+                "pnl_pct": 1.8761498097105231,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8761498097105231
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.054768",
+            "context": {
+                "pnl_pct": -1.384319519424825,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.384319519424825
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.074786",
+            "context": {
+                "pnl_pct": -1.6121572348315918,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.6121572348315918
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.103530",
+            "context": {
+                "pnl_pct": 5.497497032561833,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.497497032561833
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.124755",
+            "context": {
+                "pnl_pct": -0.21143433982490356,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.21143433982490356
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.146018",
+            "context": {
+                "pnl_pct": -1.5492275766141674,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5492275766141674
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.174163",
+            "context": {
+                "pnl_pct": 12.430886051257136,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 12.430886051257136
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.194504",
+            "context": {
+                "pnl_pct": -1.3188907309165778,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3188907309165778
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.222522",
+            "context": {
+                "pnl_pct": -1.3281712817343656,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3281712817343656
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.249790",
+            "context": {
+                "pnl_pct": -1.4306149630408584,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4306149630408584
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.269688",
+            "context": {
+                "pnl_pct": -4.743097560388027,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -4.743097560388027
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.292087",
+            "context": {
+                "pnl_pct": -1.3541544781234034,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3541544781234034
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.312945",
+            "context": {
+                "pnl_pct": -1.4616891554222915,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4616891554222915
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.333501",
+            "context": {
+                "pnl_pct": -1.3247175525712176,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712176
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.365934",
+            "context": {
+                "pnl_pct": 2.8678016450065567,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 2.8678016450065567
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.388392",
+            "context": {
+                "pnl_pct": -1.3551876981489424,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551876981489424
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.410050",
+            "context": {
+                "pnl_pct": -2.9091464302883554,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.9091464302883554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.431011",
+            "context": {
+                "pnl_pct": -1.315591205401306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.315591205401306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.451858",
+            "context": {
+                "pnl_pct": -1.317605000316718,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.317605000316718
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.472322",
+            "context": {
+                "pnl_pct": -1.4268425498204143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4268425498204143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.499972",
+            "context": {
+                "pnl_pct": -1.537867216698386,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.537867216698386
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.521390",
+            "context": {
+                "pnl_pct": 5.742350992372009,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.742350992372009
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.544332",
+            "context": {
+                "pnl_pct": -3.9061224743032654,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.9061224743032654
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.564982",
+            "context": {
+                "pnl_pct": -1.318614939760729,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.318614939760729
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.586977",
+            "context": {
+                "pnl_pct": -1.430236570422806,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.430236570422806
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.609055",
+            "context": {
+                "pnl_pct": -1.4069043690306215,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4069043690306215
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.641483",
+            "context": {
+                "pnl_pct": -1.3155912054013066,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3155912054013066
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.664195",
+            "context": {
+                "pnl_pct": -1.3247175525712107,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712107
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.686103",
+            "context": {
+                "pnl_pct": -1.5391191430896503,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5391191430896503
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.707111",
+            "context": {
+                "pnl_pct": -1.4569621257079737,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079737
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.731095",
+            "context": {
+                "pnl_pct": -0.31473513243376683,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243376683
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.753174",
+            "context": {
+                "pnl_pct": -1.4569621257079695,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079695
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.786793",
+            "context": {
+                "pnl_pct": 7.369556668339548,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.369556668339548
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.811893",
+            "context": {
+                "pnl_pct": -1.3399019111893506,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3399019111893506
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.848172",
+            "context": {
+                "pnl_pct": 5.595458436789539,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.595458436789539
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.871068",
+            "context": {
+                "pnl_pct": -2.6286920699353007,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.6286920699353007
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.894225",
+            "context": {
+                "pnl_pct": -1.3560816790085224,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3560816790085224
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.917224",
+            "context": {
+                "pnl_pct": -1.319241160369897,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.319241160369897
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.955098",
+            "context": {
+                "pnl_pct": 29.595676381392433,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 29.595676381392433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:49.979120",
+            "context": {
+                "pnl_pct": 3.854327475918512,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.854327475918512
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.001425",
+            "context": {
+                "pnl_pct": -1.4580786721334433,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4580786721334433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.024833",
+            "context": {
+                "pnl_pct": 0.7304104500533464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7304104500533464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.046739",
+            "context": {
+                "pnl_pct": -2.3491282929963306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3491282929963306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.070836",
+            "context": {
+                "pnl_pct": 0.7106827280701974,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7106827280701974
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.205386",
+            "context": {
+                "pnl_pct": 5.1791590879687295,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.1791590879687295
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.230159",
+            "context": {
+                "pnl_pct": -1.2090818841786524,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.2090818841786524
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.255079",
+            "context": {
+                "pnl_pct": 3.57708685212189,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.57708685212189
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.281551",
+            "context": {
+                "pnl_pct": -0.7084886473813692,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7084886473813692
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.304703",
+            "context": {
+                "pnl_pct": -0.7110980146109818,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7110980146109818
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.334455",
+            "context": {
+                "pnl_pct": 7.332900264344177,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.332900264344177
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.357958",
+            "context": {
+                "pnl_pct": -1.4264667108824596,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4264667108824596
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.381785",
+            "context": {
+                "pnl_pct": 1.253629638925057,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.253629638925057
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.406992",
+            "context": {
+                "pnl_pct": -1.4203018407616832,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4203018407616832
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.427803",
+            "context": {
+                "pnl_pct": -1.650657635445195,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.650657635445195
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.451483",
+            "context": {
+                "pnl_pct": -1.4080573922716118,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4080573922716118
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.483441",
+            "context": {
+                "pnl_pct": -1.4187413231494999,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4187413231494999
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.508428",
+            "context": {
+                "pnl_pct": 6.843165968070021,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.843165968070021
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.531443",
+            "context": {
+                "pnl_pct": -1.412187589691365,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.412187589691365
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.555462",
+            "context": {
+                "pnl_pct": -1.426466710882459,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.426466710882459
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.577503",
+            "context": {
+                "pnl_pct": -3.677011399047504,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.677011399047504
+            }
+        },
+        {
+            "timestamp": "2026-02-06T18:19:50.601133",
+            "context": {
+                "pnl_pct": -1.3551553789315431,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551553789315431
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:33.832481",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:33.882722",
+            "context": {
+                "pnl_pct": 3.39366267486277,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.39366267486277
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:33.912761",
+            "context": {
+                "pnl_pct": -1.3397764164190449,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3397764164190449
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:33.941396",
+            "context": {
+                "pnl_pct": -1.349530269467327,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.349530269467327
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:33.975939",
+            "context": {
+                "pnl_pct": 1.248274247022846,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.248274247022846
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.012068",
+            "context": {
+                "pnl_pct": 7.446228395317929,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.446228395317929
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.046772",
+            "context": {
+                "pnl_pct": -1.4294265926142329,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4294265926142329
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.074697",
+            "context": {
+                "pnl_pct": -1.4420321503222377,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4420321503222377
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.103163",
+            "context": {
+                "pnl_pct": -2.020839910118288,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.020839910118288
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.247385",
+            "context": {
+                "pnl_pct": 10.017485521335535,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 10.017485521335535
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.283912",
+            "context": {
+                "pnl_pct": -1.362478156567366,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.362478156567366
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.318697",
+            "context": {
+                "pnl_pct": -1.3704035954791143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3704035954791143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.358741",
+            "context": {
+                "pnl_pct": 9.13554991617341,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.13554991617341
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.386163",
+            "context": {
+                "pnl_pct": -2.1969044690941324,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.1969044690941324
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.414126",
+            "context": {
+                "pnl_pct": -2.346268991294932,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.346268991294932
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.447342",
+            "context": {
+                "pnl_pct": -1.3158783950922546,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3158783950922546
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.474643",
+            "context": {
+                "pnl_pct": -0.31473513243380014,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243380014
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.507354",
+            "context": {
+                "pnl_pct": 1.8554810838412723,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8554810838412723
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.544956",
+            "context": {
+                "pnl_pct": -1.3782336907648454,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3782336907648454
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.576868",
+            "context": {
+                "pnl_pct": -0.45775559852784464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.45775559852784464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.602798",
+            "context": {
+                "pnl_pct": -3.2883012719492384,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.2883012719492384
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.650116",
+            "context": {
+                "pnl_pct": 22.37427522655707,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 22.37427522655707
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.676899",
+            "context": {
+                "pnl_pct": -1.3879018594769401,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3879018594769401
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.708216",
+            "context": {
+                "pnl_pct": 9.293483168054529,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.293483168054529
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.738606",
+            "context": {
+                "pnl_pct": 1.8761498097105231,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8761498097105231
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.764929",
+            "context": {
+                "pnl_pct": -1.384319519424825,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.384319519424825
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.791389",
+            "context": {
+                "pnl_pct": -1.6121572348315918,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.6121572348315918
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.821939",
+            "context": {
+                "pnl_pct": 5.497497032561833,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.497497032561833
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.850454",
+            "context": {
+                "pnl_pct": -0.21143433982490356,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.21143433982490356
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.879525",
+            "context": {
+                "pnl_pct": -1.5492275766141674,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5492275766141674
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.921074",
+            "context": {
+                "pnl_pct": 12.430886051257136,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 12.430886051257136
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.950136",
+            "context": {
+                "pnl_pct": -1.3188907309165778,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3188907309165778
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:34.977211",
+            "context": {
+                "pnl_pct": -1.3281712817343656,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3281712817343656
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.005934",
+            "context": {
+                "pnl_pct": -1.4306149630408584,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4306149630408584
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.033524",
+            "context": {
+                "pnl_pct": -4.743097560388027,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -4.743097560388027
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.060204",
+            "context": {
+                "pnl_pct": -1.3541544781234034,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3541544781234034
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.092178",
+            "context": {
+                "pnl_pct": -1.4616891554222915,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4616891554222915
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.117641",
+            "context": {
+                "pnl_pct": -1.3247175525712176,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712176
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.149817",
+            "context": {
+                "pnl_pct": 2.8678016450065567,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 2.8678016450065567
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.176983",
+            "context": {
+                "pnl_pct": -1.3551876981489424,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551876981489424
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.205008",
+            "context": {
+                "pnl_pct": -2.9091464302883554,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.9091464302883554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.230647",
+            "context": {
+                "pnl_pct": -1.315591205401306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.315591205401306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.272285",
+            "context": {
+                "pnl_pct": -1.317605000316718,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.317605000316718
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.297348",
+            "context": {
+                "pnl_pct": -1.4268425498204143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4268425498204143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.325856",
+            "context": {
+                "pnl_pct": -1.537867216698386,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.537867216698386
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.355875",
+            "context": {
+                "pnl_pct": 5.742350992372009,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.742350992372009
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.383327",
+            "context": {
+                "pnl_pct": -3.9061224743032654,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.9061224743032654
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.417614",
+            "context": {
+                "pnl_pct": -1.318614939760729,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.318614939760729
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.444241",
+            "context": {
+                "pnl_pct": -1.430236570422806,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.430236570422806
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.472839",
+            "context": {
+                "pnl_pct": -1.4069043690306215,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4069043690306215
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.502512",
+            "context": {
+                "pnl_pct": -1.3155912054013066,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3155912054013066
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.528870",
+            "context": {
+                "pnl_pct": -1.3247175525712107,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712107
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.557897",
+            "context": {
+                "pnl_pct": -1.5391191430896503,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5391191430896503
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.591345",
+            "context": {
+                "pnl_pct": -1.4569621257079737,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079737
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.622026",
+            "context": {
+                "pnl_pct": -0.31473513243376683,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243376683
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.650430",
+            "context": {
+                "pnl_pct": -1.4569621257079695,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079695
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.680045",
+            "context": {
+                "pnl_pct": 7.369556668339548,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.369556668339548
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.706989",
+            "context": {
+                "pnl_pct": -1.3399019111893506,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3399019111893506
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.749988",
+            "context": {
+                "pnl_pct": 5.595458436789539,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.595458436789539
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.783869",
+            "context": {
+                "pnl_pct": -2.6286920699353007,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.6286920699353007
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.811547",
+            "context": {
+                "pnl_pct": -1.3560816790085224,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3560816790085224
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.839497",
+            "context": {
+                "pnl_pct": -1.319241160369897,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.319241160369897
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.878933",
+            "context": {
+                "pnl_pct": 29.595676381392433,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 29.595676381392433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.909151",
+            "context": {
+                "pnl_pct": 3.854327475918512,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.854327475918512
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.938738",
+            "context": {
+                "pnl_pct": -1.4580786721334433,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4580786721334433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:35.974040",
+            "context": {
+                "pnl_pct": 0.7304104500533464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7304104500533464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.003531",
+            "context": {
+                "pnl_pct": -2.3491282929963306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3491282929963306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.033274",
+            "context": {
+                "pnl_pct": 0.7106827280701974,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7106827280701974
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.169175",
+            "context": {
+                "pnl_pct": 5.1791590879687295,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.1791590879687295
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.198301",
+            "context": {
+                "pnl_pct": -1.2090818841786524,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.2090818841786524
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.231219",
+            "context": {
+                "pnl_pct": 3.57708685212189,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.57708685212189
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.267637",
+            "context": {
+                "pnl_pct": -0.7084886473813692,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7084886473813692
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.295069",
+            "context": {
+                "pnl_pct": -0.7110980146109818,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7110980146109818
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.326010",
+            "context": {
+                "pnl_pct": 7.332900264344177,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.332900264344177
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.353613",
+            "context": {
+                "pnl_pct": -1.4264667108824596,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4264667108824596
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.384513",
+            "context": {
+                "pnl_pct": 1.253629638925057,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.253629638925057
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.412211",
+            "context": {
+                "pnl_pct": -1.4203018407616832,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4203018407616832
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.447446",
+            "context": {
+                "pnl_pct": -1.650657635445195,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.650657635445195
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.475858",
+            "context": {
+                "pnl_pct": -1.4080573922716118,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4080573922716118
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.506162",
+            "context": {
+                "pnl_pct": -1.4187413231494999,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4187413231494999
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.538456",
+            "context": {
+                "pnl_pct": 6.843165968070021,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.843165968070021
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.566573",
+            "context": {
+                "pnl_pct": -1.412187589691365,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.412187589691365
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.603118",
+            "context": {
+                "pnl_pct": -1.426466710882459,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.426466710882459
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.631631",
+            "context": {
+                "pnl_pct": -3.677011399047504,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.677011399047504
+            }
+        },
+        {
+            "timestamp": "2026-02-06T19:54:36.660314",
+            "context": {
+                "pnl_pct": -1.3551553789315431,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551553789315431
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.194278",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.239803",
+            "context": {
+                "pnl_pct": 3.39366267486277,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.39366267486277
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.270679",
+            "context": {
+                "pnl_pct": -1.3397764164190449,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3397764164190449
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.299037",
+            "context": {
+                "pnl_pct": -1.349530269467327,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.349530269467327
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.332987",
+            "context": {
+                "pnl_pct": 1.248274247022846,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.248274247022846
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.370231",
+            "context": {
+                "pnl_pct": 7.446228395317929,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.446228395317929
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.400340",
+            "context": {
+                "pnl_pct": -1.4294265926142329,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4294265926142329
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.436108",
+            "context": {
+                "pnl_pct": -1.4420321503222377,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4420321503222377
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.466171",
+            "context": {
+                "pnl_pct": -2.020839910118288,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.020839910118288
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.605412",
+            "context": {
+                "pnl_pct": 10.017485521335535,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 10.017485521335535
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.634615",
+            "context": {
+                "pnl_pct": -1.362478156567366,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.362478156567366
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.664990",
+            "context": {
+                "pnl_pct": -1.3704035954791143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3704035954791143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.701946",
+            "context": {
+                "pnl_pct": 9.13554991617341,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.13554991617341
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.743985",
+            "context": {
+                "pnl_pct": -2.1969044690941324,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.1969044690941324
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.773390",
+            "context": {
+                "pnl_pct": -2.346268991294932,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.346268991294932
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.804943",
+            "context": {
+                "pnl_pct": -1.3158783950922546,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3158783950922546
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.838608",
+            "context": {
+                "pnl_pct": -0.31473513243380014,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243380014
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.882971",
+            "context": {
+                "pnl_pct": 1.8554810838412723,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8554810838412723
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.919675",
+            "context": {
+                "pnl_pct": -1.3782336907648454,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3782336907648454
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.961260",
+            "context": {
+                "pnl_pct": -0.45775559852784464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.45775559852784464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:58.995134",
+            "context": {
+                "pnl_pct": -3.2883012719492384,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.2883012719492384
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.046848",
+            "context": {
+                "pnl_pct": 22.37427522655707,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 22.37427522655707
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.077674",
+            "context": {
+                "pnl_pct": -1.3879018594769401,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3879018594769401
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.114107",
+            "context": {
+                "pnl_pct": 9.293483168054529,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.293483168054529
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.144084",
+            "context": {
+                "pnl_pct": 1.8761498097105231,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8761498097105231
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.181659",
+            "context": {
+                "pnl_pct": -1.384319519424825,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.384319519424825
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.213183",
+            "context": {
+                "pnl_pct": -1.6121572348315918,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.6121572348315918
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.247369",
+            "context": {
+                "pnl_pct": 5.497497032561833,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.497497032561833
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.280325",
+            "context": {
+                "pnl_pct": -0.21143433982490356,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.21143433982490356
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.309884",
+            "context": {
+                "pnl_pct": -1.5492275766141674,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5492275766141674
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.358193",
+            "context": {
+                "pnl_pct": 12.430886051257136,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 12.430886051257136
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.389838",
+            "context": {
+                "pnl_pct": -1.3188907309165778,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3188907309165778
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.419591",
+            "context": {
+                "pnl_pct": -1.3281712817343656,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3281712817343656
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.448851",
+            "context": {
+                "pnl_pct": -1.4306149630408584,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4306149630408584
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.480738",
+            "context": {
+                "pnl_pct": -4.743097560388027,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -4.743097560388027
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.511382",
+            "context": {
+                "pnl_pct": -1.3541544781234034,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3541544781234034
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.548798",
+            "context": {
+                "pnl_pct": -1.4616891554222915,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4616891554222915
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.579287",
+            "context": {
+                "pnl_pct": -1.3247175525712176,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712176
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.618888",
+            "context": {
+                "pnl_pct": 2.8678016450065567,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 2.8678016450065567
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.651190",
+            "context": {
+                "pnl_pct": -1.3551876981489424,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551876981489424
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.682937",
+            "context": {
+                "pnl_pct": -2.9091464302883554,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.9091464302883554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.712230",
+            "context": {
+                "pnl_pct": -1.315591205401306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.315591205401306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.750767",
+            "context": {
+                "pnl_pct": -1.317605000316718,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.317605000316718
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.781449",
+            "context": {
+                "pnl_pct": -1.4268425498204143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4268425498204143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.815079",
+            "context": {
+                "pnl_pct": -1.537867216698386,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.537867216698386
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.848332",
+            "context": {
+                "pnl_pct": 5.742350992372009,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.742350992372009
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.881325",
+            "context": {
+                "pnl_pct": -3.9061224743032654,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.9061224743032654
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.912413",
+            "context": {
+                "pnl_pct": -1.318614939760729,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.318614939760729
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.950557",
+            "context": {
+                "pnl_pct": -1.430236570422806,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.430236570422806
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:02:59.983628",
+            "context": {
+                "pnl_pct": -1.4069043690306215,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4069043690306215
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.017469",
+            "context": {
+                "pnl_pct": -1.3155912054013066,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3155912054013066
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.052221",
+            "context": {
+                "pnl_pct": -1.3247175525712107,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712107
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.084557",
+            "context": {
+                "pnl_pct": -1.5391191430896503,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5391191430896503
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.116182",
+            "context": {
+                "pnl_pct": -1.4569621257079737,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079737
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.155963",
+            "context": {
+                "pnl_pct": -0.31473513243376683,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243376683
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.186865",
+            "context": {
+                "pnl_pct": -1.4569621257079695,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079695
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.222517",
+            "context": {
+                "pnl_pct": 7.369556668339548,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.369556668339548
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.258028",
+            "context": {
+                "pnl_pct": -1.3399019111893506,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3399019111893506
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.301467",
+            "context": {
+                "pnl_pct": 5.595458436789539,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.595458436789539
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.333443",
+            "context": {
+                "pnl_pct": -2.6286920699353007,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.6286920699353007
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.378011",
+            "context": {
+                "pnl_pct": -1.3560816790085224,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3560816790085224
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.409883",
+            "context": {
+                "pnl_pct": -1.319241160369897,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.319241160369897
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.450380",
+            "context": {
+                "pnl_pct": 29.595676381392433,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 29.595676381392433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.483878",
+            "context": {
+                "pnl_pct": 3.854327475918512,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.854327475918512
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.515465",
+            "context": {
+                "pnl_pct": -1.4580786721334433,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4580786721334433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.555037",
+            "context": {
+                "pnl_pct": 0.7304104500533464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7304104500533464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.587044",
+            "context": {
+                "pnl_pct": -2.3491282929963306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3491282929963306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.622278",
+            "context": {
+                "pnl_pct": 0.7106827280701974,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7106827280701974
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.762680",
+            "context": {
+                "pnl_pct": 5.1791590879687295,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.1791590879687295
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.797060",
+            "context": {
+                "pnl_pct": -1.2090818841786524,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.2090818841786524
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.832699",
+            "context": {
+                "pnl_pct": 3.57708685212189,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.57708685212189
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.870312",
+            "context": {
+                "pnl_pct": -0.7084886473813692,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7084886473813692
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.901262",
+            "context": {
+                "pnl_pct": -0.7110980146109818,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7110980146109818
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.938726",
+            "context": {
+                "pnl_pct": 7.332900264344177,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.332900264344177
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:00.986143",
+            "context": {
+                "pnl_pct": -1.4264667108824596,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4264667108824596
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.029970",
+            "context": {
+                "pnl_pct": 1.253629638925057,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.253629638925057
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.064890",
+            "context": {
+                "pnl_pct": -1.4203018407616832,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4203018407616832
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.103248",
+            "context": {
+                "pnl_pct": -1.650657635445195,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.650657635445195
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.134804",
+            "context": {
+                "pnl_pct": -1.4080573922716118,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4080573922716118
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.168103",
+            "context": {
+                "pnl_pct": -1.4187413231494999,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4187413231494999
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.205001",
+            "context": {
+                "pnl_pct": 6.843165968070021,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.843165968070021
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.238756",
+            "context": {
+                "pnl_pct": -1.412187589691365,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.412187589691365
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.271411",
+            "context": {
+                "pnl_pct": -1.426466710882459,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.426466710882459
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.311516",
+            "context": {
+                "pnl_pct": -3.677011399047504,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.677011399047504
+            }
+        },
+        {
+            "timestamp": "2026-02-06T20:03:01.344939",
+            "context": {
+                "pnl_pct": -1.3551553789315431,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551553789315431
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:37:28.019942",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.232036",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.268249",
+            "context": {
+                "pnl_pct": 3.39366267486277,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.39366267486277
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.299539",
+            "context": {
+                "pnl_pct": -1.3397764164190449,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3397764164190449
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.341167",
+            "context": {
+                "pnl_pct": -1.349530269467327,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.349530269467327
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.375453",
+            "context": {
+                "pnl_pct": 1.248274247022846,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.248274247022846
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.411954",
+            "context": {
+                "pnl_pct": 7.446228395317929,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.446228395317929
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.443347",
+            "context": {
+                "pnl_pct": -1.4294265926142329,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4294265926142329
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.473154",
+            "context": {
+                "pnl_pct": -1.4420321503222377,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4420321503222377
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.502560",
+            "context": {
+                "pnl_pct": -2.020839910118288,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.020839910118288
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.643708",
+            "context": {
+                "pnl_pct": 10.017485521335535,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 10.017485521335535
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.673849",
+            "context": {
+                "pnl_pct": -1.362478156567366,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.362478156567366
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.704824",
+            "context": {
+                "pnl_pct": -1.3704035954791143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3704035954791143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.738200",
+            "context": {
+                "pnl_pct": 9.13554991617341,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.13554991617341
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.768232",
+            "context": {
+                "pnl_pct": -2.1969044690941324,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.1969044690941324
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.802504",
+            "context": {
+                "pnl_pct": -2.346268991294932,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.346268991294932
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.838463",
+            "context": {
+                "pnl_pct": -1.3158783950922546,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3158783950922546
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.870844",
+            "context": {
+                "pnl_pct": -0.31473513243380014,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243380014
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.905947",
+            "context": {
+                "pnl_pct": 1.8554810838412723,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8554810838412723
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.941810",
+            "context": {
+                "pnl_pct": -1.3782336907648454,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3782336907648454
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:27.977000",
+            "context": {
+                "pnl_pct": -0.45775559852784464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.45775559852784464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.008314",
+            "context": {
+                "pnl_pct": -3.2883012719492384,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.2883012719492384
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.063330",
+            "context": {
+                "pnl_pct": 22.37427522655707,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 22.37427522655707
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.095224",
+            "context": {
+                "pnl_pct": -1.3879018594769401,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3879018594769401
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.129686",
+            "context": {
+                "pnl_pct": 9.293483168054529,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.293483168054529
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.161034",
+            "context": {
+                "pnl_pct": 1.8761498097105231,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8761498097105231
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.190878",
+            "context": {
+                "pnl_pct": -1.384319519424825,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.384319519424825
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.220039",
+            "context": {
+                "pnl_pct": -1.6121572348315918,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.6121572348315918
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.257239",
+            "context": {
+                "pnl_pct": 5.497497032561833,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.497497032561833
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.289157",
+            "context": {
+                "pnl_pct": -0.21143433982490356,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.21143433982490356
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.321789",
+            "context": {
+                "pnl_pct": -1.5492275766141674,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5492275766141674
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.361209",
+            "context": {
+                "pnl_pct": 12.430886051257136,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 12.430886051257136
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.393251",
+            "context": {
+                "pnl_pct": -1.3188907309165778,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3188907309165778
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.429471",
+            "context": {
+                "pnl_pct": -1.3281712817343656,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3281712817343656
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.459949",
+            "context": {
+                "pnl_pct": -1.4306149630408584,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4306149630408584
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.489392",
+            "context": {
+                "pnl_pct": -4.743097560388027,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -4.743097560388027
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.521812",
+            "context": {
+                "pnl_pct": -1.3541544781234034,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3541544781234034
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.553325",
+            "context": {
+                "pnl_pct": -1.4616891554222915,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4616891554222915
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.585856",
+            "context": {
+                "pnl_pct": -1.3247175525712176,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712176
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.628730",
+            "context": {
+                "pnl_pct": 2.8678016450065567,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 2.8678016450065567
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.660135",
+            "context": {
+                "pnl_pct": -1.3551876981489424,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551876981489424
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.691168",
+            "context": {
+                "pnl_pct": -2.9091464302883554,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.9091464302883554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.721886",
+            "context": {
+                "pnl_pct": -1.315591205401306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.315591205401306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.753451",
+            "context": {
+                "pnl_pct": -1.317605000316718,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.317605000316718
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.783874",
+            "context": {
+                "pnl_pct": -1.4268425498204143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4268425498204143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.821297",
+            "context": {
+                "pnl_pct": -1.537867216698386,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.537867216698386
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.852483",
+            "context": {
+                "pnl_pct": 5.742350992372009,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.742350992372009
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.885932",
+            "context": {
+                "pnl_pct": -3.9061224743032654,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.9061224743032654
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.918544",
+            "context": {
+                "pnl_pct": -1.318614939760729,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.318614939760729
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.949976",
+            "context": {
+                "pnl_pct": -1.430236570422806,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.430236570422806
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:28.982545",
+            "context": {
+                "pnl_pct": -1.4069043690306215,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4069043690306215
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.023934",
+            "context": {
+                "pnl_pct": -1.3155912054013066,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3155912054013066
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.055794",
+            "context": {
+                "pnl_pct": -1.3247175525712107,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712107
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.087040",
+            "context": {
+                "pnl_pct": -1.5391191430896503,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5391191430896503
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.118443",
+            "context": {
+                "pnl_pct": -1.4569621257079737,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079737
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.151444",
+            "context": {
+                "pnl_pct": -0.31473513243376683,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243376683
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.181959",
+            "context": {
+                "pnl_pct": -1.4569621257079695,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079695
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.223040",
+            "context": {
+                "pnl_pct": 7.369556668339548,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.369556668339548
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.255974",
+            "context": {
+                "pnl_pct": -1.3399019111893506,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3399019111893506
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.299563",
+            "context": {
+                "pnl_pct": 5.595458436789539,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.595458436789539
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.335099",
+            "context": {
+                "pnl_pct": -2.6286920699353007,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.6286920699353007
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.369875",
+            "context": {
+                "pnl_pct": -1.3560816790085224,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3560816790085224
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.401479",
+            "context": {
+                "pnl_pct": -1.319241160369897,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.319241160369897
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.447772",
+            "context": {
+                "pnl_pct": 29.595676381392433,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 29.595676381392433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.482062",
+            "context": {
+                "pnl_pct": 3.854327475918512,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.854327475918512
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.514312",
+            "context": {
+                "pnl_pct": -1.4580786721334433,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4580786721334433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.547390",
+            "context": {
+                "pnl_pct": 0.7304104500533464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7304104500533464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.580832",
+            "context": {
+                "pnl_pct": -2.3491282929963306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3491282929963306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.619820",
+            "context": {
+                "pnl_pct": 0.7106827280701974,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7106827280701974
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.757904",
+            "context": {
+                "pnl_pct": 5.1791590879687295,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.1791590879687295
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.791024",
+            "context": {
+                "pnl_pct": -1.2090818841786524,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.2090818841786524
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.826675",
+            "context": {
+                "pnl_pct": 3.57708685212189,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.57708685212189
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.860698",
+            "context": {
+                "pnl_pct": -0.7084886473813692,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7084886473813692
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.893968",
+            "context": {
+                "pnl_pct": -0.7110980146109818,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7110980146109818
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.933441",
+            "context": {
+                "pnl_pct": 7.332900264344177,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.332900264344177
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.964541",
+            "context": {
+                "pnl_pct": -1.4264667108824596,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4264667108824596
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:29.997896",
+            "context": {
+                "pnl_pct": 1.253629638925057,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.253629638925057
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.030435",
+            "context": {
+                "pnl_pct": -1.4203018407616832,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4203018407616832
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.062872",
+            "context": {
+                "pnl_pct": -1.650657635445195,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.650657635445195
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.095532",
+            "context": {
+                "pnl_pct": -1.4080573922716118,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4080573922716118
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.133601",
+            "context": {
+                "pnl_pct": -1.4187413231494999,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4187413231494999
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.167269",
+            "context": {
+                "pnl_pct": 6.843165968070021,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.843165968070021
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.201609",
+            "context": {
+                "pnl_pct": -1.412187589691365,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.412187589691365
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.233555",
+            "context": {
+                "pnl_pct": -1.426466710882459,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.426466710882459
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.267143",
+            "context": {
+                "pnl_pct": -3.677011399047504,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.677011399047504
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:41:30.300109",
+            "context": {
+                "pnl_pct": -1.3551553789315431,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551553789315431
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:20.867416",
+            "context": {
+                "pnl_pct": -1.3640537099871044,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3640537099871044
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:20.908824",
+            "context": {
+                "pnl_pct": 3.39366267486277,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.39366267486277
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:20.942155",
+            "context": {
+                "pnl_pct": -1.3397764164190449,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3397764164190449
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:20.975822",
+            "context": {
+                "pnl_pct": -1.349530269467327,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.349530269467327
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.013283",
+            "context": {
+                "pnl_pct": 1.248274247022846,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.248274247022846
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.062147",
+            "context": {
+                "pnl_pct": 7.446228395317929,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.446228395317929
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.097208",
+            "context": {
+                "pnl_pct": -1.4294265926142329,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4294265926142329
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.131204",
+            "context": {
+                "pnl_pct": -1.4420321503222377,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4420321503222377
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.166300",
+            "context": {
+                "pnl_pct": -2.020839910118288,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.020839910118288
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.309605",
+            "context": {
+                "pnl_pct": 10.017485521335535,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 10.017485521335535
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.342208",
+            "context": {
+                "pnl_pct": -1.362478156567366,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.362478156567366
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.392118",
+            "context": {
+                "pnl_pct": -1.3704035954791143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3704035954791143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.429899",
+            "context": {
+                "pnl_pct": 9.13554991617341,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.13554991617341
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.463888",
+            "context": {
+                "pnl_pct": -2.1969044690941324,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.1969044690941324
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.496712",
+            "context": {
+                "pnl_pct": -2.346268991294932,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.346268991294932
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.530051",
+            "context": {
+                "pnl_pct": -1.3158783950922546,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3158783950922546
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.565271",
+            "context": {
+                "pnl_pct": -0.31473513243380014,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243380014
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.609076",
+            "context": {
+                "pnl_pct": 1.8554810838412723,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8554810838412723
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.648617",
+            "context": {
+                "pnl_pct": -1.3782336907648454,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3782336907648454
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.689566",
+            "context": {
+                "pnl_pct": -0.45775559852784464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.45775559852784464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.726796",
+            "context": {
+                "pnl_pct": -3.2883012719492384,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.2883012719492384
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.779817",
+            "context": {
+                "pnl_pct": 22.37427522655707,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 22.37427522655707
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.815292",
+            "context": {
+                "pnl_pct": -1.3879018594769401,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3879018594769401
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.860555",
+            "context": {
+                "pnl_pct": 9.293483168054529,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 9.293483168054529
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.900100",
+            "context": {
+                "pnl_pct": 1.8761498097105231,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.8761498097105231
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.933936",
+            "context": {
+                "pnl_pct": -1.384319519424825,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.384319519424825
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:21.968309",
+            "context": {
+                "pnl_pct": -1.6121572348315918,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.6121572348315918
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.005785",
+            "context": {
+                "pnl_pct": 5.497497032561833,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.497497032561833
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.042034",
+            "context": {
+                "pnl_pct": -0.21143433982490356,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.21143433982490356
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.083663",
+            "context": {
+                "pnl_pct": -1.5492275766141674,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5492275766141674
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.125384",
+            "context": {
+                "pnl_pct": 12.430886051257136,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 12.430886051257136
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.158936",
+            "context": {
+                "pnl_pct": -1.3188907309165778,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3188907309165778
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.194914",
+            "context": {
+                "pnl_pct": -1.3281712817343656,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3281712817343656
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.231562",
+            "context": {
+                "pnl_pct": -1.4306149630408584,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4306149630408584
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.267377",
+            "context": {
+                "pnl_pct": -4.743097560388027,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -4.743097560388027
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.307617",
+            "context": {
+                "pnl_pct": -1.3541544781234034,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3541544781234034
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.343600",
+            "context": {
+                "pnl_pct": -1.4616891554222915,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4616891554222915
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.378609",
+            "context": {
+                "pnl_pct": -1.3247175525712176,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712176
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.417625",
+            "context": {
+                "pnl_pct": 2.8678016450065567,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 2.8678016450065567
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.453091",
+            "context": {
+                "pnl_pct": -1.3551876981489424,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551876981489424
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.494277",
+            "context": {
+                "pnl_pct": -2.9091464302883554,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.9091464302883554
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.528487",
+            "context": {
+                "pnl_pct": -1.315591205401306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.315591205401306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.563847",
+            "context": {
+                "pnl_pct": -1.317605000316718,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.317605000316718
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.598790",
+            "context": {
+                "pnl_pct": -1.4268425498204143,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4268425498204143
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.634897",
+            "context": {
+                "pnl_pct": -1.537867216698386,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.537867216698386
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.671339",
+            "context": {
+                "pnl_pct": 5.742350992372009,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.742350992372009
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.716368",
+            "context": {
+                "pnl_pct": -3.9061224743032654,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.9061224743032654
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.751267",
+            "context": {
+                "pnl_pct": -1.318614939760729,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.318614939760729
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.785627",
+            "context": {
+                "pnl_pct": -1.430236570422806,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.430236570422806
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.823860",
+            "context": {
+                "pnl_pct": -1.4069043690306215,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4069043690306215
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.858760",
+            "context": {
+                "pnl_pct": -1.3155912054013066,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3155912054013066
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.894970",
+            "context": {
+                "pnl_pct": -1.3247175525712107,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3247175525712107
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.936961",
+            "context": {
+                "pnl_pct": -1.5391191430896503,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.5391191430896503
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:22.971650",
+            "context": {
+                "pnl_pct": -1.4569621257079737,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079737
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.009065",
+            "context": {
+                "pnl_pct": -0.31473513243376683,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.31473513243376683
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.045976",
+            "context": {
+                "pnl_pct": -1.4569621257079695,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4569621257079695
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.085908",
+            "context": {
+                "pnl_pct": 7.369556668339548,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.369556668339548
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.123658",
+            "context": {
+                "pnl_pct": -1.3399019111893506,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3399019111893506
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.180933",
+            "context": {
+                "pnl_pct": 5.595458436789539,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.595458436789539
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.218654",
+            "context": {
+                "pnl_pct": -2.6286920699353007,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.6286920699353007
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.255575",
+            "context": {
+                "pnl_pct": -1.3560816790085224,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3560816790085224
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.292717",
+            "context": {
+                "pnl_pct": -1.319241160369897,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.319241160369897
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.336641",
+            "context": {
+                "pnl_pct": 29.595676381392433,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 29.595676381392433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.373624",
+            "context": {
+                "pnl_pct": 3.854327475918512,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.854327475918512
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.415091",
+            "context": {
+                "pnl_pct": -1.4580786721334433,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4580786721334433
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.449840",
+            "context": {
+                "pnl_pct": 0.7304104500533464,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7304104500533464
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.486043",
+            "context": {
+                "pnl_pct": -2.3491282929963306,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -2.3491282929963306
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.523059",
+            "context": {
+                "pnl_pct": 0.7106827280701974,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 0.7106827280701974
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.663458",
+            "context": {
+                "pnl_pct": 5.1791590879687295,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 5.1791590879687295
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.699765",
+            "context": {
+                "pnl_pct": -1.2090818841786524,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.2090818841786524
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.745745",
+            "context": {
+                "pnl_pct": 3.57708685212189,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 3.57708685212189
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.781908",
+            "context": {
+                "pnl_pct": -0.7084886473813692,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7084886473813692
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.818357",
+            "context": {
+                "pnl_pct": -0.7110980146109818,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -0.7110980146109818
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.856288",
+            "context": {
+                "pnl_pct": 7.332900264344177,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 7.332900264344177
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.893820",
+            "context": {
+                "pnl_pct": -1.4264667108824596,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4264667108824596
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.936914",
+            "context": {
+                "pnl_pct": 1.253629638925057,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 1.253629638925057
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:23.971502",
+            "context": {
+                "pnl_pct": -1.4203018407616832,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4203018407616832
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.007961",
+            "context": {
+                "pnl_pct": -1.650657635445195,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.650657635445195
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.045174",
+            "context": {
+                "pnl_pct": -1.4080573922716118,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4080573922716118
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.083484",
+            "context": {
+                "pnl_pct": -1.4187413231494999,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.4187413231494999
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.121571",
+            "context": {
+                "pnl_pct": 6.843165968070021,
+                "reason": "PROFIT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "SUCCESS",
+                "pnl": 6.843165968070021
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.163735",
+            "context": {
+                "pnl_pct": -1.412187589691365,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.412187589691365
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.201434",
+            "context": {
+                "pnl_pct": -1.426466710882459,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.426466710882459
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.238889",
+            "context": {
+                "pnl_pct": -3.677011399047504,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -3.677011399047504
+            }
+        },
+        {
+            "timestamp": "2026-02-06T22:44:24.275268",
+            "context": {
+                "pnl_pct": -1.3551553789315431,
+                "reason": "CUT"
+            },
+            "action": "TRADE_EXIT",
+            "outcome": {
+                "result": "FAILURE",
+                "pnl": -1.3551553789315431
+            }
+        }
+    ]
+}

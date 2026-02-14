@@ -1,0 +1,24 @@
+[2026-02-08 SESSION REPORT]
+================================================================================
+# Accomplished:
+1.  **Garbage Filter Removed (Prophet Bypass)**: Diagnosed the issue where AlphaGenius V3.1 was filtering out ALL signals as "garbage" or "high risk". Removed strict `is_worth_it` and `churn_1m` filters temporarily to allow raw momentum signals to pass through (`results/oss_archive/wisdom_snapshot_FINAL.json` confirms signals are now generated).
+2.  **Data Bridge Repaired**: Fixed the critical bug where `market_matrix_cache.pkl` was being built from an empty DataFrame due to incorrect date parsing.
+    - Added robust date parsing for mixed formats (YYYYMMDDHHMMSS vs YYYYMMDDHHMM).
+    - Added strict validation: If the matrix is empty, the process now halts immediately with a clear error.
+3.  **Resource Optimization**:
+    - **GPU (RTX 3060)**: Limited memory fraction to 50% to prevent overheating/OOM.
+    - **CPU**: Thread count limited to 70% of available cores.
+4.  **Real-Time Logging Fixed**:
+    - Fixed UnicodeEncodeError (emoji corruption) in Windows console.
+    - Added `logs/oss_wisdom_bridge.log` for persistent tracking of OSS decisions.
+
+# Pending Issues (Next Steps):
+1.  **Stop-Loss Logic**: During the final simplified test run, a `NameError: 'SLIPPAGE' is not defined` occurred because BPS values were loaded but not converted to float ratios in the loop. (FIXED in final step).
+2.  **Signal Quality**: We opened the floodgates by removing filters. The next session needs to re-introduce *sensible* filters (e.g., at least ensure volume > average) to filter out noise, now that we know the raw signal pipeline works.
+3.  **Backtest Execution**: Run the full backtest again with the fixed `SLIPPAGE` variable to confirm positive PnL generation.
+
+# Artifacts:
+- `c:/garam/garam/run_real_oss_100man.py`: Main engine (patched).
+- `c:/garam/garam/pipeline/backtest/run_alpha_robust.py`: Signal logic (currently in "Ultra Aggressive" diagnostic mode).
+- `c:/garam/garam/logs/oss_wisdom_bridge.log`: Log of OSS state changes.
+================================================================================

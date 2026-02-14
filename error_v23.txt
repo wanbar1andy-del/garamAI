@@ -1,0 +1,12 @@
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:142: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+Traceback (most recent call last):
+  File "c:\garam\garam\run_real_oss_100man.py", line 476, in <module>
+    if idx % 10 == 0:
+  File "c:\garam\garam\run_real_oss_100man.py", line 455, in run_real_test
+    # Minimum order size check (e.g. 50,000 KRW)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py", line 4103, in __getitem__
+    if com.is_bool_indexer(key):
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\common.py", line 136, in is_bool_indexer
+    raise ValueError(na_msg)
+ValueError: Cannot mask with non-boolean array containing NA / NaN values

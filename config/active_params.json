@@ -1,0 +1,15 @@
+{
+    "scenario": "D_NORMAL",
+    "updated_at": "2026-02-03 12:08:38.526660",
+    "params": {
+        "stop_loss_atr": 3.0,
+        "max_exposure": 0.95,
+        "max_positions": 10,
+        "stop_type": "HardStop",
+        "is_entry_blocked": false,
+        "hero_focus": false
+    },
+    "pyramid_weights": {
+        "HERO01": 0.7
+    }
+}

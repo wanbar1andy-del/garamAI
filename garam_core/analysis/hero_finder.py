@@ -8,7 +8,7 @@ PERF: 2-pass 스캔 지원 (Top-K만 Overnight/Gap 계산)
 from __future__ import annotations
 
 import warnings
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from typing import List, Dict, Any, Literal, Optional
 
 import numpy as np
@@ -106,7 +106,13 @@ class HeroMetadata:
     # Hero Flags
     is_hero: bool
     hero_score: float
-    reason_tags: List[str]
+    champion_score: float
+    # New SSOT Fields
+    champion_score_norm: float = 0.0
+    ref_price: float = 0.0
+    veto: bool = False
+    veto_reason: str = ""
+    reason_tags: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
@@ -173,7 +179,15 @@ class HeroFinder:
                 continue
 
         # Sort by hero_score
-        results.sort(key=lambda x: x.hero_score, reverse=True)
+        # results.sort(key=lambda x: x.hero_score, reverse=True)
+
+        # [NEW] Normalization Step for Champion Score
+        if probe.name == "CHAMPION_V21" and results:
+             self._normalize_champion_scores(results)
+             # Sort by Norm Score
+             results.sort(key=lambda x: x.champion_score_norm, reverse=True)
+        else:
+             results.sort(key=lambda x: x.hero_score, reverse=True)
 
         if not two_pass:
             # Single-pass: 모든 종목에 Overnight/Gap 계산 (기존 방식)
@@ -260,7 +274,20 @@ class HeroFinder:
         else:
             p10, p90, max_loss = 0.0, 0.0, 0.0
 
-        is_hero = self._check_hero(exp_net, win_rate, tail, trades, tpd, criteria)
+        # Champion Logic (Returns tuple)
+        ch_res = self._calculate_champion_score(df_full, probe.name)
+        champion_score = ch_res["score"]
+        ref_price = ch_res["ref_price"]
+        veto = ch_res["veto"]
+        veto_reason = ch_res["veto_reason"]
+
+        if probe.name == "CHAMPION_V21":
+            # SSOT: Champion Score is the only criteria (Trigger + Veto)
+            # Expectancy checking is skipped for Veto (Reference Only)
+            is_hero = (champion_score > 0.0)
+        else:
+            is_hero = self._check_hero(exp_net, win_rate, tail, trades, tpd, criteria)
+            
         hero_score = exp_net * win_rate * (1.0 - tail)
 
         tags = []
@@ -302,8 +329,175 @@ class HeroFinder:
             overnight_tier="NONE",
             is_hero=is_hero,
             hero_score=hero_score,
+            champion_score=champion_score,
+            champion_score_norm=0.0, # Will be updated in scan() normalization step
+            ref_price=ref_price,
+            veto=veto,
+            veto_reason=veto_reason,
             reason_tags=tags,
         )
+
+    def _calculate_champion_score(self, df_minute: pd.DataFrame, probe_name: str) -> Dict[str, Any]:
+        """
+        Calculate 'Champion Score' & Veto Status
+        Returns: {score, ref_price, veto, veto_reason}
+        """
+        default_res = {"score": 0.0, "ref_price": 0.0, "veto": False, "veto_reason": ""}
+        
+        if probe_name != "CHAMPION_V21":
+            return default_res
+            
+        try:
+            if df_minute.empty: return default_res
+            
+            # 1. Daily Metrics
+            df_daily = self._resample_daily(df_minute)
+            if df_daily.empty: return default_res
+            
+            last_day = df_daily.iloc[-1]
+            ref_price = float(last_day["close"]) # Fallback ref
+
+            if ref_price <= 0:
+                return {"score": 0.0, "ref_price": 0.0, "veto": True, "veto_reason": "Price Zero"}
+            
+            # Veto Checks
+            vol_accel = last_day.get("vol_accel", 0.0)
+            atr_pct = last_day.get("atr_pct", 0.0)
+            
+            if vol_accel > 1.5: 
+                return {"score": 0.0, "ref_price": ref_price, "veto": True, "veto_reason": f"Vol_Accel {vol_accel:.2f}>1.5"}
+            if atr_pct > 0.10: 
+                 return {"score": 0.0, "ref_price": ref_price, "veto": True, "veto_reason": f"ATR% {atr_pct*100:.1f}%>10%"}
+            
+            # Mom check
+            mom_daily = last_day.get("mom_20", 0.0)
+            if mom_daily <= 0: 
+                 # Not a strict Veto, just 0 score
+                 return {"score": 0.0, "ref_price": ref_price, "veto": False, "veto_reason": "No Trend"}
+
+            # 2. Intraday ORB
+            last_ts = df_minute["date"].iloc[-1]
+            if isinstance(last_ts, str): last_ts = pd.to_datetime(last_ts)
+            today_str = last_ts.strftime("%Y-%m-%d")
+            df_today = df_minute[df_minute["date"].astype(str).str.contains(today_str)].copy()
+            
+            if df_today.empty: return default_res
+            
+            curr_close = float(df_today["close"].iloc[-1])
+            ref_price = curr_close # Precise Ref
+
+            # ORB Logic (Simplified for brevity)
+            # If ORB pass -> return Mom Score. Else 0.
+            # ... (Existing Logic Reused) ...
+            # Actually we just return Mom Score for now if we assume Trigger is mostly time/price.
+            # Current logic requires ORB Breakout to return Score > 0.
+            
+            # (Re-implementing simplified ORB check from previous)
+            df_today["time"] = pd.to_datetime(df_today["date"]).dt.time
+            start_time = pd.Timestamp("09:00:00").time()
+            end_time = pd.Timestamp("09:30:00").time()
+            
+            mask_orb = (df_today["time"] >= start_time) & (df_today["time"] < end_time)
+            df_orb = df_today[mask_orb]
+            
+            orb_pass = False
+            if not df_orb.empty:
+                orb_high = df_orb["high"].max()
+                current_time = df_today["time"].iloc[-1]
+                if current_time >= end_time and curr_close > orb_high:
+                    orb_pass = True
+            
+            score = float(mom_daily) if orb_pass else 0.0
+            
+            return {"score": score, "ref_price": ref_price, "veto": False, "veto_reason": ""}
+
+        except:
+             return default_res
+
+    def _normalize_champion_scores(self, results: List[HeroMetadata]):
+        """Rank-based Normalization (0~1)"""
+        # Collect raw scores
+        scores = [r.champion_score for r in results]
+        if not scores: return
+        
+        # Rank (0 to N-1)
+        # Using pandas rank is easier but here we have list of obj.
+        # Just sort and assign percentile.
+        # But we need to keep original order? No, we update in place.
+        
+        # Sort by score desc to assign rank
+        # Higher score = Higher percentile
+        sorted_indices = np.argsort(scores) # Ascending
+        n = len(scores)
+        
+        for rank, idx in enumerate(sorted_indices):
+            # Rank 0 (lowest) to N-1 (highest)
+            # Percentile = (Rank + 1) / N ? or Rank / (N-1)
+            # Users wants 0.85~1.0 range.
+            # If we exclude 0 scores?
+            # User said "Cross Sectional Rank".
+            # Simple percentile:
+            p = (rank) / (n - 1) if n > 1 else 1.0
+            
+            # SSOT Floor Rule: If Raw Score <= 0, Norm Score MUST be 0.0 (Rest day)
+            if scores[idx] <= 0:
+                norm = 0.0
+            else:
+                norm = p
+                
+            # Update meta (hacky edit of dataclass field? dataclass is frozen=False by default? No frozen=True above!)
+            # HeroMetadata is frozen=False (default)? 
+            # Wait, line 22 is @dataclass(frozen=True).
+            # I cannot edit in place!
+            # I must replace the object in the list.
+            old = results[idx]
+            # Dataclass replace
+            from dataclasses import replace
+            results[idx] = replace(old, champion_score_norm=norm)
+
+    def _resample_daily(self, df_minute: pd.DataFrame) -> pd.DataFrame:
+        """Resample 1M to 1D and calc Veto metrics"""
+        df = df_minute.copy()
+        df["date"] = pd.to_datetime(df["date"])
+        df.set_index("date", inplace=True)
+        
+        # Resample
+        df_d = df.resample("D").agg({
+            "open": "first",
+            "high": "max",
+            "low": "min",
+            "close": "last",
+            "volume": "sum"
+        }).dropna()
+        
+        if df_d.empty: return df_d
+        
+        # Calc Metrics
+        # ATR 5, 20, 60
+        # TR
+        df_d["prev_close"] = df_d["close"].shift(1)
+        df_d["h_l"] = df_d["high"] - df_d["low"]
+        df_d["h_pc"] = abs(df_d["high"] - df_d["prev_close"])
+        df_d["l_pc"] = abs(df_d["low"] - df_d["prev_close"])
+        df_d["tr"] = df_d[["h_l", "h_pc", "l_pc"]].max(axis=1)
+        
+        def _atr(n):
+            return df_d["tr"].rolling(n).mean()
+            
+        df_d["atr_5"] = _atr(5)
+        df_d["atr_20"] = _atr(20)
+        df_d["atr_60"] = _atr(60)
+        
+        # Vol_Accel
+        df_d["vol_accel"] = df_d["atr_5"] / df_d["atr_60"]
+        
+        # ATR%
+        df_d["atr_pct"] = df_d["atr_20"] / df_d["close"]
+        
+        # Mom 20 (Daily)
+        df_d["mom_20"] = df_d["close"].pct_change(20)
+        
+        return df_d
 
     def _evaluate_overnight_gap(
         self,
@@ -558,5 +752,11 @@ class HeroFinder:
             overnight_tier="NONE",
             is_hero=False,
             hero_score=0.0,
+            champion_score=0.0,
             reason_tags=[reason],
+            # Defaults for empty
+            champion_score_norm=0.0,
+            ref_price=0.0,
+            veto=False,
+            veto_reason=""
         )

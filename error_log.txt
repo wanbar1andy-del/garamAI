@@ -1,0 +1,24 @@
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:61: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  returns = closes.pct_change()
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:104: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > ma20_15m).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:135: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  churn_1m = is_churning.reindex(closes.index, method='ffill').fillna(False)
+Traceback (most recent call last):
+  File "c:\garam\garam\pipeline\backtest\run_oss_complete.py", line 168, in <module>
+  File "c:\garam\garam\pipeline\backtest\run_alpha_robust.py", line 149, in calculate_signals
+    is_worth_it = (potential_reward > hurdle) # Pass if Potential > Hurdle
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wanba\AppData\Roaming\Python\Python313\site-packages\pandas\core\ops\common.py", line 76, in new_method
+    return method(self, other)
+  File "C:\Users\wanba\AppData\Roaming\Python\Python313\site-packages\pandas\core\arraylike.py", line 56, in __gt__
+    return self._cmp_method(other, operator.gt)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wanba\AppData\Roaming\Python\Python313\site-packages\pandas\core\frame.py", line 7919, in _cmp_method
+    self, other = self._align_for_op(other, axis, flex=False, level=None)
+                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wanba\AppData\Roaming\Python\Python313\site-packages\pandas\core\frame.py", line 8227, in _align_for_op
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1, copy=False)` before operating.

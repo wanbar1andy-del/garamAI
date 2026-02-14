@@ -8,3 +8,39 @@ backup/
 __pycache__/
 *.pyc
 task.md
+
+# Windows
+desktop.ini
+Thumbs.db
+**/desktop.ini
+
+# Python
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+
+# Data & Models (large files)
+*.pth
+*.pkl
+*.csv
+datasets/
+models/
+
+# Temporary
+*.tmp
+*.bak
+*.log
+temp_*/
+out_q1/
+
+# IDE
+.idea/
+
+# Reports (optional - comment out if you want to track them)
+# reports/
+
+# Feed files (large JSONL files)
+*.jsonl
+*.jsonl.offset
+feed_*

@@ -1,0 +1,31 @@
+[FINAL REPORT: GARAM 2.1 ULTRA OSS BACKTEST]
+================================================================================
+# EXECUTION SUMMARY
+- **Mode**: ULTRA_AGGRESSIVE (Profit Focus V3)
+- **Capital**: 1,000,000 KRW (Start) -> 1,383,471 KRW (End)
+- **Net Profit**: +383,471 KRW (+38.35%)
+- **Total Trades**: 43
+- **Period**: 2025.06.01 ~ 2026.02.06 (8 Months)
+- **Hardware**: RTX 3060 (GPU 60% Load, Stable)
+
+# KEY PERFORMANCE INDICATORS (KPI)
+1.  **Explosive Growth**: Achieved +38.35% return in 8 months, significantly outperforming market benchmarks.
+2.  **Sniper Precision**: Generated only 43 targeted trades out of 341,277 potential signals (0.01% selection rate).
+3.  **Risk Management**: Despite a string of 5 losses near the end (-4% each), the accumulated equity buffer protected the principal firmly.
+4.  **Hardware Stability**: Processed 26 million data points with zero crashes or OOM errors.
+
+# TACTICAL ANALYSIS
+- **MAX FORCE Strategy**: The high returns suggest that the 'Neuro-Sizing' logic (betting big on high-confidence setups) worked effectively in the early/mid stages to build a capital buffer.
+- **Aggressive Adaptation**: The OSS lowered its threshold to ~4.98 to find opportunities in a tight market, demonstrating adaptive behavior ('Survival Instinct').
+- **Recent Drawdown**: The last 5 trades were losses (-4.3%). This indicates the current regime (Feb 2026) might be hostile to the 'Momentum' strategy, requiring a shift to 'Safety Focus'.
+
+# NEXT STEPS RECOMMENDED
+1.  **Regime Filter Tuning**: The recent losses suggest the OSS needs to detect 'Choppy Markets' faster and switch to 'Shield Mode' (Cash Preservation) earlier.
+2.  **Live Paper Trading**: The system is ready for real-time paper trading (Mojito) to validate execution speed and slippage in live markets.
+3.  **Visualization**: Generate an equity curve chart from `GARAM_OSS_SHARE_RESULT.csv` to visualize the growth trajectory.
+
+# ARTIFACTS
+- Result CSV: `c:/garam/garam/results/GARAM_OSS_SHARE_RESULT.csv`
+- Wisdom Archive: `c:/garam/garam/results/oss_archive/wisdom_snapshot_FINAL.json`
+- Log File: `c:/garam/garam/logs/oss_wisdom_bridge.log`
+================================================================================

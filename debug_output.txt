@@ -1,0 +1,16 @@
+Loading c:\garam\garam\GARAM_Data\minute\kr\005930.csv...
+Loaded 45900 rows. Range: 2025-06-18 14:42:00 to 2025-12-12 09:19:00
+Filtered 45880 rows.
+--- Logic Check ---
+Daily Rows: 177
+MA60 Non-Null: 117
+5m Rows: 50700
+BB Width Non-Null: 6840
+BB Width Mean: 0.009377155308003456
+Width Z Non-Null: 0
+Width Z Min: nan, Max: nan
+Squeezed Count (Z < 0.5): 0
+Vol Exploded Count (>1.5x): 1986
+Coiling Count: 0
+Above MA60 Count: 29706
+Final (Coiling & Above): 0.0

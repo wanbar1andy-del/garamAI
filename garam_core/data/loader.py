@@ -1,10 +1,17 @@
 # garam_core/data/loader.py
 from __future__ import annotations
 
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Literal
 import pandas as pd
+
+# [Phase 3-2 Logic Migration]
+# Resolve project root to import pipeline
+_project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(_project_root))
+from pipeline.store.data_loader import store as _store_manager
 
 
 class DataLoadError(RuntimeError):
@@ -49,45 +56,55 @@ def load_ohlcv(
 
     Returns raw df (schema validation happens in Gate1, not here).
     """
-    # 후보 경로: parquet 우선 -> csv
-    base_dir = (data_root / "history" / timeframe).resolve()
-    if not base_dir.exists():
-        raise DataLoadError(f"History dir not found: {base_dir}")
+    # [Phase 3-2] Redirect 'minute' timeframe to StoreManager (Validated Gate)
+    if timeframe == "minute":
+        try:
+            # store.get_data returns df with 'date' column (datetime due to as_datetime=True default)
+            try:
+                df = _store_manager.get_data(symbol, as_datetime=True)
+            except Exception:
+                df = None
 
-    # autodetect
-    p_parq = base_dir / f"{symbol}.parquet"
-    p_csv = base_dir / f"{symbol}.csv"
+            if df is None or df.empty:
+                # Fallback to history/minute (Direct File Read)
+                # Attempt parquet first, then csv
+                hist_dir = data_root / "history" / "minute"
+                p_file = hist_dir / f"{symbol}.parquet"
+                c_file = hist_dir / f"{symbol}.csv"
+                
+                if p_file.exists():
+                    df = pd.read_parquet(p_file)
+                elif c_file.exists():
+                    df = pd.read_csv(c_file)
+                else:
+                    raise DataLoadError(f"Data not found in Store or History for {symbol}")
+                
+                # Normalize Direct Read
+                if "date" not in df.columns and hasattr(df.index, "name") and df.index.name != "date":
+                     # If index is date?
+                     pass
+                     
+                # Standardize columns
+                df.columns = [c.lower() for c in df.columns]
+                if "date" in df.columns:
+                     df["date"] = pd.to_datetime(df["date"])
+                     
+            if df.empty:
+                raise DataLoadError(f"Store returned empty data for {symbol}")
+                
+            # Core loader contract expects DatetimeIndex
+            if "date" in df.columns:
+                df = df.set_index("date").sort_index()
+            
+            # Enforce timezone
+            if df.index.tz is None:
+                df.index = df.index.tz_localize(spec.tz)
+            else:
+                df.index = df.index.tz_convert(spec.tz)
+                
+            return df
+        except Exception as e:
+            raise DataLoadError(f"Load failed for {symbol}: {e}")
 
-    if spec.file_type == "parquet" or (spec.file_type is None and p_parq.exists()):
-        path = p_parq if p_parq.exists() else None
-        if path is None:
-            raise DataLoadError(f"Parquet not found: {p_parq}")
-        df = pd.read_parquet(path)
-    else:
-        path = p_csv if p_csv.exists() else None
-        if path is None:
-            raise DataLoadError(f"CSV not found: {p_csv}")
-        df = pd.read_csv(path)
-
-    if not isinstance(df, pd.DataFrame) or len(df) == 0:
-        raise DataLoadError(f"Loaded empty dataframe: {path}")
-
-    # normalize datetime index
-    if "date" in df.columns:
-        # data often comes as Int64 (YYYYMMDDHHMMSS). Direct to_datetime treats as nanos (1970).
-        # Force string conversion first to allow smart parsing.
-        df["date"] = pd.to_datetime(df["date"].astype(str), errors="raise")
-        df = df.set_index("date")
-
-    if not isinstance(df.index, pd.DatetimeIndex):
-        raise DataLoadError("Loaded data has no DatetimeIndex (missing 'date' column?).")
-
-    # enforce tz-aware index
-    if df.index.tz is None:
-        # treat as naive -> localize to spec.tz (strict, deterministic policy)
-        df.index = df.index.tz_localize(spec.tz)
-    else:
-        df.index = df.index.tz_convert(spec.tz)
-
-    df = df.sort_index()
-    return df
+    # Legacy fallback for other timeframes (if any) or error
+    raise DataLoadError(f"Unsupported timeframe: {timeframe} (Only 'minute' supported via Store)")

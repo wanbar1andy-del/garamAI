@@ -1,0 +1,33 @@
+{
+    "trcode": "OPT10059",
+    "rqname": "InvestorFlow",
+    "start_yyyymmdd": "20251230",
+    "end_yyyymmdd": "20251230",
+    "out_csv": "results/phase25/analysis/005930_investor_raw_manual.csv",
+    "inputs": {
+        "일자": "{date}",
+        "종목코드": "005930",
+        "금액수량구분": "2",
+        "매매구분": "0",
+        "단위구분": "1"
+    },
+    "output_fields": [
+        "일자",
+        "개인투자자",
+        "외국인투자자",
+        "기관계",
+        "금융투자",
+        "보험",
+        "투신",
+        "기타금융",
+        "은행",
+        "연기금등",
+        "사모펀드",
+        "국가",
+        "기타법인",
+        "내외국인"
+    ],
+    "key_cols": [
+        "일자"
+    ]
+}

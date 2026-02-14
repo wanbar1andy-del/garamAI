@@ -77,6 +77,25 @@ def main():
     print(f"Cost: Slippage={cost_model.slippage_rate}, Tax={cost_model.sell_tax_rate}")
     print(f"Turbo: TargetVol={turbo_params.target_vol}, MaxMult={turbo_params.max_multiplier}")
     
+    # Monkey Patch for Data Cutoff (User Requirement: Until 2025-12-31)
+    import garam_core.replay.replay_runner as runner_module
+    from garam_core.data.loader import load_ohlcv as original_load
+    
+    CUTOFF_DATE = "2025-12-31"
+
+    def patched_load(*args, **kwargs):
+        df = original_load(*args, **kwargs)
+        if not isinstance(df.index, pd.DatetimeIndex):
+            df.index = pd.to_datetime(df.index)
+        
+        # Filter
+        original_len = len(df)
+        df = df[df.index <= CUTOFF_DATE]
+        print(f"[PATCH] Enforced Data Cutoff <= {CUTOFF_DATE}. Rows: {original_len} -> {len(df)}")
+        return df
+
+    runner_module.load_ohlcv = patched_load
+
     try:
         res = run_replay(
             project_root=project_root,
@@ -105,7 +124,21 @@ def main():
     print("-" * 40)
     
     # Save Reports (SSOT v2.1)
-    from garam_core.reporting.report_writer import write_report_bundle, utc_now_iso, PASS
+    try:
+        from garam_core.reporting.report_writer import write_report_bundle, utc_now_iso, PASS
+    except ImportError:
+        # Fallback if module structure changed
+        print("[WARN] Standard report writer not found. Using local fallback.")
+        def utc_now_iso(): return pd.Timestamp.utcnow().isoformat()
+        PASS = "PASS"
+        def write_report_bundle(root, report):
+            import json
+            run_dir = root / report['meta']['run_id']
+            run_dir.mkdir(parents=True, exist_ok=True)
+            with open(run_dir / "report.json", "w", encoding="utf-8") as f:
+                json.dump(report, f, indent=4, default=str)
+            return {"run_dir": run_dir}
+
     from garam_core.analysis.edge_matrix import EdgeAnalyzer
     
     # Needs minute data for EdgeMatrix
@@ -128,7 +161,12 @@ def main():
         
         print(f"[DEBUG] Loading minute data from: {data_path}")
         minute_df = pd.read_csv(data_path, parse_dates=['date'], index_col='date')
-        print(f"[DEBUG] Loaded minute_df: {len(minute_df)} rows")
+        
+        # APPLY CUTOFF
+        if not minute_df.empty:
+             minute_df = minute_df[minute_df.index <= CUTOFF_DATE]
+             
+        print(f"[DEBUG] Loaded minute_df: {len(minute_df)} rows (Cutoff {CUTOFF_DATE})")
     except Exception as e:
         print(f"[WARN] data load for EdgeMatrix failed: {e}")
         minute_df = pd.DataFrame()

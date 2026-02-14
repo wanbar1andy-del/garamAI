@@ -1,0 +1,18 @@
+{
+    "contract": "SSOT_AUDIT_SEALED",
+    "version": "1.1",
+    "sealed_date": "2025-12-19",
+    "target_engine": "scripts/replay_1month_test.py",
+    "checklist_path": "docs/ssot/ssot_sealing_checklist.md",
+    "latest_run": {
+        "run_id": "replay_1m_20251219_095536_HOLD_1D",
+        "path": "results/replay/replay_1m_20251219_095536_HOLD_1D",
+        "return_pct": 19.2255,
+        "metrics_file": "results/replay/replay_1m_20251219_095536_HOLD_1D/metrics_verified.json"
+    },
+    "invariants": {
+        "cost_bps": 30.0,
+        "cost_semantics": "roundtrip_total_bps",
+        "exit_strategy": "HOLD_1D"
+    }
+}

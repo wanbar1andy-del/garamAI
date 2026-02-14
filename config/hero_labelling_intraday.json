@@ -1,0 +1,50 @@
+{
+    "contract": {
+        "name": "hero_labelling_intraday_config_v1_0",
+        "version": "1.0",
+        "last_updated": "2025-12-20"
+    },
+    "data": {
+        "minute_dir": "GARAM_Data/history/minute",
+        "market_symbol": "KOSPI_PROXY",
+        "market_path_hint": "GARAM_Data/history/market/kospi_minute.csv"
+    },
+    "anchor": {
+        "anchor_minutes": 5,
+        "session": {
+            "open": "09:00",
+            "close": "15:20"
+        }
+    },
+    "horizons_min": [
+        15,
+        30,
+        60
+    ],
+    "top_k": 5,
+    "cost": {
+        "cost_bps": 10,
+        "description": "round-trip cost in bps"
+    },
+    "label_logic": {
+        "metric": "net_rel_ret",
+        "definition": "net_rel_ret = (fwd_ret - mkt_fwd_ret) - cost",
+        "valid_condition": "net_rel_ret > 0",
+        "rank_order": "DESC"
+    },
+    "summary_metrics": {
+        "dwell": "sum(hero_flag)",
+        "area_pos": "sum(max(net_rel_ret,0))"
+    },
+    "quality_gates": [
+        "ref_price > 0 at anchor",
+        "market ref_price > 0 at anchor",
+        "future price exists at t+H",
+        "no NaN/Inf in net_rel_ret"
+    ],
+    "output": {
+        "labels_dir": "results/labels",
+        "death_dir": "results/death",
+        "reports_dir": "results/reports"
+    }
+}

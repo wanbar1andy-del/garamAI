@@ -1,0 +1,36 @@
+c:\garam\garam\run_real_oss_100man.py:108: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  closes = closes.loc[:, valid_cols].ffill().fillna(method='bfill')
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:104: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  trend_15m = (c_15m > (ma20_15m + 1e-9)).reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:133: FutureWarning: The default fill_method='pad' in DataFrame.pct_change is deprecated and will be removed in a future version. Either fill in any non-leading NA values prior to calling pct_change or specify 'fill_method=None' to not fill NA values.
+  ret_5m = c_5m.pct_change().fillna(0)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:135: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  churn_1m = is_churning.reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:161: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  sq_1m = is_squeezed.reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:162: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  ve_1m = is_vol_exploded.reindex(closes.index, method='ffill').fillna(False)
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:169: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  core_signal = sq_1m.shift(1).fillna(False) & ve_1m & is_above_structure & (~churn_1m) & is_worth_it
+c:\garam\garam\pipeline\backtest\run_alpha_robust.py:184: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  is_relative_hero = (relative_strength > 5.0).reindex(closes.index, method='ffill').fillna(False)
+Traceback (most recent call last):
+  File "c:\garam\garam\run_real_oss_100man.py", line 194, in <module>
+    run_real_test()
+  File "c:\garam\garam\run_real_oss_100man.py", line 135, in run_real_test
+    archive_wisdom(idx, equity, trade_logs, {"threshold": dyn_th, "stop": dyn_stop})
+  File "c:\garam\garam\run_real_oss_100man.py", line 61, in archive_wisdom
+    json.dump(report, f, indent=4, ensure_ascii=False)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "C:\Users\wanba\AppData\Local\Programs\Python\Python39\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type float32 is not JSON serializable

@@ -1,0 +1,13 @@
+{
+    "last_updated": "2026-02-03 17:34:23.128199",
+    "penalty_multiplier": 0.8,
+    "patterns": [
+        {
+            "condition": "vol_accel_high",
+            "threshold": 1.5,
+            "penalty_score": 10.0,
+            "confidence": 0.8,
+            "desc": "Analysis System Safety Guard: VolAccel > 1.5"
+        }
+    ]
+}

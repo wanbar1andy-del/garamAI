@@ -21,8 +21,11 @@ def main():
     project_root = Path(args.project_root) if args.project_root else None
     paths = get_validate_paths(project_root)
 
-    uni = pd.read_csv(args.universe, dtype={"symbol": str})
-    symbols = [str(s).strip().zfill(6) for s in uni["symbol"].tolist()][: args.limit]
+    uni = pd.read_csv(args.universe, dtype=str)
+    col = "symbol" if "symbol" in uni.columns else ("Code" if "Code" in uni.columns else None)
+    if col is None:
+        raise ValueError(f"[VALIDATE] universe missing symbol column. cols={uni.columns.tolist()}")
+    symbols = [str(s).strip().zfill(6) for s in uni[col].tolist()][: args.limit]
 
     rows = []
     bad = []
@@ -50,7 +53,17 @@ def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     report_path = Path(args.out_report) if args.out_report else Path("results") / f"validate_report_{ts}.csv"
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(rows).to_csv(report_path, index=False, encoding="utf-8")
+    
+    # Filter empty rows just in case
+    df_report = pd.DataFrame(rows)
+    if not df_report.empty:
+        if "status" in df_report.columns:
+            df_report["status"] = df_report["status"].astype(str).str.strip()
+            df_report = df_report[df_report["status"] != ""]
+        else:
+            raise ValueError("[VALIDATE] report rows missing 'status' field")
+        
+    df_report.to_csv(report_path, index=False, encoding="utf-8", lineterminator="\n")
     print(f"[VALIDATE] report saved: {report_path}")
 
     if args.write_recollect and bad:

@@ -1,0 +1,55 @@
+experiment_id: ABTEST_20251219_next_open_cost
+base_run_id: replay_1m_20251218_215900   # 진입/데이터 환경 기준 SSOT
+
+global:
+  period:
+    start: "20251118"
+    end: "20251217"
+  probe: MR_RSI_30
+  window: 14
+  universe_csv: "GARAM_Data/real_universe_400.csv"
+  minute_dir: "GARAM_Data/history/minute"
+  aum: 100000000
+  signal_timing: "EOD"                   # 룩어헤드 방지 핵심
+  entry_price_rule: "MOC"                # 기존 SSOT와 동일
+  max_hold_days: 1                       # HOLD_1D는 강제 1일, NEXT_OPEN은 0일 오버나잇? 
+                                         # NEXT_OPEN means sell next morning. Technically hold_days=1 (overnight).
+  data_quality:
+    rolling_window_days: 365
+    sorting_check: "fixed_by_loader"
+
+exit_price_sources:
+  next_open:
+    preferred: "DAILY_OHLC.open"         # Not implemented yet, will fallback to MINUTE
+    fallback_1: "MINUTE_BAR.open_at_0900"
+    fallback_2: "MINUTE_BAR.first_close_proxy"
+    record_open_proxy_rate: true
+
+variants:
+  - id: D
+    name: "HOLD_1D_cost30"
+    exit_strategy: "HOLD_1D"
+    cost_bps: 30
+
+  - id: E
+    name: "NEXT_OPEN_cost30"
+    exit_strategy: "NEXT_OPEN"
+    cost_bps: 30
+
+  - id: F
+    name: "HOLD_1D_cost50"
+    exit_strategy: "HOLD_1D"
+    cost_bps: 50
+
+  - id: G
+    name: "NEXT_OPEN_cost50"
+    exit_strategy: "NEXT_OPEN"
+    cost_bps: 50
+
+success_criteria:
+  primary: "total_return_pct"
+  must_beat_baseline_return_pct: 37.50
+  secondary:
+    - "mdd_pct"
+    - "sharpe_annualized"
+    - "win_rate_daily"

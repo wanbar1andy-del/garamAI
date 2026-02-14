@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "c:\garam\garam\run_real_oss_100man.py", line 97, in <module>
+    from scripts.ollama_bridge import OllamaOracle
+  File "c:\garam\garam\scripts\ollama_bridge.py", line 2, in <module>
+    import ollama
+ModuleNotFoundError: No module named 'ollama'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\garam\garam\run_real_oss_100man.py", line 99, in <module>
+    log("\u26a0\ufe0f Ollama Bridge not found. Alien Intelligence inactive.")
+NameError: name 'log' is not defined

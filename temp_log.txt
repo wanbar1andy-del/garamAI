@@ -1,0 +1,200 @@
+[19:08:13] 🥀 MOMENTUM DECAY: 028670 | Score 6.5 -> 4.0 | PnL: -1.71%
+[19:08:13] 🥀 MOMENTUM DECAY: 000150 | Score 6.8 -> 4.0 | PnL: -0.17%
+[19:08:13] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 10.9, RSI: 94.7)
+[19:08:15] 👽 Oracle Verdict on 389470: 9.0/10 (Human Score: 10.9)
+[19:08:15] 🚨 HERO FORCE ATTACK! 389470 (Impact: 0.0%)
+[19:08:16] ⚔️ ENTRY [EQUAL_WEIGHT]: 241560 (Score: 11.2, RSI: 95.1)
+[19:08:19] 👽 Oracle Verdict on 241560: 6.5/10 (Human Score: 11.2)
+[19:08:19] 🚨 HERO FORCE ATTACK! 241560 (Impact: 0.2%)
+[19:08:20] 🥀 MOMENTUM DECAY: 108490 | Score 8.9 -> 4.0 | PnL: 0.77%
+[19:08:20] 🥀 MOMENTUM DECAY: 389470 | Score 10.9 -> 3.0 | PnL: 0.08%
+[19:08:20] 🥀 MOMENTUM DECAY: 241560 | Score 11.2 -> 3.0 | PnL: -0.37%
+[19:08:20] ⚔️ ENTRY [EQUAL_WEIGHT]: 307950 (Score: 12.3, RSI: 30.0)
+[19:08:22] 👽 Oracle Verdict on 307950: 5.0/10 (Human Score: 12.3)
+[19:08:22] ⚠️ Oracle REJECTED Hero! Downgrading.
+[19:08:22] 🚨 HERO FORCE ATTACK! 307950 (Impact: 0.2%)
+[19:08:22] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 6.8, RSI: 77.6)
+[19:08:22] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 6.8, Impact: 0.0%)
+[19:08:22] ⚔️ ENTRY [EQUAL_WEIGHT]: 323280 (Score: 6.7, RSI: 85.2)
+[19:08:22] ⚔️ ENTRY [EQUAL_WEIGHT]: 323280 (Score: 6.7, Impact: 0.1%)
+[19:08:23] 🥀 MOMENTUM DECAY: 307950 | Score 12.3 -> 0.0 | PnL: -0.27%
+[19:08:23] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:23] 🥀 MOMENTUM DECAY: 0126Z0 | Score 6.8 -> 4.0 | PnL: -0.70%
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 032350 (Score: 6.3, RSI: 73.2)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 032350 (Score: 6.3, Impact: 0.2%)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 287840 (Score: 7.3, RSI: 43.7)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 287840 (Score: 7.3, Impact: 0.3%)
+[19:08:23] 🥀 MOMENTUM DECAY: 032350 | Score 6.3 -> 4.0 | PnL: -0.28%
+[19:08:23] 🥀 MOMENTUM DECAY: 287840 | Score 7.3 -> 0.0 | PnL: -0.05%
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 028670 (Score: 6.4, RSI: 60.3)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 028670 (Score: 6.4, Impact: 0.2%)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 090360 (Score: 7.3, RSI: 51.9)
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 090360 (Score: 7.3, Impact: 1.3%)
+[19:08:23] 🥀 MOMENTUM DECAY: 323280 | Score 6.7 -> 4.0 | PnL: -0.57%
+[19:08:23] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 6.3717644597613665, 'body_pct': 0.013559321872889996, 'range_pct': 0.0} -> PnL: -1.2%
+[19:08:23] 🥀 MOMENTUM DECAY: 028670 | Score 6.4 -> 4.0 | PnL: -1.16%
+[19:08:23] 🥀 MOMENTUM DECAY: 090360 | Score 7.3 -> 0.0 | PnL: -0.05%
+[19:08:23] ⚔️ ENTRY [EQUAL_WEIGHT]: 102940 (Score: 8.9, RSI: 17.5)
+[19:08:24] 👽 Oracle Verdict on 102940: 7.0/10 (Human Score: 8.9)
+[19:08:24] 🚨 HERO FORCE ATTACK! 102940 (Impact: 0.4%)
+[19:08:25] ⚔️ ENTRY [EQUAL_WEIGHT]: 347850 (Score: 6.7, RSI: 47.9)
+[19:08:25] ⚔️ ENTRY [EQUAL_WEIGHT]: 347850 (Score: 6.7, Impact: 0.0%)
+[19:08:25] ⚔️ ENTRY [EQUAL_WEIGHT]: 456160 (Score: 7.1, RSI: 72.2)
+[19:08:25] ⚔️ ENTRY [EQUAL_WEIGHT]: 456160 (Score: 7.1, Impact: 0.0%)
+[19:08:25] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 5.1767586613682335, 'body_pct': -0.01726844534277916, 'range_pct': 0.0} -> PnL: -6.9%
+[19:08:25] 🥀 MOMENTUM DECAY: 079160 | Score 9.7 -> 5.0 | PnL: -6.92%
+[19:08:25] 🥀 MOMENTUM DECAY: 456160 | Score 7.1 -> 3.0 | PnL: -0.39%
+[19:08:25] ⚔️ ENTRY [EQUAL_WEIGHT]: 307950 (Score: 9.3, RSI: 20.6)
+[19:08:27] 👽 Oracle Verdict on 307950: 5.0/10 (Human Score: 9.3)
+[19:08:27] ⚠️ Oracle REJECTED Hero! Downgrading.
+[19:08:27] 🚨 HERO FORCE ATTACK! 307950 (Impact: 0.2%)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.0, RSI: 77.4)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.0, Impact: 0.0%)
+[19:08:28] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 2.5151944651295963, 'body_pct': -0.009225091896951199, 'range_pct': 0.0} -> PnL: 2.0%
+[19:08:28] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:28] 🥀 MOMENTUM DECAY: 102940 | Score 8.9 -> 4.0 | PnL: 2.00%
+[19:08:28] 🥀 MOMENTUM DECAY: 307950 | Score 9.3 -> 0.0 | PnL: -0.05%
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 086520 (Score: 6.9, RSI: 51.3)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 086520 (Score: 6.9, Impact: 0.2%)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 376900 (Score: 7.3, RSI: 41.2)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 376900 (Score: 7.3, Impact: 0.7%)
+[19:08:28] 🥀 MOMENTUM DECAY: 086520 | Score 6.9 -> 4.0 | PnL: -0.37%
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 000670 (Score: 7.3, RSI: 52.8)
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 000670 (Score: 7.3, Impact: 9.1%)
+[19:08:28] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 6.459792383433247, 'body_pct': -0.01610305905342102, 'range_pct': 0.0} -> PnL: 2.2%
+[19:08:28] 🥀 MOMENTUM DECAY: 058610 | Score 8.6 -> 0.0 | PnL: 2.24%
+[19:08:28] 🥀 MOMENTUM DECAY: 000670 | Score 7.3 -> 0.0 | PnL: -0.49%
+[19:08:28] ⚔️ ENTRY [EQUAL_WEIGHT]: 028670 (Score: 8.9, RSI: 26.7)
+[19:08:30] 👽 Oracle Verdict on 028670: 6.0/10 (Human Score: 8.9)
+[19:08:30] 🚨 HERO FORCE ATTACK! 028670 (Impact: 1.1%)
+[19:08:31] ⚔️ ENTRY [EQUAL_WEIGHT]: 032350 (Score: 7.3, RSI: 74.4)
+[19:08:31] ⚔️ ENTRY [EQUAL_WEIGHT]: 032350 (Score: 7.3, Impact: 0.2%)
+[19:08:31] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 6.145050734831715, 'body_pct': -0.00638977624475956, 'range_pct': 0.0} -> PnL: 2.8%
+[19:08:31] 🥀 MOMENTUM DECAY: 347850 | Score 6.7 -> 3.0 | PnL: 2.84%
+[19:08:31] 🥀 MOMENTUM DECAY: 0126Z0 | Score 7.0 -> 4.0 | PnL: -0.37%
+[19:08:31] 🥀 MOMENTUM DECAY: 028670 | Score 8.9 -> 4.0 | PnL: -0.57%
+[19:08:31] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 2.3461552056744077, 'body_pct': 0.006741573102772236, 'range_pct': 0.0} -> PnL: 1.1%
+[19:08:31] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:31] 🥀 MOMENTUM DECAY: 032350 | Score 7.3 -> 0.0 | PnL: 1.07%
+[19:08:31] ⚔️ ENTRY [EQUAL_WEIGHT]: 079160 (Score: 8.6, RSI: 13.5)
+[19:08:32] 👽 Oracle Verdict on 079160: 8.0/10 (Human Score: 8.6)
+[19:08:32] 🚨 HERO FORCE ATTACK! 079160 (Impact: 1.0%)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 064960 (Score: 6.8, RSI: 63.5)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 064960 (Score: 6.8, Impact: 3.2%)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 102940 (Score: 7.3, RSI: 39.6)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 102940 (Score: 7.3, Impact: 5.5%)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 287840 (Score: 7.2, RSI: 60.0)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 287840 (Score: 7.2, Impact: 0.2%)
+[19:08:33] 🥀 MOMENTUM DECAY: 376900 | Score 7.3 -> 0.0 | PnL: 0.80%
+[19:08:33] 🥀 MOMENTUM DECAY: 287840 | Score 7.2 -> 4.0 | PnL: -0.34%
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 028670 (Score: 7.3, RSI: 34.0)
+[19:08:33] ⚔️ ENTRY [EQUAL_WEIGHT]: 028670 (Score: 7.3, Impact: 0.9%)
+[19:08:34] ⚔️ ENTRY [EQUAL_WEIGHT]: 950160 (Score: 7.4, RSI: 49.6)
+[19:08:34] ⚔️ ENTRY [EQUAL_WEIGHT]: 950160 (Score: 7.4, Impact: 0.4%)
+[19:08:34] 🥀 MOMENTUM DECAY: 079160 | Score 8.6 -> 0.0 | PnL: -0.05%
+[19:08:34] 🥀 MOMENTUM DECAY: 064960 | Score 6.8 -> 0.0 | PnL: 0.70%
+[19:08:34] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 2.2461044034607798, 'body_pct': 0.0054054055362939835, 'range_pct': 0.0} -> PnL: -1.1%
+[19:08:34] 🥀 MOMENTUM DECAY: 102940 | Score 7.3 -> 4.0 | PnL: -1.12%
+[19:08:34] 🥀 MOMENTUM DECAY: 950160 | Score 7.4 -> 0.0 | PnL: 0.07%
+[19:08:34] ⚔️ ENTRY [EQUAL_WEIGHT]: 319400 (Score: 7.6, RSI: 85.4)
+[19:08:34] ⚔️ ENTRY [EQUAL_WEIGHT]: 319400 (Score: 7.6, Impact: 0.0%)
+[19:08:34] 🥀 MOMENTUM DECAY: 028670 | Score 7.3 -> 4.0 | PnL: -0.51%
+[19:08:34] ⚔️ ENTRY [EQUAL_WEIGHT]: 090360 (Score: 10.1, RSI: 86.9)
+[19:08:35] 👽 Oracle Verdict on 090360: 6.0/10 (Human Score: 10.1)
+[19:08:35] 🚨 HERO FORCE ATTACK! 090360 (Impact: 0.1%)
+[19:08:36] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 3.2724660440716664, 'body_pct': 0.014450866729021072, 'range_pct': 0.0} -> PnL: 4.2%
+[19:08:36] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:36] 🥀 MOMENTUM DECAY: 319400 | Score 7.6 -> 3.0 | PnL: 4.22%
+[19:08:36] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 8.158250863223131, 'body_pct': 0.0012658227933570743, 'range_pct': 0.0} -> PnL: 2.0%
+[19:08:36] 🥀 MOMENTUM DECAY: 090360 | Score 10.1 -> 3.0 | PnL: 1.97%
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 347850 (Score: 7.8, RSI: 22.9)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 347850 (Score: 7.8, Impact: 0.2%)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 6.7, RSI: 57.7)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 6.7, Impact: 0.0%)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 007810 (Score: 6.9, RSI: 50.0)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 007810 (Score: 6.9, Impact: 0.9%)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 174900 (Score: 7.1, RSI: 55.2)
+[19:08:36] ⚔️ ENTRY [EQUAL_WEIGHT]: 174900 (Score: 7.1, Impact: 1.4%)
+[19:08:36] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 1.5058671081993367, 'body_pct': 0.016826923936605453, 'range_pct': 0.0} -> PnL: -1.6%
+[19:08:37] 🥀 MOMENTUM DECAY: 174900 | Score 7.1 -> 4.0 | PnL: -1.59%
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 058610 (Score: 6.6, RSI: 61.5)
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 058610 (Score: 6.6, Impact: 0.8%)
+[19:08:37] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 2.16004109685465, 'body_pct': 0.0021739129442721605, 'range_pct': 0.0} -> PnL: -2.1%
+[19:08:37] 🥀 MOMENTUM DECAY: 347850 | Score 7.8 -> 5.0 | PnL: -2.11%
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 174900 (Score: 7.1, RSI: 44.8)
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 174900 (Score: 7.1, Impact: 4.8%)
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 458870 (Score: 7.4, RSI: 55.0)
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 458870 (Score: 7.4, Impact: 0.9%)
+[19:08:37] 🥀 MOMENTUM DECAY: 058610 | Score 6.6 -> 0.0 | PnL: 0.42%
+[19:08:37] 🥀 MOMENTUM DECAY: 458870 | Score 7.4 -> 4.0 | PnL: 0.19%
+[19:08:37] 🥀 MOMENTUM DECAY: 174900 | Score 7.1 -> 4.0 | PnL: -0.77%
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 475960 (Score: 7.2, RSI: 75.0)
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 475960 (Score: 7.2, Impact: 0.2%)
+[19:08:37] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 1.5507572145402475, 'body_pct': 0.004267425276339054, 'range_pct': 0.0} -> PnL: 1.5%
+[19:08:37] 🥀 MOMENTUM DECAY: 007810 | Score 6.9 -> 4.0 | PnL: 1.51%
+[19:08:37] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:37] 🥀 MOMENTUM DECAY: 475960 | Score 7.2 -> 0.0 | PnL: -0.24%
+[19:08:37] ⚔️ ENTRY [EQUAL_WEIGHT]: 007810 (Score: 8.8, RSI: 76.4)
+[19:08:38] 👽 Oracle Verdict on 007810: 5.0/10 (Human Score: 8.8)
+[19:08:38] ⚠️ Oracle REJECTED Hero! Downgrading.
+[19:08:38] 🚨 HERO FORCE ATTACK! 007810 (Impact: 0.8%)
+[19:08:39] ⚔️ ENTRY [EQUAL_WEIGHT]: 475960 (Score: 7.2, RSI: 76.2)
+[19:08:39] ⚔️ ENTRY [EQUAL_WEIGHT]: 475960 (Score: 7.2, Impact: 1.0%)
+[19:08:39] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 1.3929047442382427, 'body_pct': 0.02056276984512806, 'range_pct': 0.0} -> PnL: 5.6%
+[19:08:39] 🥀 MOMENTUM DECAY: 0126Z0 | Score 6.7 -> 3.0 | PnL: 5.57%
+[19:08:39] 🥀 MOMENTUM DECAY: 007810 | Score 8.8 -> 3.0 | PnL: 0.09%
+[19:08:39] 🥀 MOMENTUM DECAY: 475960 | Score 7.2 -> 4.0 | PnL: 0.73%
+[19:08:39] ⚔️ ENTRY [EQUAL_WEIGHT]: 458870 (Score: 8.9, RSI: 22.5)
+[19:08:41] 👽 Oracle Verdict on 458870: 6.0/10 (Human Score: 8.9)
+[19:08:41] 🚨 HERO FORCE ATTACK! 458870 (Impact: 0.1%)
+[19:08:42] [HOT] PYRAMID! 458870 (Qty:+16, Avg:122,100, Impact:0.3%)
+[19:08:42] [HOT] PYRAMID! 458870 (Qty:+16, Avg:122,167, Impact:0.6%)
+[19:08:42] 🥀 MOMENTUM DECAY: 458870 | Score 8.9 -> 5.0 | PnL: -0.10%
+[19:08:42] ⚔️ ENTRY [EQUAL_WEIGHT]: 475960 (Score: 9.0, RSI: 27.6)
+[19:08:43] 👽 Oracle Verdict on 475960: 7.0/10 (Human Score: 9.0)
+[19:08:43] 🚨 HERO FORCE ATTACK! 475960 (Impact: 1.6%)
+[19:08:44] ⚔️ ENTRY [EQUAL_WEIGHT]: 458870 (Score: 7.8, RSI: 23.7)
+[19:08:44] ⚔️ ENTRY [EQUAL_WEIGHT]: 458870 (Score: 7.8, Impact: 0.4%)
+[19:08:44] 🥀 MOMENTUM DECAY: 475960 | Score 9.0 -> 0.0 | PnL: -0.05%
+[19:08:44] 🥀 MOMENTUM DECAY: 458870 | Score 7.8 -> 5.0 | PnL: -0.88%
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 437730 (Score: 7.2, RSI: 70.7)
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 437730 (Score: 7.2, Impact: 0.2%)
+[19:08:45] 🥀 MOMENTUM DECAY: 437730 | Score 7.2 -> 4.0 | PnL: -0.05%
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 8.3, RSI: 18.1)
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 8.3, Impact: 0.1%)
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 456160 (Score: 7.0, RSI: 67.2)
+[19:08:45] ⚔️ ENTRY [EQUAL_WEIGHT]: 456160 (Score: 7.0, Impact: 0.1%)
+[19:08:45] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 4.131439910691996, 'body_pct': 0.009900989942252636, 'range_pct': 0.0} -> PnL: -1.7%
+[19:08:45] ⚠️ Batch Learn Error: CUDA out of memory. Tried to allocate 62.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 2.60 GiB is free. 2.40 GiB allowed; Of the allocated memory 2.32 GiB is allocated by PyTorch, and 47.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[19:08:45] 🥀 MOMENTUM DECAY: 389470 | Score 8.3 -> 5.0 | PnL: -1.73%
+[19:08:45] 🥀 MOMENTUM DECAY: 456160 | Score 7.0 -> 0.0 | PnL: -0.39%
+[19:08:46] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.1, RSI: 81.0)
+[19:08:46] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.1, Impact: 0.0%)
+[19:08:46] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 1.2814523730344167, 'body_pct': 0.015625, 'range_pct': 0.0} -> PnL: 2.6%
+[19:08:46] 🥀 MOMENTUM DECAY: 0126Z0 | Score 7.1 -> 0.0 | PnL: 2.64%
+[19:08:46] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.5, RSI: 82.2)
+[19:08:46] ⚔️ ENTRY [EQUAL_WEIGHT]: 0126Z0 (Score: 7.5, Impact: 0.0%)
+[19:08:46] 🥀 MOMENTUM DECAY: 0126Z0 | Score 7.5 -> 4.0 | PnL: -0.05%
+[19:08:47] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 6.9, RSI: 83.3)
+[19:08:47] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 6.9, Impact: 0.0%)
+[19:08:47] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 2.1849723095469784, 'body_pct': 0.027548208832740784, 'range_pct': 0.0} -> PnL: 1.7%
+[19:08:47] 🥀 MOMENTUM DECAY: 389470 | Score 6.9 -> 4.0 | PnL: 1.69%
+[19:08:47] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 7.0, RSI: 60.6)
+[19:08:47] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 7.0, Impact: 0.2%)
+[19:08:47] 🧠 [MEMORY] Storing Raw Context: {'vol_ratio': 1.2239006247347006, 'body_pct': -0.006640106439590454, 'range_pct': 0.0} -> PnL: -1.5%
+[19:08:47] 🥀 MOMENTUM DECAY: 389470 | Score 7.0 -> 0.0 | PnL: -1.52%
+[19:08:48] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 6.8, RSI: 57.5)
+[19:08:48] ⚔️ ENTRY [EQUAL_WEIGHT]: 389470 (Score: 6.8, Impact: 0.1%)
+[19:08:48] 🥀 MOMENTUM DECAY: 389470 | Score 6.8 -> 4.0 | PnL: 0.60%
+[19:08:48] ⚡ VOLATILITY SHOCK DETECTED: -2.59% drop in 1m. HALTING ENTRIES.
+[19:08:48] OSS Adaptive State: ⛔ HALTED (Shock) (Th:5.23[2.5~5.5], SL:1.5%[1.5~1.5%]) | Pos:0
+[19:08:51] Simulation COMPLETE. Final Archiving...
+[19:08:51] Wisdom Archived at index FINAL. Total Trades: 94
+[19:08:51] 
+[EVOLUTION] Strategy Performance Report:
+[19:08:51]              count   avg_pnl  win_rate
+strategy                              
+S5(SQUEEZE)     18 -0.001778  0.388889
+[19:08:51] 📉 Strategy S5(SQUEEZE) is failing (WR: 0.39). Evolving...
+[19:08:51] 🧬 OSS Genes mutated and saved.
+[19:08:51] 💤 Cooling down before next Epoch...

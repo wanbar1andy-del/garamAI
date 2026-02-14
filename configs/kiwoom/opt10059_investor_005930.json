@@ -1,0 +1,31 @@
+{
+    "job_name": "INVESTOR_FLOW_OPT10059_005930",
+    "trcode": "OPT10059",
+    "rqname": "inv_daily",
+    "symbol": "005930",
+    "date_input_key": "일자",
+    "symbol_input_key": "종목코드",
+    "output_fields": [
+        "일자",
+        "개인투자자",
+        "외국인투자자",
+        "기관계",
+        "금융투자",
+        "투신",
+        "연기금등"
+    ],
+    "key_cols": [
+        "일자"
+    ],
+    "static_inputs": {
+        "일자": "{date}",
+        "종목코드": "005930",
+        "금액수량구분": "2",
+        "매매구분": "0",
+        "단위구분": "1"
+    },
+    "rate_limit_sec": 0.4,
+    "start_yyyymmdd": "20250101",
+    "end_yyyymmdd": "20251231",
+    "out_csv": "results/phase25/flow/investor/005930/opt10059_005930_2025.csv"
+}

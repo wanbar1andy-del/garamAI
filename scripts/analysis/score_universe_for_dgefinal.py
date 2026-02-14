@@ -88,7 +88,7 @@ def calculate_suitability(daily_df):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--universe-file', required=True)
+    parser.add_argument('--universe-file', default='GARAM_Data/real_universe_400.csv', help='SSOT Universe File')
     parser.add_argument('--start-date', required=True)
     parser.add_argument('--end-date', required=True)
     parser.add_argument('--output-file', required=True)
