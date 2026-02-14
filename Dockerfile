@@ -30,8 +30,8 @@ COPY . .
 
 # GCP 환경변수 설정 (기본값)
 ENV PYTHONUNBUFFERED=1
-ENV GCP_PROJECT_ID=""
-ENV GCP_BUCKET_NAME=""
+ENV GCP_PROJECT_ID="garam-437813"
+ENV GCP_BUCKET_NAME="garam-oss-storage"
 
 # 진입점 설정 (기본적으로 추론 테스트 실행 가능)
 CMD ["python3", "scripts/test_oss_inference.py"]
