@@ -15,14 +15,16 @@ PROJECT_ROOT = Path(__file__).parent
 CACHE_FILE = PROJECT_ROOT / "cache" / "market_matrix_8m.pkl"
 BRAIN_FILE = PROJECT_ROOT / "core/active_config/neuro_brain_state.pth"
 
-print("=" * 60)
-print("🎯 OSS 조련 시작")
-print("=" * 60)
 
-# 1. 데이터 로드 & Device 설정
-print("\n[1/4] 시장 데이터 로딩...")
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(f"   - 연산 장치: {device}")
+if __name__ == "__main__":
+    print("=" * 60)
+    print("🎯 OSS 조련 시작")
+    print("=" * 60)
+
+    # 1. 데이터 로드 & Device 설정
+    print("\n[1/4] 시장 데이터 로딩...")
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"   - 연산 장치: {device}")
 
 with open(CACHE_FILE, 'rb') as f:
     cached = pd.read_pickle(f)
