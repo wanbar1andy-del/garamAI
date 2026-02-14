@@ -47,12 +47,20 @@ class CloudStorageManager:
         return self._upload_file(local_path, "cache/market_matrix_8m.pkl")
 
     def _upload_file(self, local_path, cloud_name):
-        if not self.client:
-            print("❌ GCP SDK가 설정되지 않았습니다. 'pip install google-cloud-storage' 명령어로 설치하세요.")
+        if not GCP_SDK_AVAILABLE:
+            print("❌ GCP SDK(google-cloud-storage)가 설치되지 않았습니다. 'pip install google-cloud-storage'가 필요합니다.")
             return False
             
+        if not self.client:
+            print("❌ GCP 클라이언트 초기화 실패. 'gcloud auth application-default login'으로 인증을 먼저 완료하십시오.")
+            return False
+        
         try:
             bucket = self.client.bucket(self.bucket_name)
+            if not bucket.exists():
+                print(f"❌ 버킷 '{self.bucket_name}'이 존재하지 않습니다. GCP 콘솔에서 먼저 생성하십시오.")
+                return False
+                
             blob = bucket.blob(cloud_name)
             blob.upload_from_filename(str(local_path))
             print(f"✅ 업로드 완료: gs://{self.bucket_name}/{cloud_name}")

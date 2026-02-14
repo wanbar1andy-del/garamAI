@@ -38,7 +38,7 @@ def run_vertex_training(project_id, location, bucket_name):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project", default="garam-437813")
+    parser.add_argument("--project", default="garam-473813")
     parser.add_argument("--location", default="us-central1") # GPU 수급이 원활한 지역
     parser.add_argument("--bucket", default="garam-oss-storage")
     
