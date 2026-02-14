@@ -21,6 +21,7 @@ RUN pip3 install --no-cache-dir \
     numpy \
     matplotlib \
     google-cloud-storage \
+    google-cloud-aiplatform \
     scikit-learn \
     pyyaml \
     pathlib

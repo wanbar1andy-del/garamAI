@@ -11,7 +11,7 @@ from pathlib import Path
 try:
     from google.cloud import storage
     GCP_SDK_AVAILABLE = True
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     GCP_SDK_AVAILABLE = False
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
