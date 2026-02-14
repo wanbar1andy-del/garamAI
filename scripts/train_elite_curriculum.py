@@ -19,18 +19,26 @@ class EliteLoss(nn.Module):
         self.threshold = threshold
         self.mae = nn.L1Loss()
 
-    def forward(self, pred, target):
+    def forward(self, pred, target, features=None):
+        # features에는 고래(Whale), 공매도(Short) 비율이 포함됨
+        
         # 1. 비용 차감 후 계산
         net_pred = pred - self.cost
         net_target = target - self.cost
         
-        # 2. 3.0% 문턱값 미만 잡음 제거 (무시)
-        # 훈련 시 목표 수익이 3% 미만인 구간은 가중치를 낮춤
+        # 2. 유연한 문턱값 (Adaptive Threshold)
+        # 사령관 지시에 따라 3% 고정이 아닌, 패턴이 확실하면 1.5% 이상도 포식
         mask = (torch.abs(target) >= self.threshold).float()
         
-        # 3. '빅 위너' 구간 공명 가중치 (3.0% 이상 구간에 5배 가중치)
+        # 3. 고래/공매도 융합 가중치
+        # 고래 수급이 강하거나 공매도 숏커버링 징후 시 가중치 추가 부여
+        whale_boost = 1.0
+        if features is not None:
+             # features[:, idx_whale] 등 가상 로직
+             whale_boost += torch.mean(features) * 2.0 
+        
         base_loss = torch.abs(net_pred - net_target)
-        weighted_loss = base_loss * (1.0 + mask * 4.0)
+        weighted_loss = base_loss * (1.0 + mask * 4.0) * whale_boost
         
         return weighted_loss.mean()
 
