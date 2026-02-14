@@ -3,25 +3,28 @@
 
 training:
   curriculum: "Elite"
-  target_nodes: 8192
+  target_nodes: 65536 # 사령관 명령: 8,192에서 8배 확장 (64K)
+  multi_market_mode: True # 다중 시장 운용 모드 활성화
 
-  # 2. 경제적 지능 주입: 31bp의 제약과 3.0%의 목표
+  # 2. 경제적 지능 주입: 31bp의 제약과 3.0%의 목표 (복리 방식)
   constraints:
     transaction_cost_pct: 0.31 # 왕복 수수료 및 슬리피지 (bp)
     min_profit_threshold: 3.0 # 순수익 문턱값 (%)
     hero_expectancy_min: 0.05 # Hero 심볼 선정 기준 (Expectancy)
+    compounding_mode: True # 복리 운용 모드 활성화
 
-  # 1. 지능 재설계: 과거 DNA 이식
+  # 1. 지능 재설계: 과거 DNA 이식 및 전천후 패턴 (상승/보합/하락)
   dna_teacher:
     source: "core/active_config/tactical_dna.json"
     priority_patterns:
-      - "BREAKOUT_HEAD_HUNT"
-      - "MOMENTUM_EXPLOSION"
-      - "VOL_PUMP_DETECTION"
+      - "BREAKOUT_HEAD_HUNT" # 상승장 폭발
+      - "MEAN_REVERSION_SCRAPE" # 보합장 발라먹기
+      - "CONTRA_FEAR_STRIKE" # 하락장 과매도 포식
+    timeframes: ["SHORT", "MID_LONG"] # 단기 및 중장기 승리 병행
 
-  # 3. 클라우드 화력 전개
+  # 3. 궁극의 화력 전개 (Hyper-Scaling)
   hardware:
-    accelerator: "NVIDIA_TESLA_L4"
+    accelerator: "NVIDIA_A100_80GB" # 64K 노드 수용을 위한 80GB VRAM 격상
     worker_count: 1
     location: "us-central1"
 
