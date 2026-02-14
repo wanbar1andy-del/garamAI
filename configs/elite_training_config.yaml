@@ -6,12 +6,14 @@ training:
   target_nodes: 65536 # 사령관 명령: 8,192에서 8배 확장 (64K)
   multi_market_mode: True # 다중 시장 운용 모드 활성화
 
-  # 2. 경제적 지능 주입: 고빈도 포식 (High-Frequency Predator)
+  # 2. 지능의 해방: 자율 진화 (Autonomous Evolution)
+  autonomous_mode: True # 지능 스스로 매개변수 생성 및 결정
+  leash_factor: 0.0 # 인간 개입 원천 차단
   constraints:
     transaction_cost_pct: 0.31 # 왕복 수수료 (고정)
-    min_profit_threshold: 0.5 # 초단기 히어로 포착을 위해 문턱값 대폭 하향 (1.0 -> 0.5)
-    hero_expectancy_min: 0.005 # 진입 장벽 제거 (0.03 -> 0.005) - 주간 40회 이상 타격 목표
-    scan_depth: "MAXIMUM" # 전 종목 초고해상도 스캔
+    min_profit_threshold: "AUTO" # 지능이 시장 상황에 맞춰 즉석 결정
+    hero_expectancy_min: "AUTO" # 지능이 엣지(Edge) 크기를 스스로 측정
+    exploration_rate: 0.8 # 새로운 수익 경로 탐색 가중치 강화
     compounding_mode: True
 
   # 1. 지능 재설계: 과거 DNA 이식 및 전천후 패턴 (상승/보합/하락)

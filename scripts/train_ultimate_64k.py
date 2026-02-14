@@ -30,6 +30,18 @@ class Garam64KModel(nn.Module):
         
         self.decoder = nn.Linear(2048, output_dim)
         
+        # 3. Meta-Parameter Head: 스스로 기준을 결정하는 지능
+        # Assuming the input to param_head comes from a processed feature,
+        # and given the original model's output dimension before decoder is 2048,
+        # we'll add a layer to reduce it to 512 for the param_head.
+        self.feature_reducer = nn.Linear(2048, 512)
+        self.param_head = nn.Sequential(
+            nn.Linear(512, 128),
+            nn.GELU(),
+            nn.Linear(128, 3), # [Threshold, Expectancy, PositionSize]
+            nn.Softplus()      # 항상 양수 출력
+        )
+        
     def forward(self, x):
         # Skip-Connection (정보 고속도로)
         identity = self.encoder(x)
@@ -39,7 +51,15 @@ class Garam64KModel(nn.Module):
         
         # Residual Fusion
         out += identity
-        return self.decoder(out)
+        
+        # Main prediction
+        prediction = self.decoder(out)
+        
+        # Generate autonomous parameters
+        features_for_param_head = self.feature_reducer(out)
+        meta_params = self.param_head(features_for_param_head)
+        
+        return prediction, meta_params
 
 def initialize_ultimate_brain():
     model = Garam64KModel()
